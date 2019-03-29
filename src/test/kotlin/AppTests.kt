@@ -3,7 +3,7 @@ import org.junit.jupiter.api.*
 import util.*
 
 /**
- * Test the complete ENCFF165UME.top500.center.ENCFF165UME.top501-1000.center.meme application minus CLI bootstrap.
+ * Test the complete meme application minus CLI bootstrap.
  * Should be run manually only. Leave disabled so it doesn't get picked up by automated tests.
  * The application takes about 20 minutes to complete.
  */

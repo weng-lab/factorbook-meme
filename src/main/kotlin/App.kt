@@ -30,7 +30,7 @@ class Cli : CliktCommand() {
 }
 
 /**
- * Runs pre-processing and ENCFF165UME.top500.center.ENCFF165UME.top501-1000.center.meme for raw input files
+ * Runs pre-processing and meme for raw input files
  *
  * @param peaks path to raw narrowPeaks file
  * @param chromInfo path to chromInfo file

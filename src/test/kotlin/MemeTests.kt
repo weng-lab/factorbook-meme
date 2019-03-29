@@ -8,7 +8,7 @@ class MemeSuiteTests {
     @AfterEach fun cleanup() = cleanupTest()
 
     /**
-     * Test the ENCFF165UME.top500.center.ENCFF165UME.top501-1000.center.meme step.
+     * Test the meme step.
      * Should be run manually only. Leave disabled so it doesn't get picked up by automated tests.
      * The MEME step takes about 20 minutes to complete.
      */
