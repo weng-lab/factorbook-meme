@@ -6,8 +6,8 @@ A Dockerized application used by Factorbook workflows to find motifs and motif o
 
 The built docker container can be found on docker hub as genomealmanac/factorbook-meme.
 
-To run make sure the files you pass are accessible and run the container with the command followed by 
-the arguments you need:
+To run make sure the files you pass are accessible within the container and run the container with the command 
+followed by the arguments you need:
 
 `java -jar /app/meme.jar`
 
