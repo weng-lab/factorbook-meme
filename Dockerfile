@@ -21,4 +21,4 @@ COPY . /src
 RUN ./gradlew clean shadowJar
 
 FROM base
-COPY --from=build /src/build/motif-meme-*.jar /app/motif-meme.jar
+COPY --from=build /src/build/factorbook-meme-*.jar /app/meme.jar
