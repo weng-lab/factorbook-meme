@@ -7,20 +7,20 @@ class SequencesTests {
     @AfterEach fun cleanup() = cleanupTest()
 
     @Test fun `run trim-peaks step`() {
-        trimPeaks(testInputDir.resolve(SUMMITS), (0..500), testOutputDir.resolve(TOP500_TRIMMED))
+        trimPeaks(testInputDir.resolve(SUMMITS), testOutputDir.resolve(TOP500_TRIMMED), (0 until 500))
         assertOutputMatches(TOP500_TRIMMED)
     }
 
     @Test fun `run peaks-to-fasta step`() {
-        cmdRunner.peaksToFasta(testInputDir.resolve(TOP500_TRIMMED), TWO_BIT,
+        cmdRunner.peaksToFasta(testInputDir.resolve(TOP500_TRIMMED), CHR22_TWO_BIT,
             testOutputDir.resolve(TOP500_SEQS))
         assertOutputMatches(TOP500_SEQS)
     }
 
     @Test fun `run fasta-center step`() {
-        cmdRunner.fastaCenter(testInputDir.resolve(TOP500_SEQS), 100,
-            testOutputDir.resolve(TOP500_SEQS_FLANK), testOutputDir.resolve(TOP500_SEQS_CENTER))
-        assertOutputMatches(TOP500_SEQS_CENTER)
-        assertOutputMatches(TOP500_SEQS_FLANK)
+        cmdRunner.fastaCenter(testInputDir.resolve(TOP501_1000_SEQS), 100,
+            testOutputDir.resolve(TOP501_1000_SEQS_CENTER), testOutputDir.resolve(TOP501_1000_SEQS_FLANK))
+        assertOutputMatches(TOP501_1000_SEQS_CENTER)
+        assertOutputMatches(TOP501_1000_SEQS_FLANK)
     }
 }

@@ -2,8 +2,7 @@ package step
 
 import mu.KotlinLogging
 import util.CmdRunner
-import java.nio.file.Files
-import java.nio.file.Path
+import java.nio.file.*
 
 private val log = KotlinLogging.logger {}
 
@@ -18,20 +17,20 @@ private val log = KotlinLogging.logger {}
  * @param seqsCenteredOut path of centered fasta file to output
  */
 fun CmdRunner.sequences(summits: Path, twoBit: Path, lineRange: IntRange, len: Int, trimmedPeaksOut: Path,
-                        seqsOut: Path, seqsCenteredOut: Path, seqsFlanksOut: Path) {
-    trimPeaks(summits, lineRange, trimmedPeaksOut)
+                        seqsOut: Path, seqsCenteredOut: Path, seqsFlanksOut: Path? = null) {
+    trimPeaks(summits, trimmedPeaksOut, lineRange)
     peaksToFasta(trimmedPeaksOut, twoBit, seqsOut)
-    fastaCenter(seqsOut, len, seqsFlanksOut, seqsCenteredOut)
+    fastaCenter(seqsOut, len, seqsCenteredOut, seqsFlanksOut)
 }
 
 /**
  * Produces a peaks file with only the given range of rows and only each row containing only the first four fields.
  *
  * @param peaks path to the peak file.
- * @param lineRange range of lines to select from the peak file.
  * @param output output path to write the trimmed peaks.
+ * @param lineRange range of lines to select from the peak file. (Optional)
  */
-fun trimPeaks(peaks: Path, lineRange: IntRange, output: Path) {
+fun trimPeaks(peaks: Path, output: Path, lineRange: IntRange? = null) {
     log.info {
         """
         Trimming peaks for
@@ -44,8 +43,8 @@ fun trimPeaks(peaks: Path, lineRange: IntRange, output: Path) {
     Files.newBufferedWriter(output).use { writer ->
         Files.newInputStream(peaks).reader().useLines { lines ->
             lines.forEachIndexed { index, line ->
-                if (index < lineRange.start) return@forEachIndexed
-                if (index > lineRange.endInclusive) return@useLines
+                if (lineRange != null && index < lineRange.first) return@forEachIndexed
+                if (lineRange != null && index > lineRange.last) return@useLines
                 val lineParts = line.trim().split("\t")
                 writer.write(lineParts.subList(0,4).joinToString("\t", postfix = "\n"))
             }
@@ -56,13 +55,13 @@ fun trimPeaks(peaks: Path, lineRange: IntRange, output: Path) {
 /**
  * Produces a FASTA for a subset of lines in a peak file.
  *
- * @param trimmedPeaks path to the trimmed peaks file.
+ * @param peaks path to the trimmed peaks file.
  * @param twoBit path to the two bit sequence file for this genome.
  * @param output output path to write the FASTA.
  */
-fun CmdRunner.peaksToFasta(trimmedPeaks: Path, twoBit: Path, output: Path) {
+fun CmdRunner.peaksToFasta(peaks: Path, twoBit: Path, output: Path) {
     Files.createDirectories(output.parent)
-    this.run("twoBitToFa $twoBit $output -bed=$trimmedPeaks")
+    this.run("twoBitToFa $twoBit $output -bed=$peaks")
 }
 
 /**
@@ -70,10 +69,11 @@ fun CmdRunner.peaksToFasta(trimmedPeaks: Path, twoBit: Path, output: Path) {
  *
  * @param fastaIn input FASTA file.
  * @param len length of sequences to output.
- * @param flank path to write flanking sequences file.
  * @param output path to write output FASTA file.
+ * @param flank path to write flanking sequences file (optional)
  */
-fun CmdRunner.fastaCenter(fastaIn: Path, len: Int, flank: Path, output: Path) {
+fun CmdRunner.fastaCenter(fastaIn: Path, len: Int, output: Path, flank: Path? = null) {
     Files.createDirectories(output.parent)
-    this.run("fasta-center -len $len -flank $flank < $fastaIn > $output")
+    val flankArgs = if (flank != null) "-flank $flank " else ""
+    this.run("fasta-center -len $len $flankArgs< $fastaIn > $output")
 }

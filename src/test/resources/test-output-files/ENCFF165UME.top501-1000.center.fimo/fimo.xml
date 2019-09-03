@@ -4,11 +4,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
 >
-<command-line>fimo -oc /tmp/motif-test/output/ENCFF165UME.bed.top501-1000.center.fimo /tmp/motif-test/output/ENCFF165UME.bed.top501-1000.center.meme/meme.txt /tmp/motif-test/output/ENCFF165UME.bed.top501-1000.seqs.center</command-line>
+<command-line>fimo -oc /tmp/motif-test/output/ENCFF165UME.top501-1000.center.fimo /tmp/motif-test/input/ENCFF165UME.top500.center.meme/meme.txt /tmp/motif-test/input/ENCFF165UME.top501-1000.seqs.center</command-line>
 <settings>
-<setting name="output directory">/tmp/motif-test/output/ENCFF165UME.bed.top501-1000.center.fimo</setting>
-<setting name="MEME file name">/tmp/motif-test/output/ENCFF165UME.bed.top501-1000.center.meme/meme.txt</setting>
-<setting name="sequence file name">/tmp/motif-test/output/ENCFF165UME.bed.top501-1000.seqs.center</setting>
+<setting name="output directory">/tmp/motif-test/output/ENCFF165UME.top501-1000.center.fimo</setting>
+<setting name="MEME file name">/tmp/motif-test/input/ENCFF165UME.top500.center.meme/meme.txt</setting>
+<setting name="sequence file name">/tmp/motif-test/input/ENCFF165UME.top501-1000.seqs.center</setting>
 <setting name="background file name">--nrdb--</setting>
 <setting name="allow clobber">true</setting>
 <setting name="compute q-values">true</setting>
@@ -39,11 +39,11 @@
 <letter id="Y" symbol="Y" equals="CT" name="Pyrimidine"/>
 <letter id="K" symbol="K" equals="GT" name="Keto"/>
 </alphabet>
-<motif name="CCASCAGRKGGCRSY" alt="MEME-1" width="15" best-possible-match="CCACCAGGGGGCGCC"/>
-<motif name="AAARDAMMADNATHNAKDNWRWWRWWAAW" alt="MEME-2" width="29" best-possible-match="AAAAAAAAATGATTTATACTGTAAAAAAA"/>
-<motif name="VVAGGCTGGGBCTGS" alt="MEME-3" width="15" best-possible-match="CGAGGCTGGGGCTGG"/>
-<motif name="TCCTKGGCTCWSTCTTCTCCW" alt="MEME-4" width="21" best-possible-match="TCCTGGGCTCAGTCTTCTCCA"/>
-<motif name="AGAGCTGCAGCCAGGAGCAGY" alt="MEME-5" width="21" best-possible-match="AGAGCTGCAGCCAGGAGCAGT"/>
+<motif name="RSYGCCCCCTRSTGG" alt="MEME-1" width="15" best-possible-match="AGCGCCCCCTGGTGG"/>
+<motif name="TTTHYTTKYWTKTTYWBTTTTTTWWTHWK" alt="MEME-2" width="29" best-possible-match="TTTTCTTGTTTTTTTACTTTTTTTTTTTT"/>
+<motif name="SCCBSVKCCCCCGCSCCYKCCCVSCSSCS" alt="MEME-3" width="29" best-possible-match="CCCGCCGCCCCCGCCCCCGCCCCGCCCCC"/>
+<motif name="AGSCCDGGSCCTGGGAGRSAGGRWGVA" alt="MEME-4" width="27" best-possible-match="AGGCCGGGCCCTGGGAGACAGGGTGAA"/>
+<motif name="CTATGWCMCCWCAGCTYCTATCNCTKTATG" alt="MEME-5" width="30" best-possible-match="CTATGTCCCCTCAGCTCCTATCTCTGTATG"/>
 <background source="--nrdb--">
 <value letter="A">0.275</value>
 <value letter="C">0.225</value>

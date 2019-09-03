@@ -12,20 +12,20 @@ import util.*
     @AfterEach fun cleanup() = cleanupTest()
 
     @Test fun `run complete task`() {
-        cmdRunner.runTask(PEAKS, TWO_BIT, CHROM_INFO, 10, testOutputDir)
+        cmdRunner.runTask(PEAKS, CHR22_TWO_BIT, CHR22_CHROM_INFO, 10, testOutputDir)
 
         assertOutputMatches(SUMMITS)
         assertOutputMatches(TOP500_TRIMMED)
         assertOutputMatches(TOP500_SEQS)
         assertOutputMatches(TOP500_SEQS_CENTER)
-        assertOutputMatches(TOP500_SEQS_FLANK)
         assertThat(testOutputDir.resolve(TOP500_MEME_XML)).exists()
-        assertThat(testOutputDir.resolve(TOP500_FIMO_TSV)).exists()
         assertOutputMatches(TOP501_1000_TRIMMED)
         assertOutputMatches(TOP501_1000_SEQS)
         assertOutputMatches(TOP501_1000_SEQS_CENTER)
         assertOutputMatches(TOP501_1000_SEQS_FLANK)
-        assertThat(testOutputDir.resolve(TOP501_1000_MEME_XML)).exists()
-        assertThat(testOutputDir.resolve(TOP501_1000_FIMO_TSV)).exists()
+        assertThat(testOutputDir.resolve(TOP501_1000_CENTER_FIMO_TSV)).exists()
+        assertThat(testOutputDir.resolve(TOP501_1000_FLANK_FIMO_TSV)).exists()
+        assertThat(testOutputDir.resolve(TOP501_1000_SHUFFLED_SEQS)).exists()
+        assertThat(testOutputDir.resolve(TOP501_1000_SHUFFLED_FIMO_TSV)).exists()
     }
 }

@@ -15,11 +15,21 @@ repositories {
     mavenCentral()
 }
 
+val biojavaVersion = "5.2.1"
+
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     compile("com.github.ajalt", "clikt", "1.6.0")
     compile("io.github.microutils","kotlin-logging","1.6.10")
     compile("ch.qos.logback", "logback-classic","1.2.3")
+    compile("org.biojava", "biojava-core", biojavaVersion) {
+        exclude("org.apache.logging.log4j")
+    }
+    compile("org.biojava", "biojava-genome", biojavaVersion) {
+        exclude("org.apache.logging.log4j")
+    }
+    compile("org.apache.commons", "commons-math3", "3.6.1")
+    implementation("com.squareup.moshi", "moshi-kotlin", "1.8.0")
     testImplementation("org.junit.jupiter", "junit-jupiter", "5.4.0")
     testCompile("org.assertj", "assertj-core", "3.11.1")
 }

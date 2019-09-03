@@ -49,19 +49,56 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
         """.trimIndent()
     }
     val outPrefix = peaks.fileName.toString().split(".").first()
+
+    // Create fasta file containing sequences for original input peaks file
+    val trimmedPeaks = outputDir.resolve("$outPrefix.seqs")
+    trimPeaks(peaks, trimmedPeaks)
+    val originalPeaksFastaFile = outputDir.resolve("$outPrefix.seqs")
+    peaksToFasta(trimmedPeaks, twoBit, originalPeaksFastaFile)
+
+    // Create summits file
     val chromSizes = parseChromSizes(chromInfo)
     val summitsFile = outputDir.resolve("$outPrefix.summits.window150.narrowPeak")
     summits(peaks, chromSizes, 150, summitsFile, offset)
 
-    val ranges = mapOf("top500" to (0..500), "top501-1000" to (500..1000))
-    for ((rangePrefix, range) in ranges) {
-        val trimmedPeaksFile = outputDir.resolve("$outPrefix.$rangePrefix.narrowPeak.trimmed")
-        val seqsFile = outputDir.resolve("$outPrefix.$rangePrefix.seqs")
-        val centerSeqsFile = outputDir.resolve("$outPrefix.$rangePrefix.seqs.center")
-        val flankSeqsFile = outputDir.resolve("$outPrefix.$rangePrefix.seqs.flank")
-        sequences(summitsFile, twoBit, range, 100, trimmedPeaksFile, seqsFile, centerSeqsFile, flankSeqsFile)
+    // Run MEME on top 500 peaks
+    val top500Prefix = "$outPrefix.top500"
+    val top500PeaksFile = outputDir.resolve("$top500Prefix.narrowPeak.trimmed")
+    val top500SeqsFile = outputDir.resolve("$top500Prefix.seqs")
+    val top500CenterSeqsFile = outputDir.resolve("$top500Prefix.seqs.center")
+    sequences(summitsFile, twoBit, 0 until 500, 100, top500PeaksFile, top500SeqsFile, top500CenterSeqsFile)
 
-        val memeFile = outputDir.resolve("$outPrefix.$rangePrefix.center.meme")
-        meme(centerSeqsFile, memeFile)
-    }
+    val memeOutDir = outputDir.resolve("$outPrefix.top500.center.meme")
+    meme(top500CenterSeqsFile, memeOutDir)
+
+    // Run FIMO against original peaks sequences
+    val memeTxtFile = memeOutDir.resolve("meme.txt")
+    val originalPeaksFimoDir = outputDir.resolve("$outPrefix.fimo")
+    fimo(memeTxtFile, originalPeaksFastaFile, originalPeaksFimoDir)
+
+    // Run FIMO against peaks 501-1000 center and flanks
+    val next500Prefix = "$outPrefix.top501-1000"
+    val next500PeaksFile = outputDir.resolve("$next500Prefix.narrowPeak.trimmed")
+    val next500SeqsFile = outputDir.resolve("$next500Prefix.seqs")
+    val next500CenterSeqsFile = outputDir.resolve("$next500Prefix.seqs.center")
+    val next500FlankSeqsFile = outputDir.resolve("$next500Prefix.seqs.flank")
+    sequences(summitsFile, twoBit, 501 until 1000, 100, next500PeaksFile, next500SeqsFile,
+            next500CenterSeqsFile, next500FlankSeqsFile)
+
+    val next500CenterFimoDir = outputDir.resolve("$next500Prefix.center.fimo")
+    fimo(memeTxtFile, next500CenterSeqsFile, next500CenterFimoDir)
+
+    val next500FlankFimoDir = outputDir.resolve("$next500Prefix.flank.fimo")
+    fimo(memeTxtFile, next500FlankSeqsFile, next500FlankFimoDir)
+
+    // Run FIMO against 100x random sequences from reference genome (with matching length and gc content)
+    val randomSeqFile = outputDir.resolve("$next500Prefix.shuffled.seqs")
+    val randomFimoDir = outputDir.resolve("$next500Prefix.shuffled.fimo")
+    randomSequences(twoBit, top500CenterSeqsFile, randomSeqFile, 100, chromSizes, 0.05)
+    fimo(memeTxtFile, randomSeqFile, randomFimoDir)
+
+    // Run Motif Quality step
+    val memeXmlFile = memeOutDir.resolve("meme.xml")
+    val outJsonFile = outputDir.resolve("motifs.json")
+    motifQuality(memeXmlFile, next500CenterFimoDir, randomFimoDir, next500FlankFimoDir, outJsonFile)
 }
