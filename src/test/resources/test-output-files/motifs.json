@@ -95,12 +95,12 @@
     "occurrences_ratio": 0.7560975609756098,
     "flank_control_data": {
       "occurrences_ratio": 0.16124661246612465,
-      "z_scores": 19.442794199414063,
+      "z_score": 19.442794199414063,
       "p_value": 0.0
     },
     "shuffled_control_data": {
       "occurrences_ratio": 0.073,
-      "z_scores": 25.66054249331029,
+      "z_score": 25.66054249331029,
       "p_value": 0.0
     }
   },
@@ -284,12 +284,12 @@
     "occurrences_ratio": 0.016260162601626018,
     "flank_control_data": {
       "occurrences_ratio": 0.05420054200542006,
-      "z_scores": -2.9818118487600063,
+      "z_score": -2.9818118487600063,
       "p_value": 0.0014327402228297426
     },
     "shuffled_control_data": {
       "occurrences_ratio": 0.146,
-      "z_scores": -6.779866983128997,
+      "z_score": -6.779866983128997,
       "p_value": 6.014355680150629E-12
     }
   },
@@ -473,12 +473,12 @@
     "occurrences_ratio": 0.3902439024390244,
     "flank_control_data": {
       "occurrences_ratio": 0.2953929539295393,
-      "z_scores": 3.171205828250797,
+      "z_score": 3.171205828250797,
       "p_value": 7.590376869905935E-4
     },
     "shuffled_control_data": {
       "occurrences_ratio": 0.108,
-      "z_scores": 11.956735398551865,
+      "z_score": 11.956735398551865,
       "p_value": 0.0
     }
   },
@@ -650,12 +650,12 @@
     "occurrences_ratio": 0.11382113821138211,
     "flank_control_data": {
       "occurrences_ratio": 0.14905149051490515,
-      "z_scores": -1.6054939775959916,
+      "z_score": -1.6054939775959916,
       "p_value": 0.05419256874247819
     },
     "shuffled_control_data": {
       "occurrences_ratio": 0.066,
-      "z_scores": 2.9124963840710323,
+      "z_score": 2.9124963840710323,
       "p_value": 0.001792761758404371
     }
   },
@@ -845,12 +845,12 @@
     "occurrences_ratio": 0.018970189701897018,
     "flank_control_data": {
       "occurrences_ratio": 0.02032520325203252,
-      "z_scores": -0.15227640073353552,
+      "z_score": -0.15227640073353552,
       "p_value": 0.4394844686638337
     },
     "shuffled_control_data": {
       "occurrences_ratio": 0.024,
-      "z_scores": -0.5550825941012281,
+      "z_score": -0.5550825941012281,
       "p_value": 0.2894190838705738
     }
   }

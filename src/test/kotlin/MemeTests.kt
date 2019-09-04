@@ -5,7 +5,7 @@ import util.*
 
 class MemeSuiteTests {
     @BeforeEach fun setup() = setupTest()
-    //@AfterEach fun cleanup() = cleanupTest()
+    @AfterEach fun cleanup() = cleanupTest()
 
     /**
      * Test the meme step.

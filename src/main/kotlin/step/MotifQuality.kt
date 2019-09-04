@@ -22,7 +22,7 @@ data class OutputMotif(
 
 data class MotifControlData(
         @Json(name = "occurrences_ratio") val occurrencesRatio: Double,
-        @Json(name = "z_scores") val zScore: Double,
+        @Json(name = "z_score") val zScore: Double,
         @Json(name = "p_value") val pValue: Double
 )
 
