@@ -75,6 +75,9 @@ fun zScoreToPValue(zScore: Double): Double {
     return if (x > 0.5) 1 - x else x
 }
 
+/**
+ * Calculate zScore occurrence ratios of test vs control data
+ */
 fun compareOccurrenceProportions(testRatioData: OccurrenceRatioData,
                                          controlRatioData: OccurrenceRatioData): Double {
     val combinedRatio = (testRatioData.occurrences + controlRatioData.occurrences).toDouble() /
@@ -90,6 +93,9 @@ data class MemeMotif(
         val pwm: List<Map<Char, Double>>
 )
 
+/**
+ * Parse Basic motif data from meme xml file.
+ */
 fun parseMotifs(memeXml: Path): List<MemeMotif> {
     val motifs = mutableListOf<MemeMotif>()
     val xmlDocBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
