@@ -11,6 +11,7 @@ import com.squareup.moshi.Types.newParameterizedType
 
 
 data class OutputMotif(
+        val name: String,
         val pwm: List<Map<Char, Double>>,
         // Ratio of occurrences for this motif to total regions
         @Json(name = "occurrences_ratio") val occurrencesRatio: Double,
@@ -55,6 +56,7 @@ fun motifQuality(memeXml: Path, peaksFimoDir: Path, shuffledFimoDir: Path, flank
         val shuffledPValue = zScoreToPValue(shuffledZScore)
 
         outputMotifs += OutputMotif(
+                name = motifName,
                 pwm = memeMotif.pwm,
                 occurrencesRatio = peaksOccurrenceRatios.getValue(motifName).ratio,
                 flankControlData = MotifControlData(flankOccurrenceRatioData.ratio, flankZScore, flankPValue),

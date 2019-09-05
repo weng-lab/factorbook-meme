@@ -10,7 +10,7 @@ import java.nio.file.Files
 
 class MotifQualityTests {
     @BeforeEach fun setup() = setupTest()
-    @AfterEach fun cleanup() = cleanupTest()
+    //@AfterEach fun cleanup() = cleanupTest()
 
     @Test
     fun `test parseMotifs`() {
