@@ -27,5 +27,6 @@ import util.*
         assertThat(testOutputDir.resolve(TOP501_1000_FLANK_FIMO_TSV)).exists()
         assertThat(testOutputDir.resolve(TOP501_1000_SHUFFLED_SEQS)).exists()
         assertThat(testOutputDir.resolve(TOP501_1000_SHUFFLED_FIMO_TSV)).exists()
+        assertThat(testOutputDir.resolve(MOTIFS_JSON)).exists()
     }
 }

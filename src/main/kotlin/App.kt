@@ -99,6 +99,6 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
 
     // Run Motif Quality step
     val memeXmlFile = memeOutDir.resolve("meme.xml")
-    val outJsonFile = outputDir.resolve("motifs.json")
+    val outJsonFile = outputDir.resolve("$outPrefix.motifs.json")
     motifQuality(memeXmlFile, next500CenterFimoDir, randomFimoDir, next500FlankFimoDir, outJsonFile)
 }

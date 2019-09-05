@@ -49,7 +49,7 @@ class MotifQualityTests {
 
     @Test
     fun `test full motifQuality step`() {
-        val outJson = testOutputDir.resolve("motifs.json")
+        val outJson = testOutputDir.resolve(MOTIFS_JSON)
         motifQuality(
                 testInputDir.resolve(TOP500_MEME_XML),
                 testInputDir.resolve(TOP501_1000_CENTER_FIMO_DIR),
