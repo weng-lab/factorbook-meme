@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
 
 FROM openjdk:8-jdk-alpine as build
 COPY . /src
+WORKDIR /src
 RUN ./gradlew clean shadowJar
 
 FROM base
