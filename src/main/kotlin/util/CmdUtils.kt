@@ -9,7 +9,7 @@ interface CmdRunner {
 }
 
 class DefaultCmdRunner : CmdRunner {
-    override fun run(cmd: String) = exec(*cmd.split(" ").toTypedArray())
+    override fun run(cmd: String) = exec("sh","-c",cmd)
 }
 
 fun exec(vararg cmds: String) {
