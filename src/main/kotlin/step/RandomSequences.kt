@@ -112,7 +112,7 @@ private fun parseFastaSequences(fasta: Path): List<String> {
  * Gets a random chromosome with probability weighted by chromosome length.
  */
 private fun weightedRandomChromosome(chromosomeSizes: Map<String, Int>): String {
-    val totalSize = chromosomeSizes.values.sum()
+    val totalSize = chromosomeSizes.values.map { it.toLong() }.sum()
     var random = (0 .. totalSize).random()
     var selectedChromosome: String? = null
     for ((chromosome, size) in chromosomeSizes) {
