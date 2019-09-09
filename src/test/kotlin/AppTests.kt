@@ -15,6 +15,8 @@ import util.*
         cmdRunner.runTask(PEAKS, CHR22_TWO_BIT, CHR22_CHROM_INFO, 10, testOutputDir)
 
         assertOutputMatches(SUMMITS)
+        assertOutputMatches(BASE_SEQS)
+        assertOutputMatches(OCCURRENCES_TSV)
         assertOutputMatches(TOP500_TRIMMED)
         assertOutputMatches(TOP500_SEQS)
         assertOutputMatches(TOP500_SEQS_CENTER)

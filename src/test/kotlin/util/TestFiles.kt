@@ -29,6 +29,9 @@ val CHR19_CHROM_INFO = testInputDir.resolve("hg38.chr19.chrom.sizes")!!
 
 // Output File Names
 const val SUMMITS = "ENCFF165UME.summits.window150.narrowPeak"
+const val BASE_SEQS = "ENCFF165UME.seqs"
+const val FIMO_TSV = "ENCFF165UME.fimo/fimo.tsv"
+const val OCCURRENCES_TSV = "ENCFF165UME.occurrences.tsv"
 const val TOP500_TRIMMED = "ENCFF165UME.top500.narrowPeak.trimmed"
 const val TOP500_SEQS = "ENCFF165UME.top500.seqs"
 const val TOP500_SEQS_CENTER = "ENCFF165UME.top500.seqs.center"

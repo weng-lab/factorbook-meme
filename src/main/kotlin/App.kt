@@ -51,7 +51,7 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
     val outPrefix = peaks.fileName.toString().split(".").first()
 
     // Create fasta file containing sequences for original input peaks file
-    val trimmedPeaks = outputDir.resolve("$outPrefix.seqs")
+    val trimmedPeaks = outputDir.resolve("$outPrefix.narrowPeak.trimmed")
     trimPeaks(peaks, trimmedPeaks)
     val originalPeaksFastaFile = outputDir.resolve("$outPrefix.seqs")
     peaksToFasta(trimmedPeaks, twoBit, originalPeaksFastaFile)
@@ -75,6 +75,11 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
     val memeTxtFile = memeOutDir.resolve("meme.txt")
     val originalPeaksFimoDir = outputDir.resolve("$outPrefix.fimo")
     fimo(memeTxtFile, originalPeaksFastaFile, originalPeaksFimoDir)
+
+    // Convert FIMO Occurrences to custom Occurrences TSV with absolute positioned ranges
+    val originalPeaksFimoTsv = originalPeaksFimoDir.resolve("fimo.tsv")
+    val occurrencesTsv = outputDir.resolve("$outPrefix.occurrences.tsv")
+    occurrencesTsv(originalPeaksFimoTsv, peaks, occurrencesTsv)
 
     // Run FIMO against peaks 501-1000 center and flanks
     val next500Prefix = "$outPrefix.top501-1000"
