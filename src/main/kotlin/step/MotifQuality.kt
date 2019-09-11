@@ -13,6 +13,10 @@ import com.squareup.moshi.Types.newParameterizedType
 data class OutputMotif(
         val name: String,
         val pwm: List<Map<Char, Double>>,
+        // MEME "e_value" score
+        @Json(name = "e_value") val eValue: Double,
+        // the number of occurrences found by MEME in the top 500
+        val sites: Int,
         // Ratio of occurrences for this motif to total regions
         @Json(name = "occurrences_ratio") val occurrencesRatio: Double,
         // Control data from flank sequences
@@ -59,6 +63,8 @@ fun motifQuality(memeXml: Path, peaksFimoDir: Path, shuffledFimoDir: Path, flank
         outputMotifs += OutputMotif(
                 name = motifName,
                 pwm = memeMotif.pwm,
+                eValue = memeMotif.eValue,
+                sites = memeMotif.sites,
                 occurrencesRatio = peaksOccurrenceRatios.getValue(motifName).ratio,
                 flankControlData = MotifControlData(flankOccurrenceRatioData.ratio, flankZScore, flankPValue),
                 shuffledControlData = MotifControlData(shuffledOccurrenceRatio.ratio, shuffledZScore, shuffledPValue)
@@ -94,6 +100,8 @@ fun compareOccurrenceProportions(testRatioData: OccurrenceRatioData,
 
 data class MemeMotif(
         val name: String,
+        val eValue: Double,
+        val sites: Int,
         val pwm: List<Map<Char, Double>>
 )
 
@@ -109,6 +117,8 @@ fun parseMotifs(memeXml: Path): List<MemeMotif> {
     for (i in 0 until motifNodes.length) {
         val motifEl = motifNodes.item(i) as Element
         val motifName = motifEl.getAttribute("name")
+        val eValue = motifEl.getAttribute("e_value").toDouble()
+        val sites = motifEl.getAttribute("sites").toInt()
         val probabilitiesEl = motifEl.getElementsByTagName("probabilities").item(0) as Element
         val matrixEl = probabilitiesEl.getElementsByTagName("alphabet_matrix").item(0) as Element
         val arrayNodes = matrixEl.getElementsByTagName("alphabet_array")
@@ -125,7 +135,7 @@ fun parseMotifs(memeXml: Path): List<MemeMotif> {
             }
             pwm += pwmItem
         }
-        motifs += MemeMotif(motifName, pwm)
+        motifs += MemeMotif(motifName, eValue, sites, pwm)
     }
     return motifs
 }

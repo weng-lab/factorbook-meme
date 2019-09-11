@@ -9,7 +9,7 @@ import util.*
 
 class MotifQualityTests {
     @BeforeEach fun setup() = setupTest()
-    @AfterEach fun cleanup() = cleanupTest()
+    //@AfterEach fun cleanup() = cleanupTest()
 
     @Test
     fun `test parseMotifs`() {
@@ -70,6 +70,8 @@ class MotifQualityTests {
                 assertThat(pwmEntry['T']).isBetween(0.0, 1.0)
                 assertThat(pwmEntry['G']).isBetween(0.0, 1.0)
             }
+            assertThat(outputMotif.eValue).isBetween(0.0, 1.0)
+            assertThat(outputMotif.sites).isGreaterThan(0)
             assertThat(outputMotif.occurrencesRatio).isBetween(0.0, 1.0)
             assertThat(outputMotif.flankControlData.occurrencesRatio).isBetween(0.0, 1.0)
             assertThat(outputMotif.shuffledControlData.occurrencesRatio).isBetween(0.0, 1.0)
