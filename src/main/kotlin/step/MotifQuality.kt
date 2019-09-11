@@ -38,9 +38,10 @@ data class MotifControlData(
  */
 fun motifQuality(memeXml: Path, peaksFimoDir: Path, shuffledFimoDir: Path, flankFimoDir: Path, outJson: Path) {
     val memeMotifs = parseMotifs(memeXml)
-    val peaksOccurrenceRatios = motifOccurrencesRatios(peaksFimoDir)
-    val flankOccurrenceRatios = motifOccurrencesRatios(flankFimoDir)
-    val shuffledOccurrenceRatios = motifOccurrencesRatios(shuffledFimoDir)
+    val memeMotifNames = memeMotifs.map { it.name }
+    val peaksOccurrenceRatios = motifOccurrencesRatios(peaksFimoDir, memeMotifNames)
+    val flankOccurrenceRatios = motifOccurrencesRatios(flankFimoDir, memeMotifNames)
+    val shuffledOccurrenceRatios = motifOccurrencesRatios(shuffledFimoDir, memeMotifNames)
 
     val outputMotifs = mutableListOf<OutputMotif>()
     for (memeMotif in memeMotifs) {
@@ -85,6 +86,7 @@ fun compareOccurrenceProportions(testRatioData: OccurrenceRatioData,
     val combinedRatio = (testRatioData.occurrences + controlRatioData.occurrences).toDouble() /
             (testRatioData.sourceSequences + controlRatioData.sourceSequences)
 
+    if (combinedRatio == 0.0) return 0.0
     return (testRatioData.ratio - controlRatioData.ratio) /
             sqrt(combinedRatio * (1 - combinedRatio) *
                     ((1 / testRatioData.sourceSequences.toDouble()) + (1 / controlRatioData.sourceSequences.toDouble())))
@@ -135,15 +137,16 @@ data class OccurrenceRatioData(val ratio: Double, val occurrences: Int, val sour
  *
  * @return Map containing occurrence ratios by Meme's motif "name"
  */
-fun motifOccurrencesRatios(fimoDir: Path): Map<String, OccurrenceRatioData> {
+fun motifOccurrencesRatios(fimoDir: Path, motifNames: List<String>): Map<String, OccurrenceRatioData> {
     val fimoXml = fimoDir.resolve("fimo.xml")
     val numSequences = parseNumSequences(fimoXml)
 
     val fimoTsv = fimoDir.resolve("fimo.tsv")
     val occurrenceCounts = motifOccurrencesCounts(fimoTsv)
 
-    return occurrenceCounts
-            .map { (motif, count) ->
+    return motifNames
+            .map { motif ->
+                val count = occurrenceCounts.getOrDefault(motif, 0)
                 motif to OccurrenceRatioData(count.toDouble() / numSequences, count, numSequences)
             }
             .toMap()

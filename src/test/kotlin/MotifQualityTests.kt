@@ -6,7 +6,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.*
 import step.*
 import util.*
-import java.nio.file.Files
 
 class MotifQualityTests {
     @BeforeEach fun setup() = setupTest()
@@ -75,5 +74,12 @@ class MotifQualityTests {
             assertThat(outputMotif.flankControlData.occurrencesRatio).isBetween(0.0, 1.0)
             assertThat(outputMotif.shuffledControlData.occurrencesRatio).isBetween(0.0, 1.0)
         }
+    }
+
+    @Test
+    fun `compareOccurrenceProportions with 0 occurrences`() {
+        val zScore = compareOccurrenceProportions(OccurrenceRatioData(0.0, 0, 100),
+                OccurrenceRatioData(0.0, 0, 200))
+        assertThat(zScore).isEqualTo(0.0)
     }
 }
