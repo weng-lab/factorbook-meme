@@ -22,10 +22,12 @@ class Cli : CliktCommand() {
         .int().default(0)
     private val outputDir by option("--output-dir", help = "path to write output")
         .path().required()
+    private val chrFilter by option("--chrom-filter",
+            help = "chromosomes to filter out before running MEME.").multiple()
 
     override fun run() {
         val cmdRunner = DefaultCmdRunner()
-        cmdRunner.runTask(peaks, twoBit, chromInfo, offset, outputDir)
+        cmdRunner.runTask(peaks, twoBit, chromInfo, offset, outputDir, chrFilter.toSet())
     }
 }
 
@@ -37,7 +39,8 @@ class Cli : CliktCommand() {
  * @param offset
  * @param outputDir
  */
-fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, outputDir: Path) {
+fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, outputDir: Path,
+                      chrFilter: Set<String>? = null) {
     log.info {
         """
         Running Meme task for
@@ -46,27 +49,29 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
         chromInfo: $chromInfo
         offset: $offset
         outputDir: $outputDir
+        chromFilter: $chrFilter
         """.trimIndent()
     }
     val outPrefix = peaks.fileName.toString().split(".").first()
 
     // Create fasta file containing sequences for original input peaks file
     val trimmedPeaks = outputDir.resolve("$outPrefix.narrowPeak.trimmed")
-    trimPeaks(peaks, trimmedPeaks)
+    trimPeaks(peaks, trimmedPeaks, chrFilter = chrFilter)
     val originalPeaksFastaFile = outputDir.resolve("$outPrefix.seqs")
     peaksToFasta(trimmedPeaks, twoBit, originalPeaksFastaFile)
 
     // Create summits file
     val chromSizes = parseChromSizes(chromInfo)
     val summitsFile = outputDir.resolve("$outPrefix.summits.window150.narrowPeak")
-    summits(peaks, chromSizes, 150, summitsFile, offset)
+    summits(peaks, chromSizes, 150, summitsFile, offset, chrFilter)
 
     // Run MEME on top 500 peaks
     val top500Prefix = "$outPrefix.top500"
     val top500PeaksFile = outputDir.resolve("$top500Prefix.narrowPeak.trimmed")
     val top500SeqsFile = outputDir.resolve("$top500Prefix.seqs")
     val top500CenterSeqsFile = outputDir.resolve("$top500Prefix.seqs.center")
-    sequences(summitsFile, twoBit, 0 until 500, 100, top500PeaksFile, top500SeqsFile, top500CenterSeqsFile)
+    sequences(summitsFile, twoBit, 0 until 500, 100, top500PeaksFile, top500SeqsFile,
+            top500CenterSeqsFile, chrFilter = chrFilter)
 
     val memeOutDir = outputDir.resolve("$outPrefix.top500.center.meme")
     meme(top500CenterSeqsFile, memeOutDir)
@@ -88,7 +93,7 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
     val next500CenterSeqsFile = outputDir.resolve("$next500Prefix.seqs.center")
     val next500FlankSeqsFile = outputDir.resolve("$next500Prefix.seqs.flank")
     sequences(summitsFile, twoBit, 501 until 1000, 100, next500PeaksFile, next500SeqsFile,
-            next500CenterSeqsFile, next500FlankSeqsFile)
+            next500CenterSeqsFile, next500FlankSeqsFile, chrFilter)
 
     val next500CenterFimoDir = outputDir.resolve("$next500Prefix.center.fimo")
     fimo(memeTxtFile, next500CenterSeqsFile, next500CenterFimoDir)

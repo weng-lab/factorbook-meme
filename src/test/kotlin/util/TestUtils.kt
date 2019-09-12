@@ -4,6 +4,8 @@ import java.nio.file.*
 
 val cmdRunner = TestCmdRunner()
 
+val TEST_CHR_FILTER = setOf("chrJunk")
+
 class TestCmdRunner : CmdRunner {
     override fun run(cmd: String) = exec("docker", "exec", "motif-meme-base", "sh", "-c", cmd)
 }

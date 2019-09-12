@@ -30,7 +30,8 @@ data class PeaksRow(
  * @param output path to write resized output peaks.
  * @param offset number of base pairs to shift chrom start and end by (Optional)
  */
-fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Path, offset: Int? = null) {
+fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Path, offset: Int? = null,
+            chrFilter: Set<String>? = null) {
     log.info {
         """
         Creating summits for
@@ -39,6 +40,7 @@ fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Pat
         newSize: $newSize
         offset: $offset
         output: $output
+        chromFilter: $chrFilter
         """.trimIndent()
     }
     val rawInputStream = Files.newInputStream(peaks)
@@ -58,6 +60,7 @@ fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Pat
             qValue = lineParts[8].toDouble(),
             peak = lineParts[9].toInt()
         )
+        if (chrFilter != null && chrFilter.contains(rawRow.chrom)) return@forEachLine
 
         val chromSize = chromSizes[rawRow.chrom] ?: return@forEachLine
 

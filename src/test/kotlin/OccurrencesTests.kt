@@ -4,7 +4,7 @@ import util.*
 
 class OccurrencesTests {
     @BeforeEach fun setup() = setupTest()
-    //@AfterEach fun cleanup() = cleanupTest()
+    @AfterEach fun cleanup() = cleanupTest()
 
     @Test
     fun `test occurrencesTsv`() {

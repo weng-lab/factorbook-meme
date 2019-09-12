@@ -17,7 +17,8 @@ private val log = KotlinLogging.logger {}
  * @param seqsCenteredOut path of centered fasta file to output
  */
 fun CmdRunner.sequences(summits: Path, twoBit: Path, lineRange: IntRange, len: Int, trimmedPeaksOut: Path,
-                        seqsOut: Path, seqsCenteredOut: Path, seqsFlanksOut: Path? = null) {
+                        seqsOut: Path, seqsCenteredOut: Path, seqsFlanksOut: Path? = null,
+                        chrFilter: Set<String>? = null) {
     trimPeaks(summits, trimmedPeaksOut, lineRange)
     peaksToFasta(trimmedPeaksOut, twoBit, seqsOut)
     fastaCenter(seqsOut, len, seqsCenteredOut, seqsFlanksOut)
@@ -30,7 +31,7 @@ fun CmdRunner.sequences(summits: Path, twoBit: Path, lineRange: IntRange, len: I
  * @param output output path to write the trimmed peaks.
  * @param lineRange range of lines to select from the peak file. (Optional)
  */
-fun trimPeaks(peaks: Path, output: Path, lineRange: IntRange? = null) {
+fun trimPeaks(peaks: Path, output: Path, lineRange: IntRange? = null, chrFilter: Set<String>? = null) {
     log.info {
         """
         Trimming peaks for
@@ -46,6 +47,7 @@ fun trimPeaks(peaks: Path, output: Path, lineRange: IntRange? = null) {
                 if (lineRange != null && index < lineRange.first) return@forEachIndexed
                 if (lineRange != null && index > lineRange.last) return@useLines
                 val lineParts = line.trim().split("\t")
+                if (chrFilter != null && chrFilter.contains(lineParts[0])) return@forEachIndexed
                 writer.write(lineParts.subList(0,4).joinToString("\t", postfix = "\n"))
             }
         }

@@ -8,7 +8,7 @@ class SummitsTests {
 
     @Test fun `run summits step`() {
         val chromSizes = parseChromSizes(CHR22_CHROM_INFO)
-        summits(PEAKS, chromSizes, 150, testOutputDir.resolve(SUMMITS), 10)
+        summits(PEAKS, chromSizes, 150, testOutputDir.resolve(SUMMITS), 10, TEST_CHR_FILTER)
 
         assertOutputMatches(SUMMITS)
     }

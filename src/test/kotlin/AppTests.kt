@@ -12,7 +12,7 @@ import util.*
     @AfterEach fun cleanup() = cleanupTest()
 
     @Test fun `run complete task`() {
-        cmdRunner.runTask(PEAKS, CHR22_TWO_BIT, CHR22_CHROM_INFO, 10, testOutputDir)
+        cmdRunner.runTask(PEAKS, CHR22_TWO_BIT, CHR22_CHROM_INFO, 10, testOutputDir, TEST_CHR_FILTER)
 
         assertOutputMatches(SUMMITS)
         assertOutputMatches(BASE_SEQS)

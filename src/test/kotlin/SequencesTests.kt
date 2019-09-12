@@ -7,7 +7,7 @@ class SequencesTests {
     @AfterEach fun cleanup() = cleanupTest()
 
     @Test fun `run trim-peaks step`() {
-        trimPeaks(testInputDir.resolve(SUMMITS), testOutputDir.resolve(TOP500_TRIMMED), (0 until 500))
+        trimPeaks(testInputDir.resolve(SUMMITS), testOutputDir.resolve(TOP500_TRIMMED), (0 until 500), TEST_CHR_FILTER)
         assertOutputMatches(TOP500_TRIMMED)
     }
 
