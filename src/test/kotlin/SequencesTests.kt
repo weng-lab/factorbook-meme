@@ -6,15 +6,16 @@ class SequencesTests {
     @BeforeEach fun setup() = setupTest()
     @AfterEach fun cleanup() = cleanupTest()
 
-    @Test fun `run trim-peaks step`() {
-        trimPeaks(testInputDir.resolve(SUMMITS), testOutputDir.resolve(TOP500_TRIMMED), (0 until 500), TEST_CHR_FILTER)
-        assertOutputMatches(TOP500_TRIMMED)
+    @Test fun `run peaks-to-fasta step`() {
+        peaksToFasta(testInputDir.resolve(SUMMITS), CHR22_TWO_BIT, testOutputDir.resolve(TOP500_SEQS),
+                lineRange = 0 until 500)
+        assertOutputMatches(TOP500_SEQS)
     }
 
-    @Test fun `run peaks-to-fasta step`() {
-        cmdRunner.peaksToFasta(testInputDir.resolve(TOP500_TRIMMED), CHR22_TWO_BIT,
-            testOutputDir.resolve(TOP500_SEQS))
-        assertOutputMatches(TOP500_SEQS)
+    @Test fun `run peaks-to-fasta step with methylation state replacements`() {
+        peaksToFasta(testInputDir.resolve(M_SUMMITS), CHR19_TWO_BIT, testOutputDir.resolve(M_TOP500_SEQS),
+                METHYL_BED, 50, 0 until 500)
+        assertOutputMatches(M_TOP500_SEQS)
     }
 
     @Test fun `run fasta-center step`() {

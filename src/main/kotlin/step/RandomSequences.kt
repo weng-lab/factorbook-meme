@@ -1,8 +1,8 @@
 package step
 
 import org.biojava.nbio.genome.parsers.twobit.TwoBitParser
-import java.nio.file.Files
-import java.nio.file.Path
+import util.*
+import java.nio.file.*
 
 
 const val RANDOM_PREFIX = "Random"
@@ -16,7 +16,8 @@ private data class Sequence(val seq: String, val chromosome: String, val range: 
 
 /**
  * Selects random regions from the given twoBit file that match gc content and length of sequences
- * from a given fasta file.
+ * from a given fasta file. If a methyl state bed file is provided, only regions near at least one methylated
+ * base pair will be used.
  *
  * @param twoBit The twoBit file
  * @param inputFasta The input fasta file we're matching
@@ -24,13 +25,18 @@ private data class Sequence(val seq: String, val chromosome: String, val range: 
  * @param outputsPerInput the number of matching output sequences to find per input sequence
  * @param chromosomeSizes chromosome size information for given twoBit file
  * @param gcContentTolerance max acceptable distance from gcContent that will still be accepted
+ * @param methylBed optional methyl bed file.
+ * @param methylPercentThreshold percentage over which only methylated sites will be used to accept selected regions.
  */
 fun randomSequences(twoBit: Path,
                     inputFasta: Path,
                     outputFasta: Path,
                     outputsPerInput: Int,
                     chromosomeSizes: Map<String, Int>,
-                    gcContentTolerance: Double) {
+                    gcContentTolerance: Double,
+                    methylBed: Path? = null,
+                    methylPercentThreshold: Int? = null) {
+    val methylData = if (methylBed != null) parseMethylBed(methylBed, methylPercentThreshold) else null
     // Keep one parser per chromosome, because the "setCurrentSequence" method takes time and caches header data.
     val parsers = mutableMapOf<String, TwoBitParser>()
 
@@ -55,6 +61,14 @@ fun randomSequences(twoBit: Path,
             val intersectsExisting = outputSequences.any { it.intersects(randomChromosome, randomRange) }
             if (intersectsExisting) continue
 
+            // If we're doing a methylated motif analysis, check make sure there is a methylated site within
+            // 500 base pairs of the center of the random range
+            if(methylData != null) {
+                val randomRangeCenter = (randomRange.first + randomRange.last) / 2
+                val rangeToCheck = randomRangeCenter - 500 .. randomRangeCenter + 500
+                if(!methylData.containsValueInRange(randomChromosome, rangeToCheck)) continue
+            }
+
             val parser = parsers.getOrPut(randomChromosome) {
                 val p = TwoBitParser(twoBit.toFile())
                 p.setCurrentSequence(randomChromosome)
@@ -62,7 +76,13 @@ fun randomSequences(twoBit: Path,
             }
 
             // Collect sequence from file
-            val parsedSeq = parser.loadFragment(randomStart.toLong(), sequenceLength)
+            var parsedSeq = parser.loadFragment(randomStart.toLong(), sequenceLength)
+
+            // Replace methylated bases
+            if (methylData != null) {
+                parsedSeq = methylData.replaceBases(parsedSeq, randomChromosome, randomRange)
+            }
+
             val sequence = Sequence(parsedSeq, randomChromosome, randomRange)
 
             val outputGCContent = sequenceGCContent(sequence.seq)
@@ -74,7 +94,6 @@ fun randomSequences(twoBit: Path,
         }
     }
 
-
     Files.createDirectories(outputFasta.parent)
     Files.newBufferedWriter(outputFasta).use { writer ->
         for ((index, sequence) in outputSequences.withIndex()) {
@@ -85,7 +104,7 @@ fun randomSequences(twoBit: Path,
 }
 
 private fun sequenceGCContent(sequence: String) =
-        sequence.count { "gc".contains(it, ignoreCase = true) } / sequence.length.toDouble()
+        sequence.count { "gcmw".contains(it, ignoreCase = true) } / sequence.length.toDouble()
 
 private fun parseFastaSequences(fasta: Path): List<String> {
     val sequences = mutableListOf<String>()

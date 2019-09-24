@@ -1,23 +1,10 @@
 package step
 
 import mu.KotlinLogging
+import util.*
 import java.nio.file.*
-import java.util.zip.GZIPInputStream
 
 private val log = KotlinLogging.logger {}
-
-data class PeaksRow(
-    val chrom: String,
-    val chromStart: Int,
-    val chromEnd: Int,
-    val name: String,
-    val score: Int,
-    val strand: Char,
-    val signalValue: Double,
-    val pValue: Double,
-    val qValue: Double,
-    val peak: Int
-)
 
 /**
  * Resizes peaks to a fixed width around their midpoint, excluding any peaks which extend off the chromosome,
@@ -43,57 +30,33 @@ fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Pat
         chromFilter: $chrFilter
         """.trimIndent()
     }
-    val rawInputStream = Files.newInputStream(peaks)
-    val inputStream = if (peaks.endsWith(".gz")) GZIPInputStream(rawInputStream) else rawInputStream
     val clippedRows = mutableListOf<PeaksRow>()
-    inputStream.reader().forEachLine { line ->
-        val lineParts = line.trim().split("\t")
-        val rawRow = PeaksRow(
-            chrom = lineParts[0],
-            chromStart = lineParts[1].toInt(),
-            chromEnd = lineParts[2].toInt(),
-            name = lineParts[3],
-            score = lineParts[4].toInt(),
-            strand = lineParts[5][0],
-            signalValue = lineParts[6].toDouble(),
-            pValue = lineParts[7].toDouble(),
-            qValue = lineParts[8].toDouble(),
-            peak = lineParts[9].toInt()
-        )
-        if (chrFilter != null && chrFilter.contains(rawRow.chrom)) return@forEachLine
+    readPeaksFile(peaks) { row ->
+        if (chrFilter != null && chrFilter.contains(row.chrom)) return@readPeaksFile
 
-        val chromSize = chromSizes[rawRow.chrom] ?: return@forEachLine
+        val chromSize = chromSizes[row.chrom] ?: return@readPeaksFile
 
         val chromEnd = if (offset != null) {
-            val newEnd = rawRow.chromEnd + offset
+            val newEnd = row.chromEnd + offset
             if (newEnd < chromSize) newEnd else chromSize
-        } else rawRow.chromEnd
+        } else row.chromEnd
 
         val chromStart = if (offset != null) {
-            val newStart = rawRow.chromStart + offset
+            val newStart = row.chromStart + offset
             if (newStart < chromEnd) newStart else chromEnd - 1
-        } else rawRow.chromStart
+        } else row.chromStart
 
         val midpoint = (chromStart + chromEnd) / 2
-        if (midpoint < newSize || midpoint + newSize > chromSize) return@forEachLine
+        if (midpoint < newSize || midpoint + newSize > chromSize) return@readPeaksFile
 
         val newStart = midpoint - newSize
         val newEnd = midpoint + newSize
-        val clippedRow = rawRow.copy(chromStart = newStart, chromEnd = newEnd)
+        val clippedRow = row.copy(chromStart = newStart, chromEnd = newEnd)
         clippedRows.add(clippedRow)
     }
 
     clippedRows.sortWith(compareBy({ it.qValue }, { it.pValue }, { it.signalValue }))
-
-    Files.createDirectories(output.parent)
-    Files.newBufferedWriter(output).use { writer ->
-        for(row in clippedRows) {
-            val rowStr = with(row) {
-                "$chrom\t$chromStart\t$chromEnd\t$name\t$score\t$strand\t$signalValue\t$pValue\t$qValue\t$peak\n"
-            }
-            writer.write(rowStr)
-        }
-    }
+    writePeaksFile(output, clippedRows)
 }
 
 /**

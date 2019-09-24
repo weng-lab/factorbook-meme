@@ -5,6 +5,8 @@
         </encoder>
     </appender>
 
+    <logger name="org.biojava.nbio.genome.parsers.twobit" level="INFO" />
+
     <root level="debug">
         <appender-ref ref="STDOUT" />
     </root>

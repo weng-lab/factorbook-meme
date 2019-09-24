@@ -8,6 +8,8 @@ import java.nio.file.*
 import javax.xml.parsers.DocumentBuilderFactory
 import kotlin.math.sqrt
 import com.squareup.moshi.Types.newParameterizedType
+import util.FIMO_TSV_FILENAME
+import util.FIMO_XML_FILENAME
 
 
 data class OutputMotif(
@@ -148,10 +150,10 @@ data class OccurrenceRatioData(val ratio: Double, val occurrences: Int, val sour
  * @return Map containing occurrence ratios by Meme's motif "name"
  */
 fun motifOccurrencesRatios(fimoDir: Path, motifNames: List<String>): Map<String, OccurrenceRatioData> {
-    val fimoXml = fimoDir.resolve("fimo.xml")
+    val fimoXml = fimoDir.resolve(FIMO_XML_FILENAME)
     val numSequences = parseNumSequences(fimoXml)
 
-    val fimoTsv = fimoDir.resolve("fimo.tsv")
+    val fimoTsv = fimoDir.resolve(FIMO_TSV_FILENAME)
     val occurrenceCounts = motifOccurrencesCounts(fimoTsv)
 
     return motifNames

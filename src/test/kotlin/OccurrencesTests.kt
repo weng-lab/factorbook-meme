@@ -8,7 +8,8 @@ class OccurrencesTests {
 
     @Test
     fun `test occurrencesTsv`() {
-        occurrencesTsv(testInputDir.resolve(FIMO_TSV), PEAKS, testOutputDir.resolve(OCCURRENCES_TSV))
+        occurrencesTsv(testInputDir.resolve(FIMO_TSV), testInputDir.resolve(CLEANED_PEAKS),
+                testOutputDir.resolve(OCCURRENCES_TSV))
         assertOutputMatches(OCCURRENCES_TSV)
     }
 }

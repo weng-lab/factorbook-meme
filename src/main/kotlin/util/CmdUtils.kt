@@ -14,10 +14,7 @@ class DefaultCmdRunner : CmdRunner {
 
 fun exec(vararg cmds: String) {
     log.info { "Executing command: ${cmds.toList()}" }
-    val exitCode = ProcessBuilder(*cmds)
-        .inheritIO()
-        .start()
-        .waitFor()
+    val exitCode = ProcessBuilder(*cmds).inheritIO().start().waitFor()
     if (exitCode != 0) {
         throw Exception("command failed with exit code $exitCode")
     }

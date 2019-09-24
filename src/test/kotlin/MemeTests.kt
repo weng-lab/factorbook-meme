@@ -13,9 +13,15 @@ class MemeSuiteTests {
      * The MEME step takes about 20 minutes to complete.
      */
     @Disabled @Test fun `run meme`() {
-        cmdRunner.meme(testInputDir.resolve(TOP500_SEQS_CENTER), testOutputDir.resolve(TOP500_MEME_DIR))
+        cmdRunner.meme(testInputDir.resolve(TOP500_SEQS_CENTER), testOutputDir.resolve(MEME_DIR))
         assertThat(testOutputDir.resolve(TOP500_MEME_TXT)).exists()
         assertThat(testOutputDir.resolve(TOP500_MEME_XML)).exists()
+    }
+
+    @Disabled @Test fun `run meme for sequences with methyl alphabet`() {
+        cmdRunner.meme(testInputDir.resolve(M_TOP500_SEQS_CENTER), testOutputDir.resolve(M_MEME_DIR))
+        assertThat(testOutputDir.resolve(M_TOP500_MEME_TXT)).exists()
+        assertThat(testOutputDir.resolve(M_TOP500_MEME_XML)).exists()
     }
 
     @Test fun `run fimo`() {

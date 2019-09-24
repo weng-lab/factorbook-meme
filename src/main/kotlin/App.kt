@@ -24,10 +24,15 @@ class Cli : CliktCommand() {
         .path().required()
     private val chrFilter by option("--chrom-filter",
             help = "chromosomes to filter out before running MEME.").multiple()
+    private val methylBed by option("--methyl-bed", help = "path to optional methylation state @CpG bed file")
+            .path(exists = true)
+    private val methylPercentThreshold by option("--methyl-percent-threshold",
+            help = "the percentage over which we will use a methylation site from the methylation bed file.")
+            .int()
 
     override fun run() {
         val cmdRunner = DefaultCmdRunner()
-        cmdRunner.runTask(peaks, twoBit, chromInfo, offset, outputDir, chrFilter.toSet())
+        cmdRunner.runTask(peaks, twoBit, chromInfo, offset, outputDir, chrFilter.toSet(), methylBed, methylPercentThreshold)
     }
 }
 
@@ -36,11 +41,14 @@ class Cli : CliktCommand() {
  *
  * @param peaks path to raw narrowPeaks file
  * @param chromInfo path to chromInfo file
- * @param offset
- * @param outputDir
+ * @param offset amount to shift peaks when creating summits
+ * @param outputDir directory to put output files
+ * @param chrFilter set of chromosomes to filter out before running
+ * @param methylBed methylated state @CpG file used for runs that create motifs with methyl base pairs
+ * @param methylPercentThreshold the percentage over which we will use a methylation site
  */
 fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, outputDir: Path,
-                      chrFilter: Set<String>? = null) {
+                      chrFilter: Set<String>? = null, methylBed: Path? = null, methylPercentThreshold: Int? = null) {
     log.info {
         """
         Running Meme task for
@@ -50,65 +58,103 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
         offset: $offset
         outputDir: $outputDir
         chromFilter: $chrFilter
+        methylBed: $methylBed
+        methylPercentThreshold: $methylPercentThreshold
         """.trimIndent()
     }
     val outPrefix = peaks.fileName.toString().split(".").first()
-
-    // Create fasta file containing sequences for original input peaks file
-    val trimmedPeaks = outputDir.resolve("$outPrefix.narrowPeak.trimmed")
-    trimPeaks(peaks, trimmedPeaks, chrFilter = chrFilter)
-    val originalPeaksFastaFile = outputDir.resolve("$outPrefix.seqs")
-    peaksToFasta(trimmedPeaks, twoBit, originalPeaksFastaFile)
-
-    // Create summits file
     val chromSizes = parseChromSizes(chromInfo)
-    val summitsFile = outputDir.resolve("$outPrefix.summits.window150.narrowPeak")
-    summits(peaks, chromSizes, 150, summitsFile, offset, chrFilter)
+
+    // Rewrite peaks names, apply chrom filter and filter peaks without methylated states (if methyl bed is given)
+    // Name rewrite is necessary because given peaks input may not include them
+    val cleanedPeaks = outputDir.resolve("$outPrefix$CLEANED_BED_SUFFIX")
+    cleanPeaks(peaks, chrFilter, methylBed, methylPercentThreshold, cleanedPeaks)
+
+    runMemeSteps(outPrefix, cleanedPeaks, twoBit, chromSizes, offset, outputDir, chrFilter,
+            methylBed, methylPercentThreshold)
+
+    val summitsFile = outputDir.resolve("$outPrefix$SUMMITS_FILE_SUFFIX")
+    val memeOutDir = outputDir.resolve("$outPrefix$MEME_DIR_SUFFIX")
+    val top500CenterSeqsFile = outputDir.resolve("$outPrefix$TOP500_SEQS_CENTER_SUFFIX")
+    runQualitySteps(outPrefix, summitsFile, memeOutDir, top500CenterSeqsFile, twoBit, outputDir, chromSizes,
+            methylBed, methylPercentThreshold)
+
+    runOccurrencesSteps(outPrefix, cleanedPeaks, twoBit, outputDir, methylBed, methylPercentThreshold)
+}
+
+/**
+ * Run Meme pre-processing and Meme steps
+ */
+fun CmdRunner.runMemeSteps(outPrefix: String, cleanedPeaks: Path, twoBit: Path, chromSizes: Map<String, Int>,
+                           offset: Int, outputDir: Path, chrFilter: Set<String>? = null,
+                           methylBed: Path? = null, methylPercentThreshold: Int? = null) {
+    // Create summits file
+    val summitsFile = outputDir.resolve("$outPrefix$SUMMITS_FILE_SUFFIX")
+    summits(cleanedPeaks, chromSizes, 150, summitsFile, offset, chrFilter)
 
     // Run MEME on top 500 peaks
-    val top500Prefix = "$outPrefix.top500"
-    val top500PeaksFile = outputDir.resolve("$top500Prefix.narrowPeak.trimmed")
-    val top500SeqsFile = outputDir.resolve("$top500Prefix.seqs")
-    val top500CenterSeqsFile = outputDir.resolve("$top500Prefix.seqs.center")
-    sequences(summitsFile, twoBit, 0 until 500, 100, top500PeaksFile, top500SeqsFile,
-            top500CenterSeqsFile, chrFilter = chrFilter)
+    val top500SeqsFile = outputDir.resolve("$outPrefix$TOP500_SEQS_SUFFIX")
+    val top500CenterSeqsFile = outputDir.resolve("$outPrefix$TOP500_SEQS_CENTER_SUFFIX")
+    peaksToFasta(summitsFile, twoBit, top500SeqsFile, methylBed, methylPercentThreshold,
+            0 until 500)
+    fastaCenter(top500SeqsFile, 100, top500CenterSeqsFile)
 
-    val memeOutDir = outputDir.resolve("$outPrefix.top500.center.meme")
-    meme(top500CenterSeqsFile, memeOutDir)
+    val memeOutDir = outputDir.resolve("$outPrefix$MEME_DIR_SUFFIX")
+    val useMotifAlphabet = methylBed != null
+    meme(top500CenterSeqsFile, memeOutDir, useMotifAlphabet)
+}
 
-    // Run FIMO against original peaks sequences
-    val memeTxtFile = memeOutDir.resolve("meme.txt")
-    val originalPeaksFimoDir = outputDir.resolve("$outPrefix.fimo")
-    fimo(memeTxtFile, originalPeaksFastaFile, originalPeaksFimoDir)
-
-    // Convert FIMO Occurrences to custom Occurrences TSV with absolute positioned ranges
-    val originalPeaksFimoTsv = originalPeaksFimoDir.resolve("fimo.tsv")
-    val occurrencesTsv = outputDir.resolve("$outPrefix.occurrences.tsv")
-    occurrencesTsv(originalPeaksFimoTsv, peaks, occurrencesTsv)
-
+/**
+ * Run post-Meme quality related steps
+ */
+fun CmdRunner.runQualitySteps(outPrefix: String, summitsFile: Path, memeDir: Path, top500CenterSeqsFile: Path,
+                              twoBit: Path, outputDir: Path, chromSizes: Map<String, Int>,
+                              methylBed: Path? = null, methylPercentThreshold: Int? = null) {
     // Run FIMO against peaks 501-1000 center and flanks
-    val next500Prefix = "$outPrefix.top501-1000"
-    val next500PeaksFile = outputDir.resolve("$next500Prefix.narrowPeak.trimmed")
-    val next500SeqsFile = outputDir.resolve("$next500Prefix.seqs")
-    val next500CenterSeqsFile = outputDir.resolve("$next500Prefix.seqs.center")
-    val next500FlankSeqsFile = outputDir.resolve("$next500Prefix.seqs.flank")
-    sequences(summitsFile, twoBit, 501 until 1000, 100, next500PeaksFile, next500SeqsFile,
-            next500CenterSeqsFile, next500FlankSeqsFile, chrFilter)
+    val next500SeqsFile = outputDir.resolve("$outPrefix$NEXT500_SEQS_SUFFIX")
+    val next500CenterSeqsFile = outputDir.resolve("$outPrefix$NEXT500_SEQS_CENTER_SUFFIX")
+    val next500FlankSeqsFile = outputDir.resolve("$outPrefix$NEXT500_SEQS_FLANK_SUFFIX")
+    peaksToFasta(summitsFile, twoBit, next500SeqsFile, methylBed, methylPercentThreshold,
+            500 until 1000)
+    fastaCenter(next500SeqsFile, 100, next500CenterSeqsFile, next500FlankSeqsFile)
 
-    val next500CenterFimoDir = outputDir.resolve("$next500Prefix.center.fimo")
+    val memeTxtFile = memeDir.resolve(MEME_TXT_FILENAME)
+    val next500CenterFimoDir = outputDir.resolve(CENTER_FIMO_DIR_SUFFIX)
     fimo(memeTxtFile, next500CenterSeqsFile, next500CenterFimoDir)
 
-    val next500FlankFimoDir = outputDir.resolve("$next500Prefix.flank.fimo")
+    val next500FlankFimoDir = outputDir.resolve(FLANK_FIMO_DIR_SUFFIX)
     fimo(memeTxtFile, next500FlankSeqsFile, next500FlankFimoDir)
 
     // Run FIMO against 100x random sequences from reference genome (with matching length and gc content)
-    val randomSeqFile = outputDir.resolve("$next500Prefix.shuffled.seqs")
-    val randomFimoDir = outputDir.resolve("$next500Prefix.shuffled.fimo")
-    randomSequences(twoBit, top500CenterSeqsFile, randomSeqFile, 100, chromSizes, 0.05)
+    val randomSeqFile = outputDir.resolve("$outPrefix$SHUFFLED_SEQS_SUFFIX")
+    val randomFimoDir = outputDir.resolve(SHUFFLED_FIMO_DIR_SUFFIX)
+    randomSequences(twoBit, top500CenterSeqsFile, randomSeqFile, 100, chromSizes, 0.05,
+            methylBed, methylPercentThreshold)
     fimo(memeTxtFile, randomSeqFile, randomFimoDir)
 
     // Run Motif Quality step
-    val memeXmlFile = memeOutDir.resolve("meme.xml")
-    val outJsonFile = outputDir.resolve("$outPrefix.motifs.json")
+    val memeXmlFile = memeDir.resolve(MEME_XML_FILENAME)
+    val outJsonFile = outputDir.resolve("$outPrefix$MOTIFS_JSON_SUFFIX")
     motifQuality(memeXmlFile, next500CenterFimoDir, randomFimoDir, next500FlankFimoDir, outJsonFile)
+}
+
+/**
+ * Run occurrences file creation related steps
+ */
+fun CmdRunner.runOccurrencesSteps(outPrefix: String, cleanedPeaks: Path, twoBit: Path, outputDir: Path,
+                                  methylBed: Path? = null, methylPercentThreshold: Int? = null) {
+    // Create fasta file containing sequences for original input peaks file
+    val originalPeaksFastaFile = outputDir.resolve("$outPrefix$SEQS_SUFFIX")
+    peaksToFasta(cleanedPeaks, twoBit, originalPeaksFastaFile, methylBed, methylPercentThreshold, null)
+
+    // Run FIMO against original peaks sequences
+    val memeOutDir = outputDir.resolve("$outPrefix$MEME_DIR_SUFFIX")
+    val memeTxtFile = memeOutDir.resolve(MEME_TXT_FILENAME)
+    val originalPeaksFimoDir = outputDir.resolve("$outPrefix$FIMO_SUFFIX")
+    fimo(memeTxtFile, originalPeaksFastaFile, originalPeaksFimoDir)
+
+    // Convert FIMO Occurrences to custom Occurrences TSV with absolute positioned ranges
+    val originalPeaksFimoTsv = originalPeaksFimoDir.resolve(FIMO_TSV_FILENAME)
+    val occurrencesTsv = outputDir.resolve("$outPrefix$OCCURRENCES_SUFFIX")
+    occurrencesTsv(originalPeaksFimoTsv, cleanedPeaks, occurrencesTsv)
 }
