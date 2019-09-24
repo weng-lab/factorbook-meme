@@ -20,6 +20,8 @@ followed by the arguments you need:
 | `--chrom-info` | path to chromosome lengths for this assembly | yes | |
 | `--offset` | Offset, in bp, to shift peaks |  no | 0 |
 | `--output-dir` | Path to write output files | yes | |
+| `--methyl-bed` | Path to optional methylation state @CpG bed file | no | |
+| `--methyl-percent-threshold` | Percentage over which we will use a methylation site from the methylation bed file | no | |
 
 Here's how a complete command with arguments should look:
 
@@ -31,6 +33,10 @@ Here's how a complete command with arguments should look:
 ![Factorbook MEME Procedure](img/factorbook_meme_procedure.png)
 
 *Some files and steps are omitted for brevity
+
+### Procedure with Methylation States @CpG
+
+![Factorbook MEME Procedure](img/factorbook_meme_methyl_procedure.png)
 
 ## File Inputs and Outputs
 
