@@ -1,9 +1,11 @@
 package step
 
+import mu.KotlinLogging
 import org.biojava.nbio.genome.parsers.twobit.TwoBitParser
 import util.*
 import java.nio.file.*
 
+private val log = KotlinLogging.logger {}
 
 const val RANDOM_PREFIX = "Random"
 
@@ -76,7 +78,12 @@ fun randomSequences(twoBit: Path,
             }
 
             // Collect sequence from file
-            var parsedSeq = parser.loadFragment(randomStart.toLong(), sequenceLength)
+            var parsedSeq = try {
+                parser.loadFragment(randomStart.toLong(), sequenceLength)
+            } catch (e: Exception) {
+                log.error { "Error loading fragment from two-bit file $twoBit at $randomChromosome:${randomRange.first}-${randomRange.last}" }
+                throw e
+            }
 
             // Replace methylated bases
             if (methylData != null) {
