@@ -50,47 +50,49 @@ fun randomSequences(twoBit: Path,
 
         var currentOutputsForInput = 0
         while (currentOutputsForInput < outputsPerInput) {
-            // Find another sequence to add
+            val sequence = retry("Find Random Sequence", 5) {
+                // Find another sequence to add
 
-            // Get a random chromosome (probability weighted by chromosome sizes)
-            val randomChromosome = weightedRandomChromosome(chromosomeSizes)
+                // Get a random chromosome (probability weighted by chromosome sizes)
+                val randomChromosome = weightedRandomChromosome(chromosomeSizes)
 
-            // Get a random range with length "sequenceLength" on that chromosome
-            val randomStart = (0 .. chromosomeSizes.getValue(randomChromosome) - sequenceLength).random()
-            val randomRange = randomStart until randomStart + sequenceLength
+                // Get a random range with length "sequenceLength" on that chromosome
+                val randomStart = (0 .. chromosomeSizes.getValue(randomChromosome) - sequenceLength).random()
+                val randomRange = randomStart until randomStart + sequenceLength
 
-            // If we've already added a sequence that intersects with this range, try again
-            val intersectsExisting = outputSequences.any { it.intersects(randomChromosome, randomRange) }
-            if (intersectsExisting) continue
+                // If we've already added a sequence that intersects with this range, try again
+                val intersectsExisting = outputSequences.any { it.intersects(randomChromosome, randomRange) }
+                if (intersectsExisting) return@retry null
 
-            // If we're doing a methylated motif analysis, check make sure there is a methylated site within
-            // 500 base pairs of the center of the random range
-            if(methylData != null) {
-                val randomRangeCenter = (randomRange.first + randomRange.last) / 2
-                val rangeToCheck = randomRangeCenter - 500 .. randomRangeCenter + 500
-                if(!methylData.containsValueInRange(randomChromosome, rangeToCheck)) continue
-            }
+                // If we're doing a methylated motif analysis, check make sure there is a methylated site within
+                // 500 base pairs of the center of the random range
+                if(methylData != null) {
+                    val randomRangeCenter = (randomRange.first + randomRange.last) / 2
+                    val rangeToCheck = randomRangeCenter - 500 .. randomRangeCenter + 500
+                    if(!methylData.containsValueInRange(randomChromosome, rangeToCheck)) return@retry null
+                }
 
-            val parser = parsers.getOrPut(randomChromosome) {
-                val p = TwoBitParser(twoBit.toFile())
-                p.setCurrentSequence(randomChromosome)
-                p
-            }
+                val parser = parsers.getOrPut(randomChromosome) {
+                    val p = TwoBitParser(twoBit.toFile())
+                    p.setCurrentSequence(randomChromosome)
+                    p
+                }
 
-            // Collect sequence from file
-            var parsedSeq = try {
-                parser.loadFragment(randomStart.toLong(), sequenceLength)
-            } catch (e: Exception) {
-                log.error { "Error loading fragment from two-bit file $twoBit at $randomChromosome:${randomRange.first}-${randomRange.last}" }
-                throw e
-            }
+                // Collect sequence from file
+                var parsedSeq = try {
+                    parser.loadFragment(randomStart.toLong(), sequenceLength)
+                } catch (e: Exception) {
+                    log.error { "Error loading fragment from two-bit file $twoBit at $randomChromosome:${randomRange.first}-${randomRange.last}" }
+                    throw e
+                }
 
-            // Replace methylated bases
-            if (methylData != null) {
-                parsedSeq = methylData.replaceBases(parsedSeq, randomChromosome, randomRange)
-            }
+                // Replace methylated bases
+                if (methylData != null) {
+                    parsedSeq = methylData.replaceBases(parsedSeq, randomChromosome, randomRange)
+                }
 
-            val sequence = Sequence(parsedSeq, randomChromosome, randomRange)
+                Sequence(parsedSeq, randomChromosome, randomRange)
+            } ?: continue
 
             val outputGCContent = sequenceGCContent(sequence.seq)
             val acceptableGCContentRange =
