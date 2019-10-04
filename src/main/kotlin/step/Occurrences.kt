@@ -9,6 +9,7 @@ fun occurrencesTsv(fimoTsv: Path, peaksBed: Path, out: Path) {
     val peaks = parsePeaksBed(peaksBed)
     Files.createDirectories(out.parent)
     Files.newBufferedWriter(out, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING).use { writer ->
+        writer.write("#motif_id\tchromosome\tstart\tend\tstrand\tq_value\n")
         Files.newBufferedReader(fimoTsv).forEachLine { line ->
             if (line.isBlank() || line.startsWith("motif_id") || line.startsWith("#")) return@forEachLine
             val lineParts = line.split("\\s".toRegex())
@@ -16,10 +17,12 @@ fun occurrencesTsv(fimoTsv: Path, peaksBed: Path, out: Path) {
             val peakId = lineParts[2]
             val startWithinPeak = lineParts[3].toInt()
             val endWithinPeak = lineParts[4].toInt()
+            val strand = lineParts[5]
+            val qValue = lineParts[8].toDouble()
             val peak = peaks.getValue(peakId)
             val absoluteStart = peak.start + startWithinPeak
             val absoluteEnd = peak.start + endWithinPeak
-            writer.write("$motifId\t${peak.chr}\t$absoluteStart\t$absoluteEnd\n")
+            writer.write("$motifId\t${peak.chr}\t$absoluteStart\t$absoluteEnd\t$strand\t$qValue\n")
         }
     }
 }

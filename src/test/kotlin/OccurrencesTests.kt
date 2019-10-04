@@ -12,4 +12,5 @@ class OccurrencesTests {
                 testOutputDir.resolve(OCCURRENCES_TSV))
         assertOutputMatches(OCCURRENCES_TSV)
     }
+
 }
