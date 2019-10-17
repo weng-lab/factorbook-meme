@@ -5,16 +5,10 @@ import org.biojava.nbio.genome.parsers.twobit.TwoBitParser
 import util.*
 import java.nio.file.*
 
+
 private val log = KotlinLogging.logger {}
 
 const val RANDOM_PREFIX = "Random"
-
-private data class Sequence(val seq: String, val chromosome: String, val range: IntRange) {
-    fun intersects(otherChromosome: String, otherRange: IntRange): Boolean {
-        return chromosome == otherChromosome &&
-                this.range.first <= otherRange.last && otherRange.first <= this.range.last
-    }
-}
 
 /**
  * Selects random regions from the given twoBit file that match gc content and length of sequences
@@ -26,94 +20,100 @@ private data class Sequence(val seq: String, val chromosome: String, val range: 
  * @param outputFasta The fasta file to output our random sequences to
  * @param outputsPerInput the number of matching output sequences to find per input sequence
  * @param chromosomeSizes chromosome size information for given twoBit file
- * @param gcContentTolerance max acceptable distance from gcContent that will still be accepted
- * @param methylBed optional methyl bed file.
- * @param methylPercentThreshold percentage over which only methylated sites will be used to accept selected regions.
+ * @param gcContentTolerance max acceptable distance from gcContent that will still be accepted (as percentage)
+ * @param sampleRatio ratio of samples to outputs to take to attempt to match against
+ * @param methylData useful data parsed from methyl beds
  */
 fun randomSequences(twoBit: Path,
                     inputFasta: Path,
                     outputFasta: Path,
                     outputsPerInput: Int,
                     chromosomeSizes: Map<String, Int>,
-                    gcContentTolerance: Double,
-                    methylBed: Path? = null,
-                    methylPercentThreshold: Int? = null) {
-    val methylData = if (methylBed != null) parseMethylBed(methylBed, methylPercentThreshold) else null
-    // Keep one parser per chromosome, because the "setCurrentSequence" method takes time and caches header data.
-    val parsers = mutableMapOf<String, TwoBitParser>()
+                    sequenceLength: Int,
+                    gcContentTolerance: Int,
+                    methylData: MethylData? = null) {
 
-    val inputSequences = parseFastaSequences(inputFasta)
-    val outputSequences = mutableListOf<Sequence>()
-    for (inputSequence in inputSequences) {
-        val sequenceLength = inputSequence.length
-        val inputGCContent = sequenceGCContent(inputSequence)
+    data class RandomSequenceTracker(val gcContent: Int, val outputs: MutableList<String> = mutableListOf(), var addAttempts: Int = 0)
+    val outputsTrackers = parseFastaSequences(inputFasta)
+            .map { RandomSequenceTracker(sequenceGCContent(it)) }
+            .sortedBy { it.gcContent }
 
-        var currentOutputsForInput = 0
-        while (currentOutputsForInput < outputsPerInput) {
-            val sequence = retry("Find Random Sequence", 5) {
-                // Find another sequence to add
+    iterateAssemblySequences(twoBit, chromosomeSizes, sequenceLength) { chrom, seqRange, rawSequence ->
+        var sequence = rawSequence
 
-                // Get a random chromosome (probability weighted by chromosome sizes)
-                val randomChromosome = weightedRandomChromosome(chromosomeSizes)
-
-                // Get a random range with length "sequenceLength" on that chromosome
-                val randomStart = (0 .. chromosomeSizes.getValue(randomChromosome) - sequenceLength).random()
-                val randomRange = randomStart until randomStart + sequenceLength
-
-                // If we've already added a sequence that intersects with this range, try again
-                val intersectsExisting = outputSequences.any { it.intersects(randomChromosome, randomRange) }
-                if (intersectsExisting) return@retry null
-
-                // If we're doing a methylated motif analysis, check make sure there is a methylated site within
-                // 500 base pairs of the center of the random range
-                if(methylData != null) {
-                    val randomRangeCenter = (randomRange.first + randomRange.last) / 2
-                    val rangeToCheck = randomRangeCenter - 500 .. randomRangeCenter + 500
-                    if(!methylData.containsValueInRange(randomChromosome, rangeToCheck)) return@retry null
-                }
-
-                val parser = parsers.getOrPut(randomChromosome) {
-                    val p = TwoBitParser(twoBit.toFile())
-                    p.setCurrentSequence(randomChromosome)
-                    p
-                }
-
-                // Collect sequence from file
-                var parsedSeq = try {
-                    parser.loadFragment(randomStart.toLong(), sequenceLength)
-                } catch (e: Exception) {
-                    log.error { "Error loading fragment from two-bit file $twoBit at $randomChromosome:${randomRange.first}-${randomRange.last}" }
-                    throw e
-                }
-
-                // Replace methylated bases
-                if (methylData != null) {
-                    parsedSeq = methylData.replaceBases(parsedSeq, randomChromosome, randomRange)
-                }
-
-                Sequence(parsedSeq, randomChromosome, randomRange)
-            } ?: continue
-
-            val outputGCContent = sequenceGCContent(sequence.seq)
-            val acceptableGCContentRange =
-                    (inputGCContent - gcContentTolerance) .. (inputGCContent + gcContentTolerance)
-            if (acceptableGCContentRange.contains(outputGCContent)) continue
-            outputSequences += sequence
-            currentOutputsForInput++
+        if(methylData != null) {
+            // If we're doing a methylated motif analysis, check make sure there is a methylated site within
+            // 500 base pairs of the center of the random range
+            val randomRangeCenter = (seqRange.first + seqRange.last) / 2
+            val rangeToCheck = randomRangeCenter - 500 .. randomRangeCenter + 500
+            if(!methylData.containsValueInRange(chrom, rangeToCheck)) return@iterateAssemblySequences
+            // Replace methylated bases
+            sequence = methylData.replaceBases(sequence, chrom, seqRange)
         }
+
+        val sequenceGCContent = sequenceGCContent(sequence)
+        val matchingTrackers = outputsTrackers
+                .rangeBinarySearch(sequenceGCContent - gcContentTolerance .. sequenceGCContent + gcContentTolerance) { it.gcContent }
+        if(matchingTrackers.isEmpty()) return@iterateAssemblySequences
+
+        // First, add to any input -> outputs trackers that are not already full
+        val notFullTracker = matchingTrackers.firstOrNull { it.outputs.size < outputsPerInput }
+        if (notFullTracker != null) {
+            notFullTracker.outputs += sequence
+            return@iterateAssemblySequences
+        }
+
+        val tracker = matchingTrackers.random()
+        tracker.addAttempts++
+        // Reservoir sampling algorithm
+        val randomOutputIndex = (0 until outputsPerInput + tracker.addAttempts).random()
+        if (randomOutputIndex < outputsPerInput)
+            tracker.outputs[randomOutputIndex] = sequence
     }
+
+    val incomplete = outputsTrackers.filter { it.outputs.size < outputsPerInput }
+    if (incomplete.isNotEmpty()) throw Exception("Could not find enough sequences matching GC Content of inputs")
+
+    val outputSequences = outputsTrackers.flatMap { it.outputs }
 
     Files.createDirectories(outputFasta.parent)
     Files.newBufferedWriter(outputFasta).use { writer ->
         for ((index, sequence) in outputSequences.withIndex()) {
             writer.write(">${RANDOM_PREFIX}_$index\n")
-            writer.write("${sequence.seq}\n")
+            writer.write("$sequence\n")
         }
     }
 }
 
-private fun sequenceGCContent(sequence: String) =
-        sequence.count { "gcmw".contains(it, ignoreCase = true) } / sequence.length.toDouble()
+private fun iterateAssemblySequences(twoBit: Path, chromosomeSizes: Map<String, Int>, sequenceLength: Int,
+                                     handle: (chrom: String, seqRange: IntRange, sequence: String) -> Unit) {
+    for ((chrom, chromLen) in chromosomeSizes) {
+        val parser = TwoBitParser(twoBit.toFile())
+        parser.setCurrentSequence(chrom)
+        parser.bufferedReader().use { reader ->
+            var loc = 0
+            while (loc + sequenceLength < chromLen) {
+                val seqRange = loc until (loc + sequenceLength)
+                val sequenceBuffer = CharArray(sequenceLength)
+                try {
+                    val readLen = reader.read(sequenceBuffer)
+                    if (readLen < sequenceLength) break
+                } catch (e: Exception) {
+                    log.error { "Error loading fragment from two-bit file $twoBit at $chrom:${seqRange.first}-${seqRange.last}" }
+                    continue
+                } finally {
+                    loc += sequenceLength
+                }
+                val sequence = String(sequenceBuffer)
+                handle(chrom, seqRange, sequence)
+            }
+        }
+    }
+
+}
+
+private fun sequenceGCContent(sequence: String): Int =
+        ((sequence.count { "gcmw".contains(it, ignoreCase = true) } / sequence.length.toDouble()) * 100).toInt()
 
 private fun parseFastaSequences(fasta: Path): List<String> {
     val sequences = mutableListOf<String>()
@@ -134,19 +134,4 @@ private fun parseFastaSequences(fasta: Path): List<String> {
         if (currentSeq != null) sequences += currentSeq!!
     }
     return sequences
-}
-
-/**
- * Gets a random chromosome with probability weighted by chromosome length.
- */
-private fun weightedRandomChromosome(chromosomeSizes: Map<String, Int>): String {
-    val totalSize = chromosomeSizes.values.map { it.toLong() }.sum()
-    var random = (0 .. totalSize).random()
-    var selectedChromosome: String? = null
-    for ((chromosome, size) in chromosomeSizes) {
-        selectedChromosome = chromosome
-        random -= size
-        if (random <= 0) break
-    }
-    return selectedChromosome!!
 }

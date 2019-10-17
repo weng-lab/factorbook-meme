@@ -13,8 +13,9 @@ class SequencesTests {
     }
 
     @Test fun `run peaks-to-fasta step with methylation state replacements`() {
+        val methylData = parseMethylBeds(listOf(METHYL_BED), 50)
         peaksToFasta(testInputDir.resolve(M_SUMMITS), CHR19_TWO_BIT, testOutputDir.resolve(M_TOP500_SEQS),
-                METHYL_BED, 50, 0 until 500)
+                methylData, 0 until 500)
         assertOutputMatches(M_TOP500_SEQS)
     }
 

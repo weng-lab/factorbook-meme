@@ -55,7 +55,8 @@ fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Pat
         clippedRows.add(clippedRow)
     }
 
-    clippedRows.sortWith(compareBy({ it.qValue }, { it.pValue }, { it.signalValue }))
+    clippedRows.sortWith(compareByDescending<PeaksRow> { it.qValue }
+            .thenByDescending { it.pValue }.thenByDescending { it.signalValue })
     writePeaksFile(output, clippedRows)
 }
 

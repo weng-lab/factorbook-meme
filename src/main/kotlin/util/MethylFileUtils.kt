@@ -1,8 +1,13 @@
 package util
 
+import mu.KotlinLogging
+import org.eclipse.collections.impl.map.mutable.primitive.*
 import java.nio.file.*
-import java.util.*
 import java.util.zip.GZIPInputStream
+import kotlin.math.max
+
+
+private val log = KotlinLogging.logger {}
 
 data class MethylData (private val data: Map<String, List<Int>>) {
 
@@ -10,12 +15,12 @@ data class MethylData (private val data: Map<String, List<Int>>) {
         val chromValues = this.data.getOrElse(chrom) { return false }
         val searchResult = chromValues.binarySearch {
             when {
-                it < range.first -> -1
+                it < range.first - 1 -> -1
                 it > range.last -> 1
                 else -> 0
             }
         }
-        return searchResult > 0
+        return searchResult >= 0
     }
 
     /**
@@ -32,7 +37,10 @@ data class MethylData (private val data: Map<String, List<Int>>) {
                     'C' -> 'M'
                     'g' -> 'w'
                     'G' -> 'W'
-                    else -> throw Exception("Invalid methylation state found at location: $chr:$bp")
+                    else -> {
+                        log.warn { "Invalid methylation state found at location: $chr:$bp" }
+                        char
+                    }
                 }
             } else char
             methylSegment.append(charToWrite)
@@ -49,41 +57,76 @@ data class MethylData (private val data: Map<String, List<Int>>) {
      */
     private fun getMethylBPsInRange(chrom: String, range: IntRange): List<Int> {
         val chromValues = this.data.getOrElse(chrom) { return listOf() }
-        val rangeFirstSearchResult = chromValues.binarySearch(range.first)
-        var subListStart = rangeFirstSearchResult
-        if (rangeFirstSearchResult < 0) {
-            // If not found, binarySearch returns the negative of the "insertion point" or where the value
-            // would be inserted to maintain sort order
-            subListStart = -rangeFirstSearchResult
-            if (subListStart >= chromValues.size || chromValues[subListStart] > range.last) return listOf()
-        }
-
-        val rangeLastSearchResult = chromValues.binarySearch(range.last)
-        val subListEnd =
-                if (rangeLastSearchResult < 0) -rangeLastSearchResult - 1
-                else rangeLastSearchResult
-        return chromValues.subList(subListStart, subListEnd)
+        return chromValues.rangeBinarySearch(range)
+                .flatMap { listOf(it, it+1) }
+                .filter { range.contains(it) }
     }
 }
 
-fun parseMethylBed(methylBed: Path, methylPercentThreshold: Int?): MethylData {
+fun parseMethylBeds(methylBeds: List<Path>, methylPercentThreshold: Int): MethylData {
     val data = mutableMapOf<String, List<Int>>()
+
+    if (methylBeds.size > 1) {
+        // Map of Chromosomes -> Base Pair Indexes -> average methyl percents from files
+        val allBedValues = mutableMapOf<String, IntFloatHashMap>()
+
+        for ((i, methylBed) in methylBeds.withIndex()) {
+            readMethylBed(methylBed) { chrom, start, methylPercent ->
+                if (methylPercent == 0) return@readMethylBed
+                val chromValues = allBedValues.getOrPut(chrom) { IntFloatHashMap() }
+                val newAvgValue = ((chromValues[start] * i) + (methylPercent)) / (i + 1)
+                if (newAvgValue > 0) chromValues.put(start, newAvgValue)
+            }
+        }
+
+        for ((chrom, bpsToMethylValues) in allBedValues) {
+            val chromData = data.getOrPut(chrom) { mutableListOf() } as MutableList
+            for (entry in bpsToMethylValues.keyValuesView()) {
+                val bp = entry.one
+                val methylValueAvg = entry.two
+                if (methylValueAvg >= methylPercentThreshold) chromData += bp
+            }
+            allBedValues.remove(chrom)
+            chromData.sort()
+        }
+    } else {
+        val methylBed = methylBeds[0]
+        readMethylBed(methylBed) { chrom, start, methylPercent ->
+            val chromData = data.getOrPut(chrom) { mutableListOf() } as MutableList
+            if (methylPercent >= methylPercentThreshold) chromData += start
+        }
+        for ((_, bpsToMethylValues) in data) {
+            (bpsToMethylValues as MutableList).sort()
+        }
+    }
+
+    return MethylData(data)
+}
+
+/**
+ * Iterates through methyl bed file and runs the "handle" file for each pair of lines meant to
+ * represent an "MW" pair with a score.
+ */
+fun readMethylBed(methylBed: Path, handle: (chrom: String, start: Int, pairMethylPercent: Int) -> Unit) {
     val rawInputStream = Files.newInputStream(methylBed)
     val inputStream =
             if (methylBed.toString().endsWith(".gz")) GZIPInputStream(rawInputStream)
             else rawInputStream
+    var pairStarted = false
+    var firstStart = -1
+    var firstMethylPercent = -1
     inputStream.reader().forEachLine { line ->
         val lineParts = line.trim().split("\t")
         val chrom = lineParts[0]
         val start = lineParts[1].toInt()
         val methylPercent = lineParts[10].toInt()
-        if (methylPercentThreshold != null && methylPercent < methylPercentThreshold) return@forEachLine
-        val chromValues = data.getOrPut(chrom) { mutableListOf() } as MutableList<Int>
-        chromValues += start
+        if (pairStarted && start - firstStart == 1){
+            pairStarted = false
+            handle(chrom, firstStart, max(firstMethylPercent, methylPercent))
+        } else {
+            pairStarted = true
+            firstStart = start
+            firstMethylPercent = methylPercent
+        }
     }
-
-    for (chromValues in data.values) {
-        (chromValues as MutableList<Int>).sort()
-    }
-    return MethylData(data)
 }

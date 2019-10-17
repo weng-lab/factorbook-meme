@@ -28,3 +28,20 @@ fun <T> retry(name: String, numOfRetries: Int, block: () -> T): T {
     }
     throw throwable!!
 }
+
+fun <T> List<T>.rangeBinarySearch(range: IntRange, selector: (value: T) -> Int = { it as Int }): List<T> {
+    val rangeFirstSearchResult = this.binarySearchBy(range.first - 1, selector = selector)
+    var subListStart = rangeFirstSearchResult
+    if (rangeFirstSearchResult < 0) {
+        // If not found, binarySearch returns the negative of the "insertion point" or where the value
+        // would be inserted to maintain sort order
+        subListStart = -rangeFirstSearchResult - 1
+        if (subListStart >= this.size || selector(this[subListStart]) > range.last) return listOf()
+    }
+
+    val rangeLastSearchResult = this.binarySearchBy(range.last, selector = selector)
+    val subListEnd =
+            if (rangeLastSearchResult < 0) -rangeLastSearchResult - 1
+            else rangeLastSearchResult + 1
+    return this.subList(subListStart, subListEnd)
+}

@@ -17,11 +17,9 @@ private val log = KotlinLogging.logger {}
  *      methylation indicator replacements in sequences.
  * @param methylPercentThreshold
  */
-fun peaksToFasta(peaks: Path, twoBit: Path, output: Path, methylBed: Path? = null, methylPercentThreshold: Int? = null,
-                 lineRange: IntRange? = null) {
+fun peaksToFasta(peaks: Path, twoBit: Path, output: Path, methylData: MethylData? = null, lineRange: IntRange? = null) {
     // Keep one parser per chromosome, because the "setCurrentSequence" method takes time and caches header data.
     val parsers = mutableMapOf<String, TwoBitParser>()
-    val methylData = if (methylBed != null) parseMethylBed(methylBed, methylPercentThreshold) else null
 
     Files.createDirectories(output.parent)
     Files.newBufferedWriter(output).use { writer ->

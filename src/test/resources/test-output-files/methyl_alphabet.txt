@@ -1,0 +1,25 @@
+ALPHABET "DNA with Methyl Sites" DNA-LIKE
+
+# Core symbols
+A "Adenine" CC0000 ~ T "Thymine" 008000
+C "Cytosine" 0000CC ~ G "Guanine" FFB300
+M "Methylated C" FF00FF ~ W "G Opposite Methylated C" FFCCCC
+
+# Ambiguous symbols
+U = T # alias Uracil to Thymine (permit U in input sequences)
+Z = CM
+Q = GW
+P = MW
+R = AG
+Y = CT
+K = GT
+F = AC
+S = CG
+E = AT
+B = CGT
+D = GAT
+H = ACT
+V = ACG
+N = ACGT
+X = ACGT
+? = ACGTMW

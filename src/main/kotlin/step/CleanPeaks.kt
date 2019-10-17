@@ -6,16 +6,14 @@ import java.nio.file.Path
 /**
  * Rewrites narrowPeaks files with new names.
  * Optionally filters out chromosomes that do not match given filter
- * If a methylation state bed file is given, filters out peaks that don't intersect with any bases
- * in a methyl bed file
+ * If methylation state data file is given, filters out peaks that don't intersect with any bases in it
  *
  * @param peaksBed the peaks file
  * @param chrFilter Optional set of chromsomes to filter against. Anything not included is filtered out.
- * @param methylBed the methyl bed file
+ * @param methylData the methyl bed file
  * @param out the file to the filtered peaks results to
  */
-fun cleanPeaks(peaksBed: Path, chrFilter: Set<String>?, methylBed: Path?, methylPercentThreshold: Int?, out: Path) {
-    val methylData = if (methylBed != null) parseMethylBed(methylBed, methylPercentThreshold) else null
+fun cleanPeaks(peaksBed: Path, chrFilter: Set<String>?, methylData: MethylData?, out: Path) {
     val filteredPeaks = mutableListOf<PeaksRow>()
     var peakCount = 0
     readPeaksFile(peaksBed) { row ->

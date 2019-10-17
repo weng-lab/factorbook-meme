@@ -4,11 +4,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
 >
-<command-line>fimo -oc /tmp/motif-test/output/ENCFF981HPG.fimo /tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/input/ENCFF981HPG.seqs</command-line>
+<command-line>fimo -oc /tmp/motif-test/output/ENCFF981HPG.fimo /tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.seqs</command-line>
 <settings>
 <setting name="output directory">/tmp/motif-test/output/ENCFF981HPG.fimo</setting>
-<setting name="MEME file name">/tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt</setting>
-<setting name="sequence file name">/tmp/motif-test/input/ENCFF981HPG.seqs</setting>
+<setting name="MEME file name">/tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt</setting>
+<setting name="sequence file name">/tmp/motif-test/output/ENCFF981HPG.seqs</setting>
 <setting name="background file name">--motif--</setting>
 <setting name="allow clobber">true</setting>
 <setting name="compute q-values">true</setting>
@@ -21,7 +21,7 @@
 <setting name="pseudocount">0.1</setting>
 <setting name="verbosity">2</setting>
 </settings>
-<sequence-data num-sequences="1224" num-residues="566611" />
+<sequence-data num-sequences="1225" num-residues="566976" />
 <alphabet name="DNA with Methyl Sites" like="dna">
 <letter id="A" symbol="A" complement="T" name="Adenine" colour="CC0000"/>
 <letter id="C" symbol="C" complement="G" name="Cytosine" colour="0000CC"/>
@@ -45,18 +45,18 @@
 <letter id="Q" symbol="Q" equals="GW"/>
 <letter id="P" symbol="P" equals="MW"/>
 </alphabet>
-<motif name="SYGCCCYCTGSTGGC" alt="MEME-1" width="15" best-possible-match="GCGCCCCCTGGTGGC"/>
-<motif name="NGRDRSMW" alt="MEME-2" width="8" best-possible-match="GGAGGGMW"/>
-<motif name="AAAAAHAAAAAAARA" alt="MEME-3" width="15" best-possible-match="AAAAAAAAAAAAAAA"/>
-<motif name="CCTCAGCCTCCYRARKAGCTGGGATTACA" alt="MEME-4" width="29" best-possible-match="CCTCAGCCTCCCGAGTAGCTGGGATTACA"/>
-<motif name="MWDGGN" alt="MEME-5" width="6" best-possible-match="MWAGGA"/>
+<motif name="CCACCAGRGGG" alt="MEME-1" width="11" best-possible-match="CCACCAGGGGG"/>
+<motif name="VBDGMW" alt="MEME-2" width="6" best-possible-match="ACGGMW"/>
+<motif name="MWSKBSHK" alt="MEME-3" width="8" best-possible-match="MWGGGGCT"/>
+<motif name="MWSHBHG" alt="MEME-4" width="7" best-possible-match="MWGACAG"/>
+<motif name="AAAAAAAKEAAAEAE" alt="MEME-5" width="15" best-possible-match="AAAAAAAGAAAAAAA"/>
 <background source="--motif--">
-<value letter="A">0.198</value>
-<value letter="C">0.295</value>
-<value letter="G">0.295</value>
-<value letter="M">0.006</value>
-<value letter="T">0.198</value>
-<value letter="W">0.006</value>
+<value letter="A">0.188</value>
+<value letter="C">0.308</value>
+<value letter="G">0.308</value>
+<value letter="M">0.004</value>
+<value letter="T">0.188</value>
+<value letter="W">0.004</value>
 </background>
 <cisml-file>cisml.xml</cisml-file>
 </fimo>

@@ -29,6 +29,9 @@ dependencies {
         exclude("org.apache.logging.log4j")
     }
     compile("org.apache.commons", "commons-math3", "3.6.1")
+    compile("org.eclipse.collections", "eclipse-collections-api", "10.0.0")
+    compile("org.eclipse.collections", "eclipse-collections", "10.0.0")
+
     implementation("com.squareup.moshi", "moshi-kotlin", "1.8.0")
     testImplementation("org.junit.jupiter", "junit-jupiter", "5.4.0")
     testCompile("org.assertj", "assertj-core", "3.11.1")
