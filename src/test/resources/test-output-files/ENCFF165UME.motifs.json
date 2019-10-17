@@ -97,15 +97,15 @@
     "sites": 389,
     "original_peaks": 869,
     "original_peaks_occurrences": 773,
-    "occurrences_ratio": 0.5609756097560976,
+    "lesser_peaks_occurrences_ratio": 0.5609756097560976,
     "flank_control_data": {
       "occurrences_ratio": 0.12737127371273713,
       "z_score": 15.28473882587069,
       "p_value": 0.0
     },
     "shuffled_control_data": {
-      "occurrences_ratio": 0.10844,
-      "z_score": 27.047500169500946,
+      "occurrences_ratio": 0.10628,
+      "z_score": 27.3986779212707,
       "p_value": 0.0
     }
   },
@@ -297,16 +297,16 @@
     "sites": 36,
     "original_peaks": 869,
     "original_peaks_occurrences": 144,
-    "occurrences_ratio": 0.016260162601626018,
+    "lesser_peaks_occurrences_ratio": 0.016260162601626018,
     "flank_control_data": {
       "occurrences_ratio": 0.044715447154471545,
       "z_score": -2.4208070612924644,
       "p_value": 0.007743047095805755
     },
     "shuffled_control_data": {
-      "occurrences_ratio": 0.0218,
-      "z_score": -0.7247240771314136,
-      "p_value": 0.2343106605769011
+      "occurrences_ratio": 0.02388,
+      "z_score": -0.9538805099324,
+      "p_value": 0.17007206506612682
     }
   },
   {
@@ -497,16 +497,16 @@
     "sites": 6,
     "original_peaks": 869,
     "original_peaks_occurrences": 265,
-    "occurrences_ratio": 0.06504065040650407,
+    "lesser_peaks_occurrences_ratio": 0.06504065040650407,
     "flank_control_data": {
       "occurrences_ratio": 0.037940379403794036,
       "z_score": 2.0089119706621017,
       "p_value": 0.022273235095698896
     },
     "shuffled_control_data": {
-      "occurrences_ratio": 0.05548,
-      "z_score": 0.7954877800914941,
-      "p_value": 0.21316490823171352
+      "occurrences_ratio": 0.0556,
+      "z_score": 0.7847186692508912,
+      "p_value": 0.2163092671480098
     }
   },
   {
@@ -643,16 +643,16 @@
     "sites": 26,
     "original_peaks": 869,
     "original_peaks_occurrences": 308,
-    "occurrences_ratio": 0.0948509485094851,
+    "lesser_peaks_occurrences_ratio": 0.0948509485094851,
     "flank_control_data": {
       "occurrences_ratio": 0.08130081300813008,
       "z_score": 0.7587640635258042,
       "p_value": 0.22399685319016527
     },
     "shuffled_control_data": {
-      "occurrences_ratio": 0.08008,
-      "z_score": 1.0365058259173028,
-      "p_value": 0.14998311144619114
+      "occurrences_ratio": 0.07896,
+      "z_score": 1.1221690707261414,
+      "p_value": 0.13089528028005237
     }
   },
   {
@@ -831,16 +831,16 @@
     "sites": 10,
     "original_peaks": 869,
     "original_peaks_occurrences": 286,
-    "occurrences_ratio": 0.06233062330623306,
+    "lesser_peaks_occurrences_ratio": 0.06233062330623306,
     "flank_control_data": {
       "occurrences_ratio": 0.05962059620596206,
       "z_score": 0.17825213376488278,
       "p_value": 0.42926248421437996
     },
     "shuffled_control_data": {
-      "occurrences_ratio": 0.06496,
-      "z_score": -0.2035003780634754,
-      "p_value": 0.4193719751057854
+      "occurrences_ratio": 0.06816,
+      "z_score": -0.44133534164093574,
+      "p_value": 0.3294851220502705
     }
   }
 ]
