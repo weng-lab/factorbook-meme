@@ -47,7 +47,8 @@ class MotifJsonTests {
 
     @Test
     fun `test motifOccurrencesCounts`() {
-        val occurrencesCounts = motifOccurrencesCounts(testInputDir.resolve(TOP501_1000_CENTER_FIMO_TSV))
+        val memeMotifNames = parseMotifs(testInputDir.resolve(TOP500_MEME_XML)).map { it.name }
+        val occurrencesCounts = motifOccurrencesCounts(testInputDir.resolve(TOP501_1000_CENTER_FIMO_TSV), memeMotifNames)
         val expectedOccurrencesCounts = mapOf(
                 "AGAGCTGCAGCCAGSAGCAGYSAGRAGMGA" to 24,
                 "RSYGCCMYCTRSTGG" to 207,

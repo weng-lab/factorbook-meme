@@ -56,7 +56,7 @@ fun motifJson(memeXml: Path, origPeaksFimoDir: Path, next500FimoDir: Path, shuff
     val origPeaks = parseNumSequences(origPeaksFimoXml)
 
     val origPeaksFimoTsv = origPeaksFimoDir.resolve(FIMO_TSV_FILENAME)
-    val origPeaksOccurrences = motifOccurrencesCounts(origPeaksFimoTsv)
+    val origPeaksOccurrences = motifOccurrencesCounts(origPeaksFimoTsv, memeMotifNames)
 
     val lesserPeaksOccurrenceRatios = motifOccurrencesRatios(next500FimoDir, memeMotifNames)
     val flankOccurrenceRatios = motifOccurrencesRatios(flankFimoDir, memeMotifNames)
@@ -170,7 +170,7 @@ fun motifOccurrencesRatios(fimoDir: Path, motifNames: List<String>): Map<String,
     val numSequences = parseNumSequences(fimoXml)
 
     val fimoTsv = fimoDir.resolve(FIMO_TSV_FILENAME)
-    val occurrenceCounts = motifOccurrencesCounts(fimoTsv)
+    val occurrenceCounts = motifOccurrencesCounts(fimoTsv, motifNames)
 
     return motifNames
             .map { motif ->
@@ -197,15 +197,15 @@ fun parseNumSequences(fimoXml: Path): Int {
  *
  * @return Map containing number of occurrences by Meme's motif "name"
  */
-fun motifOccurrencesCounts(fimoTsv: Path): Map<String, Int> {
-    val sequencesPerMotif = mutableMapOf<String, MutableSet<String>>()
+fun motifOccurrencesCounts(fimoTsv: Path, motifNames: List<String>): Map<String, Int> {
+    val sequencesPerMotif =
+            motifNames.map { it to mutableSetOf<String>() }.toMap() as MutableMap
     Files.newBufferedReader(fimoTsv).use { reader ->
         reader.forEachLine { line ->
             // Skip header, comment, and empty lines
             if (line.startsWith("motif_id") || line.startsWith("#") || line.isBlank()) return@forEachLine
             val motifName = line.split("\\s".toRegex())[0]
             val sequence = line.split("\\s".toRegex())[2]
-            if(!sequencesPerMotif.containsKey(motifName)) sequencesPerMotif[motifName] = mutableSetOf()
             sequencesPerMotif.getValue(motifName).add(sequence)
         }
     }

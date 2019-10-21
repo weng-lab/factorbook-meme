@@ -67,8 +67,7 @@ fun randomSequences(twoBit: Path,
         tracker.addAttempts++
         // Reservoir sampling algorithm
         val randomOutputIndex = (0 until outputsPerInput + tracker.addAttempts).random()
-        if (randomOutputIndex < outputsPerInput)
-            tracker.outputs[randomOutputIndex] = sequence
+        if (randomOutputIndex < outputsPerInput) tracker.outputs[randomOutputIndex] = sequence
     }
 
     val incomplete = outputsTrackers.filter { it.outputs.size < outputsPerInput }
@@ -91,7 +90,7 @@ private fun iterateAssemblySequences(twoBit: Path, chromosomeSizes: Map<String, 
         val parser = TwoBitParser(twoBit.toFile())
         parser.setCurrentSequence(chrom)
         parser.bufferedReader().use { reader ->
-            var loc = 0
+            var loc = 1
             while (loc + sequenceLength < chromLen) {
                 val seqRange = loc until (loc + sequenceLength)
                 val sequenceBuffer = CharArray(sequenceLength)

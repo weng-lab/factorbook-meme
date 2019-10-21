@@ -146,13 +146,13 @@ fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Pa
     log.info { "FIMO run on 501-1000 peaks centers complete!" }
 
     log.info { "Running FIMO on 501-1000 peaks flanks..." }
-    val next500FlankFimoDir = outputDir.resolve(FLANK_FIMO_DIR_SUFFIX)
+    val next500FlankFimoDir = outputDir.resolve("$outPrefix$FLANK_FIMO_DIR_SUFFIX")
     fimo(memeTxtFile, next500FlankSeqsFile, next500FlankFimoDir)
     log.info { "FIMO run on 501-1000 peaks flanks complete!" }
 
     // Run FIMO against 100x random sequences from reference genome (with matching length and gc content)
     val randomSeqFile = outputDir.resolve("$outPrefix$SHUFFLED_SEQS_SUFFIX")
-    val randomFimoDir = outputDir.resolve(SHUFFLED_FIMO_DIR_SUFFIX)
+    val randomFimoDir = outputDir.resolve("$outPrefix$SHUFFLED_FIMO_DIR_SUFFIX")
     log.info { "Generating Shuffled sequences..." }
     randomSequences(twoBit, top500CenterSeqsFile, randomSeqFile, shuffleOutputsPerInput, chromSizes, SEQUENCE_LENGTH,
             shuffleGCTolerance, methylData)

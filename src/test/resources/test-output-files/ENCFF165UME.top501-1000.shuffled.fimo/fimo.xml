@@ -21,7 +21,7 @@
 <setting name="pseudocount">0.1</setting>
 <setting name="verbosity">2</setting>
 </settings>
-<sequence-data num-sequences="50000" num-residues="5000000" />
+<sequence-data num-sequences="25000" num-residues="2500000" />
 <alphabet name="DNA" like="dna">
 <letter id="A" symbol="A" complement="T" name="Adenine" colour="CC0000"/>
 <letter id="C" symbol="C" complement="G" name="Cytosine" colour="0000CC"/>
@@ -39,11 +39,11 @@
 <letter id="Y" symbol="Y" equals="CT" name="Pyrimidine"/>
 <letter id="K" symbol="K" equals="GT" name="Keto"/>
 </alphabet>
-<motif name="RSYGCCCCCTRSTGG" alt="MEME-1" width="15" best-possible-match="AGCGCCCCCTGGTGG"/>
-<motif name="YTWCTTTTTTYTTTYWYTTTT" alt="MEME-2" width="21" best-possible-match="TTTCTTTTTTTTTTTTTTTTT"/>
-<motif name="SSCCBCVKCCCCCGCSCCNGCCCVSCCSCM" alt="MEME-3" width="30" best-possible-match="CGCCCCCGCCCCCGCCCCCGCCCGGCCCCC"/>
-<motif name="SSAKRSSWRGCCCWSRGRRACAGGGTSAWW" alt="MEME-4" width="30" best-possible-match="GGAGGCGTAGCCCTGAGAGACAGGGTGAAT"/>
-<motif name="CTATKWCMYCWCAGCTYCWATCTCTKTATG" alt="MEME-5" width="30" best-possible-match="CTATGTCCCCTCAGCTCCTATCTCTTTATG"/>
+<motif name="CCASYAGRKGGCRSY" alt="MEME-1" width="15" best-possible-match="CCACCAGGGGGCGCC"/>
+<motif name="WDADASWWDWKKTKYHWMTDWWDTWWTWTT" alt="MEME-2" width="30" best-possible-match="TAAAAGTATTGTTTTTTATTTTTTTATTTT"/>
+<motif name="AGAGCTGCAGCCAGSAGCAGYSAGRAGMGA" alt="MEME-3" width="30" best-possible-match="AGAGCTGCAGCCAGGAGCAGTCAGGAGAGA"/>
+<motif name="TCBTKKSCTCWGTSTYCTCCW" alt="MEME-4" width="21" best-possible-match="TCCTTGCCTCTGTCTTCTCCT"/>
+<motif name="CYRRGGCTGCCCAGCTGKGSCVAAGAGRA" alt="MEME-5" width="29" best-possible-match="CTGAGGCTGCCCAGCTGGGGCAAAGAGGA"/>
 <background source="--nrdb--">
 <value letter="A">0.275</value>
 <value letter="C">0.225</value>

@@ -113,19 +113,19 @@ fun readMethylBed(methylBed: Path, handle: (chrom: String, start: Int, pairMethy
             if (methylBed.toString().endsWith(".gz")) GZIPInputStream(rawInputStream)
             else rawInputStream
     var pairStarted = false
-    var firstStart = -1
+    var firstBP = -1
     var firstMethylPercent = -1
     inputStream.reader().forEachLine { line ->
         val lineParts = line.trim().split("\t")
         val chrom = lineParts[0]
-        val start = lineParts[1].toInt()
+        val bp = lineParts[2].toInt()
         val methylPercent = lineParts[10].toInt()
-        if (pairStarted && start - firstStart == 1){
+        if (pairStarted && bp - firstBP == 1){
             pairStarted = false
-            handle(chrom, firstStart, max(firstMethylPercent, methylPercent))
+            handle(chrom, firstBP, max(firstMethylPercent, methylPercent))
         } else {
             pairStarted = true
-            firstStart = start
+            firstBP = bp
             firstMethylPercent = methylPercent
         }
     }

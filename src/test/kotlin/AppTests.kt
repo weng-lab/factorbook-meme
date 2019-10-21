@@ -1,7 +1,11 @@
+import mu.KotlinLogging
 import org.assertj.core.api.Assertions.*
+import org.biojava.nbio.genome.parsers.twobit.TwoBitParser
 import org.junit.jupiter.api.*
 import step.*
 import util.*
+
+private val log = KotlinLogging.logger {}
 
 /**
  * Test the complete meme application minus CLI bootstrap.
@@ -92,8 +96,8 @@ import util.*
     @Test fun `run post-meme steps for methylated peaks with 2 methyl beds`() {
         val chr22Sizes = parseChromSizes(CHR22_CHROM_INFO)
         val methylData = parseMethylBeds(listOf(METHYL_BED_2A, METHYL_BED_2B), 50)
-        cmdRunner.runPostMemeSteps(M_PREFIX, testInputDir.resolve(M_SUMMITS), testInputDir.resolve(M_MEME_DIR),
-                testInputDir.resolve(M_CLEANED_PEAKS), testInputDir.resolve(M_TOP500_SEQS_CENTER), CHR22_TWO_BIT,
+        cmdRunner.runPostMemeSteps(M2_PREFIX, testInputDir.resolve(M2_SUMMITS), testInputDir.resolve(M2_MEME_DIR),
+                testInputDir.resolve(M2_CLEANED_PEAKS), testInputDir.resolve(M2_TOP500_SEQS_CENTER), CHR22_TWO_BIT,
                 testOutputDir, chr22Sizes, 100, 10, methylData)
     }
 

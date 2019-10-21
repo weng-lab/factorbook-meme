@@ -17,4 +17,10 @@ class CleanPeaksTests {
         assertOutputMatches(M_CLEANED_PEAKS)
     }
 
+    @Test fun `Test cleanPeaks with multiple methyl beds`() {
+        val methylData = parseMethylBeds(listOf(METHYL_BED_2A, METHYL_BED_2B), 50)
+        cleanPeaks(M2_PEAKS, null, methylData, testOutputDir.resolve(M2_CLEANED_PEAKS))
+        assertOutputMatches(M2_CLEANED_PEAKS)
+    }
+
 }

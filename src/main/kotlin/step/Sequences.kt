@@ -13,27 +13,29 @@ private val log = KotlinLogging.logger {}
  * @param peaks path to the trimmed peaks file.
  * @param twoBit path to the two bit sequence file for this genome.
  * @param output output path to write the FASTA.
- * @param methylBed optional methylation states bed file used to add 'M' and 'W'
- *      methylation indicator replacements in sequences.
- * @param methylPercentThreshold
+ * @param methylData optional methylation data used to add 'M' and 'W' methylation indicator replacements in sequences.
  */
 fun peaksToFasta(peaks: Path, twoBit: Path, output: Path, methylData: MethylData? = null, lineRange: IntRange? = null) {
     // Keep one parser per chromosome, because the "setCurrentSequence" method takes time and caches header data.
     val parsers = mutableMapOf<String, TwoBitParser>()
 
     Files.createDirectories(output.parent)
-    Files.newBufferedWriter(output).use { writer ->
+    val writer = Files.newBufferedWriter(output)
+    try {
         readPeaksFile(peaks, lineRange) { peaksRow ->
             val parser = parsers.getOrPut(peaksRow.chrom) {
                 val p = TwoBitParser(twoBit.toFile())
                 p.setCurrentSequence(peaksRow.chrom)
                 p
             }
+            // This reset is necessary to work around a bug in the TwoBitParser that will occasionally
+            // return partially incorrect sequences.
+            parser.reset()
 
             // If we get an error loading, ignore this line. The parser thinks there's a problem with the twoBit having
             // invalid masked values at this location and there's nothing we can do about it, but it's very uncommon.
             var segment = try {
-                parser.loadFragment(peaksRow.chromStart.toLong(), peaksRow.chromEnd - peaksRow.chromStart)
+                parser.loadFragment(peaksRow.chromStart.toLong() - 1, peaksRow.chromEnd - peaksRow.chromStart)
             } catch (e: Exception) {
                 log.error(e) {
                     "Error reading sequence from $twoBit at location ${peaksRow.chrom}:${peaksRow.chromStart}-${peaksRow.chromEnd}"
@@ -47,6 +49,9 @@ fun peaksToFasta(peaks: Path, twoBit: Path, output: Path, methylData: MethylData
             segment = segment.chunked(50).joinToString("\n")
             writer.write(">${peaksRow.name}\n$segment\n")
         }
+    } finally {
+        writer.close()
+        parsers.values.forEach { it.close() }
     }
 }
 

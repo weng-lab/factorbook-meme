@@ -57,7 +57,7 @@ One of the main outputs of Factorbook MEME is a json file describing the top 5 m
 each with the following quality measurements
 
 ```json
-  "occurrences_ratio": 0.016260162601626018,
+  "lesser_peaks_occurrences_ratio": 0.016260162601626018,
   "flank_control_data": {
     "occurrences_ratio": 0.05420054200542006,
     "z_scores": -2.9818118487600063,
@@ -71,8 +71,8 @@ each with the following quality measurements
 ```
 
 - `occurrences_ratio` refers to the ratios of motif occurrences to total sequences they were pulled from. 
-    - The base level `occurrences_ratio` comes from the 500-1k centered sequences fimo run. 
-    - The values in `flank_control_data` and `shuffled_control_data` come from the 500-1k flanks and shuffled fimo runs.
+    - The base level `lesser_peaks_occurrences_ratio` comes from the 500-1k centered sequences fimo run. 
+    - The `occurrences_ratio` values in `flank_control_data` and `shuffled_control_data` come from the 500-1k flanks and shuffled fimo runs.
 - `zscore` and `pvalue` come from comparing control data `occurrences_ratio` to our base level `occurrences_ratio`.
     - Higher values mean our motifs occur more frequently in our 501-1k center sequences than our controls.
 

@@ -45,10 +45,11 @@ class MethylFileUtilsTests {
     @Test fun `test parseMethylBeds for multiple methylBeds`() {
         val methylData = parseMethylBeds(listOf(METHYL_BED_2A, METHYL_BED_2B), 50)
         // zero in both beds
-        assertThat(methylData.containsValueInRange("chr22", 10520843 .. 10520843)).isEqualTo(false)
+        assertThat(methylData.containsValueInRange("chr22", 10520844 .. 10520844)).isEqualTo(false)
         // avg is less than 50
-        assertThat(methylData.containsValueInRange("chr22", 10522481 .. 10522481)).isEqualTo(false)
+        assertThat(methylData.containsValueInRange("chr22", 10522482 .. 10522482)).isEqualTo(false)
         // avg is greater than 50
-        assertThat(methylData.containsValueInRange("chr22", 10522977 .. 10522977)).isEqualTo(true)
+        assertThat(methylData.containsValueInRange("chr22", 10522978 .. 10522978)).isEqualTo(true)
+        assertThat(methylData.containsValueInRange("chr22", 10522979 .. 10522979)).isEqualTo(true)
     }
 }
