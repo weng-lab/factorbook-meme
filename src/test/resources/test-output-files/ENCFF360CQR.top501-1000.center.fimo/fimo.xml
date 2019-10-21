@@ -4,10 +4,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
 >
-<command-line>fimo -oc /tmp/motif-test/output/ENCFF360CQR.top501-1000.center.fimo /tmp/motif-test/output/ENCFF360CQR.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF360CQR.top501-1000.seqs.center</command-line>
+<command-line>fimo -oc /tmp/motif-test/output/ENCFF360CQR.top501-1000.center.fimo /tmp/motif-test/input/ENCFF360CQR.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF360CQR.top501-1000.seqs.center</command-line>
 <settings>
 <setting name="output directory">/tmp/motif-test/output/ENCFF360CQR.top501-1000.center.fimo</setting>
-<setting name="MEME file name">/tmp/motif-test/output/ENCFF360CQR.top500.center.meme/meme.txt</setting>
+<setting name="MEME file name">/tmp/motif-test/input/ENCFF360CQR.top500.center.meme/meme.txt</setting>
 <setting name="sequence file name">/tmp/motif-test/output/ENCFF360CQR.top501-1000.seqs.center</setting>
 <setting name="background file name">--motif--</setting>
 <setting name="allow clobber">true</setting>
@@ -45,15 +45,15 @@
 <letter id="Q" symbol="Q" equals="GW"/>
 <letter id="P" symbol="P" equals="MW"/>
 </alphabet>
-<motif name="CHMWCH" alt="MEME-1" width="6" best-possible-match="CCMWCC"/>
-<motif name="NVEMWS" alt="MEME-2" width="6" best-possible-match="TCTMWG"/>
-<motif name="MWSYYY" alt="MEME-3" width="6" best-possible-match="MWGCCC"/>
-<motif name="CTCAYRCCTGTAATCCCAGCACTTTGGG" alt="MEME-4" width="28" best-possible-match="CTCACGCCTGTAATCCCAGCACTTTGGG"/>
-<motif name="YCCEGYCYYCH" alt="MEME-5" width="11" best-possible-match="CCCTGCCTCCC"/>
+<motif name="YCHMWYCH" alt="MEME-1" width="8" best-possible-match="CCCMWCCC"/>
+<motif name="MWVBTB" alt="MEME-2" width="6" best-possible-match="MWGGTG"/>
+<motif name="TAATCCCAGCEFYTTGGGAGG" alt="MEME-3" width="21" best-possible-match="TAATCCCAGCACTTTGGGAGG"/>
+<motif name="BCDMWS" alt="MEME-4" width="6" best-possible-match="CCTMWG"/>
+<motif name="TGAGGYCAGGAGTTTGAGACCAGCCTGG" alt="MEME-5" width="28" best-possible-match="TGAGGCCAGGAGTTTGAGACCAGCCTGG"/>
 <background source="--motif--">
 <value letter="A">0.242</value>
-<value letter="C">0.248</value>
-<value letter="G">0.248</value>
+<value letter="C">0.247</value>
+<value letter="G">0.247</value>
 <value letter="M">0.010</value>
 <value letter="T">0.242</value>
 <value letter="W">0.010</value>

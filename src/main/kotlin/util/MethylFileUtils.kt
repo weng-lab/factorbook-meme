@@ -118,7 +118,7 @@ fun readMethylBed(methylBed: Path, handle: (chrom: String, start: Int, pairMethy
     inputStream.reader().forEachLine { line ->
         val lineParts = line.trim().split("\t")
         val chrom = lineParts[0]
-        val bp = lineParts[2].toInt()
+        val bp = lineParts[1].toInt()
         val methylPercent = lineParts[10].toInt()
         if (pairStarted && bp - firstBP == 1){
             pairStarted = false

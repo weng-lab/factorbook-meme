@@ -35,7 +35,7 @@ fun peaksToFasta(peaks: Path, twoBit: Path, output: Path, methylData: MethylData
             // If we get an error loading, ignore this line. The parser thinks there's a problem with the twoBit having
             // invalid masked values at this location and there's nothing we can do about it, but it's very uncommon.
             var segment = try {
-                parser.loadFragment(peaksRow.chromStart.toLong() - 1, peaksRow.chromEnd - peaksRow.chromStart)
+                parser.loadFragment(peaksRow.chromStart.toLong(), peaksRow.chromEnd - peaksRow.chromStart)
             } catch (e: Exception) {
                 log.error(e) {
                     "Error reading sequence from $twoBit at location ${peaksRow.chrom}:${peaksRow.chromStart}-${peaksRow.chromEnd}"

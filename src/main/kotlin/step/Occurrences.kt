@@ -20,7 +20,7 @@ fun occurrencesTsv(fimoTsv: Path, peaksBed: Path, out: Path) {
             val strand = lineParts[5]
             val qValue = lineParts[8].toDouble()
             val peak = peaks.getValue(peakId)
-            val absoluteStart = peak.start + startWithinPeak
+            val absoluteStart = peak.start + startWithinPeak - 1
             val absoluteEnd = peak.start + endWithinPeak
             writer.write("$motifId\t${peak.chr}\t$absoluteStart\t$absoluteEnd\t$strand\t$qValue\n")
         }

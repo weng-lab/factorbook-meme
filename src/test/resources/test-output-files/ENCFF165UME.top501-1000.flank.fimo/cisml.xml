@@ -74,13 +74,13 @@ clusterid CDATA #IMPLIED
 >
 <program-name>fimo</program-name>
 <parameters>
-<command-line>fimo -oc /tmp/motif-test/output/ENCFF165UME.top501-1000.flank.fimo /tmp/motif-test/output/ENCFF165UME.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF165UME.top501-1000.seqs.flank</command-line>
-<pattern-file>/tmp/motif-test/output/ENCFF165UME.top500.center.meme/meme.txt</pattern-file>
+<command-line>fimo -oc /tmp/motif-test/output/ENCFF165UME.top501-1000.flank.fimo /tmp/motif-test/input/ENCFF165UME.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF165UME.top501-1000.seqs.flank</command-line>
+<pattern-file>/tmp/motif-test/input/ENCFF165UME.top500.center.meme/meme.txt</pattern-file>
 <sequence-file>/tmp/motif-test/output/ENCFF165UME.top501-1000.seqs.flank</sequence-file>
 <site-pvalue-cutoff>0.0001</site-pvalue-cutoff>
 <sequence-filtering on-off="off"/>
 </parameters>
-<pattern accession="CCASYAGRKGGCRSY" name="MEME-1">
+<pattern accession="RSYGCCMYCTRSTGG" name="MEME-1">
 <scanned-sequence accession="peak_500-L" name="peak_500-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_500-R" name="peak_500-R">
@@ -106,15 +106,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_505-R" name="peak_505-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_506-L" name="peak_506-L">
-<matched-element start="63" stop="77" score="15.4286" pvalue="2.91e-06">
-<sequence>GCACCAGAGGGCACG</sequence>
-<mem:qvalue>0.0185</mem:qvalue>
+<matched-element start="76" stop="62" score="15.5" pvalue="2.74e-06">
+<sequence>CGTGCCCTCTGGTGC</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_506-R" name="peak_506-R">
-<matched-element start="46" stop="60" score="11.3429" pvalue="3.03e-05">
-<sequence>CCTGCAGATGCCGGA</sequence>
-<mem:qvalue>0.0593</mem:qvalue>
+<matched-element start="59" stop="45" score="11.1429" pvalue="3.27e-05">
+<sequence>TCCGGCATCTGCAGG</sequence>
+<mem:qvalue>0.0604</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_507-L" name="peak_507-L">
@@ -146,13 +146,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_513-R" name="peak_513-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_514-L" name="peak_514-L">
-<matched-element start="89" stop="75" score="17.0714" pvalue="9.36e-07">
-<sequence>CCTGCAGGGGGTGCC</sequence>
-<mem:qvalue>0.00988</mem:qvalue>
+<matched-element start="74" stop="88" score="17" pvalue="9.91e-07">
+<sequence>GGCACCCCCTGCAGG</sequence>
+<mem:qvalue>0.0115</mem:qvalue>
 </matched-element>
-<matched-element start="82" stop="96" score="14.6286" pvalue="4.81e-06">
-<sequence>CCTGCAGGCGGCGGT</sequence>
-<mem:qvalue>0.0194</mem:qvalue>
+<matched-element start="95" stop="81" score="14.6286" pvalue="4.73e-06">
+<sequence>ACCGCCGCCTGCAGG</sequence>
+<mem:qvalue>0.0197</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_514-R" name="peak_514-R">
@@ -160,10 +160,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_515-L" name="peak_515-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_515-R" name="peak_515-R">
-<matched-element start="15" stop="1" score="17.5857" pvalue="6.44e-07">
-<sequence>CCTCCAGGGGGCAGA</sequence>
-<mem:qvalue>0.00956</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_516-L" name="peak_516-L">
 </scanned-sequence>
@@ -186,9 +182,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_520-R" name="peak_520-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_521-L" name="peak_521-L">
-<matched-element start="75" stop="89" score="12.7857" pvalue="1.42e-05">
-<sequence>CCTGCAGAGGGGGCA</sequence>
-<mem:qvalue>0.0369</mem:qvalue>
+<matched-element start="88" stop="74" score="12.5429" pvalue="1.58e-05">
+<sequence>TGCCCCCTCTGCAGG</sequence>
+<mem:qvalue>0.0399</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_521-R" name="peak_521-R">
@@ -218,9 +214,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_527-R" name="peak_527-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_528-L" name="peak_528-L">
-<matched-element start="74" stop="88" score="9.44286" pvalue="7.55e-05">
-<sequence>CCCCAAGATGGGACT</sequence>
-<mem:qvalue>0.0972</mem:qvalue>
+<matched-element start="87" stop="73" score="9.04286" pvalue="8.82e-05">
+<sequence>AGTCCCATCTTGGGG</sequence>
+<mem:qvalue>0.103</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_528-R" name="peak_528-R">
@@ -236,9 +232,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_531-L" name="peak_531-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_531-R" name="peak_531-R">
-<matched-element start="92" stop="78" score="9.68571" pvalue="6.76e-05">
-<sequence>TCTGCAGGTGTCACT</sequence>
-<mem:qvalue>0.09</mem:qvalue>
+<matched-element start="77" stop="91" score="9.6" pvalue="6.85e-05">
+<sequence>AGTGACACCTGCAGA</sequence>
+<mem:qvalue>0.0885</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_532-L" name="peak_532-L">
@@ -248,9 +244,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_533-L" name="peak_533-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_533-R" name="peak_533-R">
-<matched-element start="16" stop="2" score="14.9857" pvalue="3.9e-06">
-<sequence>CCAACAGGAGGCGCC</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="1" stop="15" score="15.0571" pvalue="3.65e-06">
+<sequence>GGCGCCTCCTGTTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_534-L" name="peak_534-L">
@@ -268,9 +264,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_537-L" name="peak_537-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_537-R" name="peak_537-R">
-<matched-element start="24" stop="38" score="9.98571" pvalue="5.86e-05">
-<sequence>tcagcagaggctggc</sequence>
-<mem:qvalue>0.0824</mem:qvalue>
+<matched-element start="37" stop="23" score="9.85714" pvalue="6.08e-05">
+<sequence>GCCAGCCTCTGCTGA</sequence>
+<mem:qvalue>0.0848</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_538-L" name="peak_538-L">
@@ -324,9 +320,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_550-L" name="peak_550-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_550-R" name="peak_550-R">
-<matched-element start="42" stop="28" score="10.3" pvalue="5.06e-05">
-<sequence>GCCCCAGGGGGCCCT</sequence>
-<mem:qvalue>0.0813</mem:qvalue>
+<matched-element start="27" stop="41" score="10.1286" pvalue="5.35e-05">
+<sequence>AGGGCCCCCTGGGGC</sequence>
+<mem:qvalue>0.0819</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_551-L" name="peak_551-L">
@@ -342,23 +338,23 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_553-R" name="peak_553-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_554-L" name="peak_554-L">
-<matched-element start="47" stop="61" score="13.1286" pvalue="1.17e-05">
-<sequence>CCTGGCGGGGGCGCC</sequence>
-<mem:qvalue>0.0335</mem:qvalue>
+<matched-element start="60" stop="46" score="13.0857" pvalue="1.17e-05">
+<sequence>GGCGCCCCCGCCAGG</sequence>
+<mem:qvalue>0.034</mem:qvalue>
 </matched-element>
-<matched-element start="54" stop="40" score="10.0429" pvalue="5.71e-05">
-<sequence>CCGCCAGGAGGCCCG</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="39" stop="53" score="10.0429" pvalue="5.56e-05">
+<sequence>CGGGCCTCCTGGCGG</sequence>
+<mem:qvalue>0.082</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_554-R" name="peak_554-R">
-<matched-element start="86" stop="100" score="12.5286" pvalue="1.63e-05">
-<sequence>CCGCGAGGGGCCGCG</sequence>
-<mem:qvalue>0.0382</mem:qvalue>
+<matched-element start="99" stop="85" score="12.3429" pvalue="1.76e-05">
+<sequence>CGCGGCCCCTCGCGG</sequence>
+<mem:qvalue>0.0401</mem:qvalue>
 </matched-element>
-<matched-element start="69" stop="83" score="10.1143" pvalue="5.52e-05">
-<sequence>CAGGCTGGGGGCGGC</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="82" stop="68" score="10.1857" pvalue="5.21e-05">
+<sequence>GCCGCCCCCAGCCTG</sequence>
+<mem:qvalue>0.0819</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_555-L" name="peak_555-L">
@@ -396,13 +392,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_563-L" name="peak_563-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_563-R" name="peak_563-R">
-<matched-element start="19" stop="33" score="11.5" pvalue="2.8e-05">
-<sequence>gcacctgggggaagc</sequence>
-<mem:qvalue>0.0566</mem:qvalue>
+<matched-element start="32" stop="18" score="11.6429" pvalue="2.54e-05">
+<sequence>GCTTCCCCCAGGTGC</sequence>
+<mem:qvalue>0.051</mem:qvalue>
 </matched-element>
-<matched-element start="9" stop="23" score="8.91429" pvalue="9.59e-05">
-<sequence>ccaaaagagagcacc</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="22" stop="8" score="8.84286" pvalue="9.64e-05">
+<sequence>GGTGCTCTCTTTTGG</sequence>
+<mem:qvalue>0.106</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_564-L" name="peak_564-L">
@@ -430,9 +426,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_569-R" name="peak_569-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_570-L" name="peak_570-L">
-<matched-element start="17" stop="31" score="9.18571" pvalue="8.5e-05">
-<sequence>ACGCTGGGTGGCACA</sequence>
-<mem:qvalue>0.105</mem:qvalue>
+<matched-element start="30" stop="16" score="9.11429" pvalue="8.55e-05">
+<sequence>TGTGCCACCCAGCGT</sequence>
+<mem:qvalue>0.101</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_570-R" name="peak_570-R">
@@ -456,9 +452,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_575-L" name="peak_575-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_575-R" name="peak_575-R">
-<matched-element start="29" stop="43" score="9.55714" pvalue="7.16e-05">
-<sequence>CCACCAGAGAGTGGA</sequence>
-<mem:qvalue>0.0933</mem:qvalue>
+<matched-element start="42" stop="28" score="9.51429" pvalue="7.12e-05">
+<sequence>TCCACTCTCTGGTGG</sequence>
+<mem:qvalue>0.0901</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_576-L" name="peak_576-L">
@@ -470,13 +466,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_577-R" name="peak_577-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_578-L" name="peak_578-L">
-<matched-element start="85" stop="99" score="10.6857" pvalue="4.2e-05">
-<sequence>CCAGTGGAGGGGGCA</sequence>
-<mem:qvalue>0.0728</mem:qvalue>
-</matched-element>
-<matched-element start="91" stop="77" score="8.85714" pvalue="9.83e-05">
-<sequence>CCACTGGAGGGGTCT</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="98" stop="84" score="10.4286" pvalue="4.64e-05">
+<sequence>TGCCCCCTCCACTGG</sequence>
+<mem:qvalue>0.076</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_578-R" name="peak_578-R">
@@ -490,13 +482,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_580-R" name="peak_580-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_581-L" name="peak_581-L">
-<matched-element start="99" stop="85" score="12.5714" pvalue="1.59e-05">
-<sequence>CCACGGGGGGCCACT</sequence>
-<mem:qvalue>0.0381</mem:qvalue>
+<matched-element start="84" stop="98" score="12.3714" pvalue="1.73e-05">
+<sequence>AGTGGCCCCCCGTGG</sequence>
+<mem:qvalue>0.0401</mem:qvalue>
 </matched-element>
-<matched-element start="73" stop="87" score="9.97143" pvalue="5.9e-05">
-<sequence>ACAGCAGGGGCGAGT</sequence>
-<mem:qvalue>0.0824</mem:qvalue>
+<matched-element start="86" stop="72" score="9.7" pvalue="6.54e-05">
+<sequence>ACTCGCCCCTGCTGT</sequence>
+<mem:qvalue>0.0865</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_581-R" name="peak_581-R">
@@ -520,17 +512,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_586-L" name="peak_586-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_586-R" name="peak_586-R">
-<matched-element start="20" stop="34" score="14.3286" pvalue="5.81e-06">
-<sequence>CCTGGAGGGGGAGCT</sequence>
-<mem:qvalue>0.022</mem:qvalue>
+<matched-element start="33" stop="19" score="14.2857" pvalue="5.81e-06">
+<sequence>AGCTCCCCCTCCAGG</sequence>
+<mem:qvalue>0.0227</mem:qvalue>
 </matched-element>
-<matched-element start="27" stop="13" score="12.1857" pvalue="1.96e-05">
-<sequence>CCTCCAGGTGGGGAC</sequence>
-<mem:qvalue>0.0434</mem:qvalue>
+<matched-element start="12" stop="26" score="11.8714" pvalue="2.25e-05">
+<sequence>GTCCCCACCTGGAGG</sequence>
+<mem:qvalue>0.0475</mem:qvalue>
 </matched-element>
-<matched-element start="24" stop="10" score="10.4286" pvalue="4.76e-05">
-<sequence>CCAGGTGGGGACACC</sequence>
-<mem:qvalue>0.0796</mem:qvalue>
+<matched-element start="9" stop="23" score="10.4286" pvalue="4.64e-05">
+<sequence>GGTGTCCCCACCTGG</sequence>
+<mem:qvalue>0.076</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_587-L" name="peak_587-L">
@@ -540,9 +532,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_588-L" name="peak_588-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_588-R" name="peak_588-R">
-<matched-element start="25" stop="11" score="19.3857" pvalue="1.42e-07">
-<sequence>ACAGCAGGGGGCGCT</sequence>
-<mem:qvalue>0.00553</mem:qvalue>
+<matched-element start="10" stop="24" score="19.4286" pvalue="1.35e-07">
+<sequence>agcgccccctgctgt</sequence>
+<mem:qvalue>0.00522</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_589-L" name="peak_589-L">
@@ -554,17 +546,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_590-R" name="peak_590-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_591-L" name="peak_591-L">
-<matched-element start="26" stop="12" score="11.1143" pvalue="3.4e-05">
-<sequence>GCACAAGGCGGCAGT</sequence>
-<mem:qvalue>0.0617</mem:qvalue>
+<matched-element start="11" stop="25" score="11.2286" pvalue="3.13e-05">
+<sequence>ACTGCCGCCTTGTGC</sequence>
+<mem:qvalue>0.0587</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_591-R" name="peak_591-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_592-L" name="peak_592-L">
-<matched-element start="69" stop="83" score="14.3286" pvalue="5.81e-06">
-<sequence>CCACTGGGTGGAGCT</sequence>
-<mem:qvalue>0.022</mem:qvalue>
+<matched-element start="82" stop="68" score="14.2714" pvalue="5.86e-06">
+<sequence>AGCTCCACCCAGTGG</sequence>
+<mem:qvalue>0.0227</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_592-R" name="peak_592-R">
@@ -586,15 +578,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_596-R" name="peak_596-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_597-L" name="peak_597-L">
-<matched-element start="79" stop="65" score="10.0429" pvalue="5.71e-05">
-<sequence>CTACCAGGTGGCGTT</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="64" stop="78" score="10.0571" pvalue="5.53e-05">
+<sequence>AACGCCACCTGGTAG</sequence>
+<mem:qvalue>0.082</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_597-R" name="peak_597-R">
-<matched-element start="8" stop="22" score="10.1857" pvalue="5.35e-05">
-<sequence>CCCCGCGGTGGCGGC</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="21" stop="7" score="9.97143" pvalue="5.76e-05">
+<sequence>GCCGCCACCGCGGGG</sequence>
+<mem:qvalue>0.0837</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_598-L" name="peak_598-L">
@@ -610,9 +602,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_600-R" name="peak_600-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_601-L" name="peak_601-L">
-<matched-element start="57" stop="71" score="11.1" pvalue="3.42e-05">
-<sequence>CCACTAGGTGACAAT</sequence>
-<mem:qvalue>0.0617</mem:qvalue>
+<matched-element start="70" stop="56" score="11.0571" pvalue="3.41e-05">
+<sequence>ATTGTCACCTAGTGG</sequence>
+<mem:qvalue>0.0611</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_601-R" name="peak_601-R">
@@ -626,9 +618,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_603-R" name="peak_603-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_604-L" name="peak_604-L">
-<matched-element start="70" stop="84" score="12.9143" pvalue="1.31e-05">
-<sequence>ACAGAAGGTGGCAGG</sequence>
-<mem:qvalue>0.0353</mem:qvalue>
+<matched-element start="83" stop="69" score="12.8571" pvalue="1.33e-05">
+<sequence>CCTGCCACCTTCTGT</sequence>
+<mem:qvalue>0.0352</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_604-R" name="peak_604-R">
@@ -638,9 +630,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_605-R" name="peak_605-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_606-L" name="peak_606-L">
-<matched-element start="60" stop="74" score="11.1286" pvalue="3.37e-05">
-<sequence>CCACCAGGGGCAGTA</sequence>
-<mem:qvalue>0.0617</mem:qvalue>
+<matched-element start="73" stop="59" score="11" pvalue="3.51e-05">
+<sequence>TACTGCCCCTGGTGG</sequence>
+<mem:qvalue>0.0619</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_606-R" name="peak_606-R">
@@ -656,11 +648,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_609-L" name="peak_609-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_609-R" name="peak_609-R">
+<matched-element start="86" stop="100" score="11.8429" pvalue="2.29e-05">
+<sequence>GTGTCCACCTGGTGG</sequence>
+<mem:qvalue>0.0475</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_610-L" name="peak_610-L">
-<matched-element start="83" stop="69" score="10.7286" pvalue="4.11e-05">
-<sequence>CCGCAGGGAGGCGCC</sequence>
-<mem:qvalue>0.0728</mem:qvalue>
+<matched-element start="68" stop="82" score="10.8286" pvalue="3.82e-05">
+<sequence>ggcgcctccctgcgg</sequence>
+<mem:qvalue>0.0664</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_610-R" name="peak_610-R">
@@ -668,9 +664,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_611-L" name="peak_611-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_611-R" name="peak_611-R">
-<matched-element start="84" stop="98" score="10.6714" pvalue="4.22e-05">
-<sequence>CCAAGAGATGGAAGC</sequence>
-<mem:qvalue>0.0728</mem:qvalue>
+<matched-element start="97" stop="83" score="10.5286" pvalue="4.42e-05">
+<sequence>GCTTCCATCTCTTGG</sequence>
+<mem:qvalue>0.0756</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_612-L" name="peak_612-L">
@@ -700,9 +696,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_618-L" name="peak_618-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_618-R" name="peak_618-R">
-<matched-element start="17" stop="31" score="14.8571" pvalue="4.18e-06">
-<sequence>CCACTAGATGTCACT</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="30" stop="16" score="14.7857" pvalue="4.25e-06">
+<sequence>AGTGACATCTAGTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_619-L" name="peak_619-L">
@@ -710,9 +706,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_619-R" name="peak_619-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_620-L" name="peak_620-L">
-<matched-element start="79" stop="93" score="14.9429" pvalue="3.99e-06">
-<sequence>CCACTGGATGGCAGT</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="92" stop="78" score="14.9" pvalue="3.99e-06">
+<sequence>ACTGCCATCCAGTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_620-R" name="peak_620-R">
@@ -734,12 +730,16 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_624-R" name="peak_624-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_625-L" name="peak_625-L">
-<matched-element start="32" stop="46" score="10.1714" pvalue="5.38e-05">
-<sequence>CCCAGAGAGGGCACT</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="45" stop="31" score="9.9" pvalue="5.96e-05">
+<sequence>AGTGCCCTCTCTGGG</sequence>
+<mem:qvalue>0.0848</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_625-R" name="peak_625-R">
+<matched-element start="86" stop="100" score="9.61429" pvalue="6.8e-05">
+<sequence>CCTGACACCTGGGGG</sequence>
+<mem:qvalue>0.0885</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_626-L" name="peak_626-L">
 </scanned-sequence>
@@ -770,9 +770,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_632-R" name="peak_632-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_633-L" name="peak_633-L">
-<matched-element start="75" stop="89" score="10.4" pvalue="4.82e-05">
-<sequence>GCTGTAGGGGCCGGC</sequence>
-<mem:qvalue>0.0796</mem:qvalue>
+<matched-element start="88" stop="74" score="10.3857" pvalue="4.74e-05">
+<sequence>GCCGGCCCCTACAGC</sequence>
+<mem:qvalue>0.0766</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_633-R" name="peak_633-R">
@@ -788,9 +788,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_636-L" name="peak_636-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_636-R" name="peak_636-R">
-<matched-element start="79" stop="65" score="9.08571" pvalue="8.89e-05">
-<sequence>ACTCCAGAGGGATCC</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="64" stop="78" score="9.2" pvalue="8.22e-05">
+<sequence>GGATCCCTCTGGAGT</sequence>
+<mem:qvalue>0.1</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_637-L" name="peak_637-L">
@@ -810,9 +810,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_640-R" name="peak_640-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_641-L" name="peak_641-L">
-<matched-element start="16" stop="30" score="8.84286" pvalue="9.89e-05">
-<sequence>ccaccaggtgacttt</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="29" stop="15" score="8.97143" pvalue="9.11e-05">
+<sequence>AAAGTCACCTGGTGG</sequence>
+<mem:qvalue>0.103</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_641-R" name="peak_641-R">
@@ -856,9 +856,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_651-L" name="peak_651-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_651-R" name="peak_651-R">
-<matched-element start="91" stop="77" score="10.0714" pvalue="5.63e-05">
-<sequence>CCACTAGATGCCAAA</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="76" stop="90" score="9.84286" pvalue="6.12e-05">
+<sequence>tttggcatctagtgg</sequence>
+<mem:qvalue>0.0848</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_652-L" name="peak_652-L">
@@ -874,9 +874,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_654-R" name="peak_654-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_655-L" name="peak_655-L">
-<matched-element start="100" stop="86" score="12.5857" pvalue="1.58e-05">
-<sequence>CCACCTGGTGGCCCA</sequence>
-<mem:qvalue>0.0381</mem:qvalue>
+<matched-element start="85" stop="99" score="12.4143" pvalue="1.69e-05">
+<sequence>TGGGCCACCAGGTGG</sequence>
+<mem:qvalue>0.0401</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_655-R" name="peak_655-R">
@@ -986,9 +986,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_681-R" name="peak_681-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_682-L" name="peak_682-L">
-<matched-element start="72" stop="86" score="16.9286" pvalue="1.06e-06">
-<sequence>CCAGGAGGTGGCGGA</sequence>
-<mem:qvalue>0.00988</mem:qvalue>
+<matched-element start="85" stop="71" score="16.8429" pvalue="1.13e-06">
+<sequence>TCCGCCACCTCCTGG</sequence>
+<mem:qvalue>0.0115</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_682-R" name="peak_682-R">
@@ -1002,15 +1002,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_684-R" name="peak_684-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_685-L" name="peak_685-L">
-<matched-element start="22" stop="36" score="15.5286" pvalue="2.74e-06">
-<sequence>CCCCTAGAGGGCAGC</sequence>
-<mem:qvalue>0.0185</mem:qvalue>
+<matched-element start="35" stop="21" score="15.4" pvalue="2.89e-06">
+<sequence>GCTGCCCTCTAGGGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_685-R" name="peak_685-R">
-<matched-element start="8" stop="22" score="12.4571" pvalue="1.69e-05">
-<sequence>ccacatgagggcatc</sequence>
-<mem:qvalue>0.0389</mem:qvalue>
+<matched-element start="21" stop="7" score="12.4857" pvalue="1.63e-05">
+<sequence>GATGCCCTCATGTGG</sequence>
+<mem:qvalue>0.0401</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_686-L" name="peak_686-L">
@@ -1018,9 +1018,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_686-R" name="peak_686-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_687-L" name="peak_687-L">
-<matched-element start="72" stop="86" score="17.0857" pvalue="9.22e-07">
-<sequence>ccagcaggtggctgt</sequence>
-<mem:qvalue>0.00988</mem:qvalue>
+<matched-element start="85" stop="71" score="17.2" pvalue="8.41e-07">
+<sequence>ACAGCCACCTGCTGG</sequence>
+<mem:qvalue>0.0109</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_687-R" name="peak_687-R">
@@ -1050,9 +1050,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_693-R" name="peak_693-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_694-L" name="peak_694-L">
-<matched-element start="48" stop="62" score="9.65714" pvalue="6.85e-05">
-<sequence>GCGGCTGGGGGCGGG</sequence>
-<mem:qvalue>0.0902</mem:qvalue>
+<matched-element start="61" stop="47" score="9.77143" pvalue="6.33e-05">
+<sequence>CCCGCCCCCAGCCGC</sequence>
+<mem:qvalue>0.0862</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_694-R" name="peak_694-R">
@@ -1060,19 +1060,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_695-L" name="peak_695-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_695-R" name="peak_695-R">
-<matched-element start="13" stop="27" score="20.5714" pvalue="4.8e-08">
-<sequence>CCACCAGGGGGTGCC</sequence>
-<mem:qvalue>0.0043</mem:qvalue>
-</matched-element>
-<matched-element start="16" stop="30" score="8.97143" pvalue="9.35e-05">
-<sequence>CCAGGGGGTGCCACG</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="26" stop="12" score="20.5286" pvalue="5.16e-08">
+<sequence>GGCACCCCCTGGTGG</sequence>
+<mem:qvalue>0.00422</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_696-L" name="peak_696-L">
-<matched-element start="79" stop="93" score="9.2" pvalue="8.45e-05">
-<sequence>GCGGCAGGGGCAGCT</sequence>
-<mem:qvalue>0.105</mem:qvalue>
+<matched-element start="92" stop="78" score="9.21429" pvalue="8.17e-05">
+<sequence>AGCTGCCCCTGCCGC</sequence>
+<mem:qvalue>0.1</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_696-R" name="peak_696-R">
@@ -1096,9 +1092,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_701-L" name="peak_701-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_701-R" name="peak_701-R">
-<matched-element start="21" stop="35" score="8.97143" pvalue="9.35e-05">
-<sequence>GCCCTCGGGGGCGCC</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="34" stop="20" score="8.94286" pvalue="9.22e-05">
+<sequence>GGCGCCCCCGAGGGC</sequence>
+<mem:qvalue>0.103</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_702-L" name="peak_702-L">
@@ -1122,21 +1118,21 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_706-R" name="peak_706-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_707-L" name="peak_707-L">
-<matched-element start="72" stop="58" score="15.4" pvalue="2.95e-06">
-<sequence>CCACCAGGTGGTGAT</sequence>
-<mem:qvalue>0.0185</mem:qvalue>
+<matched-element start="57" stop="71" score="15.2714" pvalue="3.15e-06">
+<sequence>ATCACCACCTGGTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
-<matched-element start="62" stop="76" score="15.2714" pvalue="3.21e-06">
-<sequence>CCACCTGGTGGCAGG</sequence>
-<mem:qvalue>0.0188</mem:qvalue>
+<matched-element start="75" stop="61" score="15.2286" pvalue="3.24e-06">
+<sequence>CCTGCCACCAGGTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_707-R" name="peak_707-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_708-L" name="peak_708-L">
-<matched-element start="30" stop="16" score="8.97143" pvalue="9.35e-05">
-<sequence>CCAGAGGGCGGAGGC</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="15" stop="29" score="8.91429" pvalue="9.34e-05">
+<sequence>GCCTCCGCCCTCTGG</sequence>
+<mem:qvalue>0.104</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_708-R" name="peak_708-R">
@@ -1158,9 +1154,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_712-R" name="peak_712-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_713-L" name="peak_713-L">
-<matched-element start="95" stop="81" score="15.0571" pvalue="3.72e-06">
-<sequence>CCACATGGTGGCAGT</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="80" stop="94" score="15.0571" pvalue="3.65e-06">
+<sequence>ACTGCCACCATGTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_713-R" name="peak_713-R">
@@ -1174,13 +1170,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_715-R" name="peak_715-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_716-L" name="peak_716-L">
-<matched-element start="63" stop="77" score="12.6" pvalue="1.57e-05">
-<sequence>CCATCAGGTGGGGGC</sequence>
-<mem:qvalue>0.0381</mem:qvalue>
+<matched-element start="76" stop="62" score="12.4" pvalue="1.7e-05">
+<sequence>GCCCCCACCTGATGG</sequence>
+<mem:qvalue>0.0401</mem:qvalue>
 </matched-element>
-<matched-element start="66" stop="80" score="12.2571" pvalue="1.88e-05">
-<sequence>TCAGGTGGGGGCGCT</sequence>
-<mem:qvalue>0.0424</mem:qvalue>
+<matched-element start="79" stop="65" score="12.2857" pvalue="1.81e-05">
+<sequence>AGCGCCCCCACCTGA</sequence>
+<mem:qvalue>0.0406</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_716-R" name="peak_716-R">
@@ -1194,9 +1190,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_718-R" name="peak_718-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_719-L" name="peak_719-L">
-<matched-element start="67" stop="81" score="13.9857" pvalue="7.13e-06">
-<sequence>ACAGCAGGAGGCACT</sequence>
-<mem:qvalue>0.0253</mem:qvalue>
+<matched-element start="80" stop="66" score="14.1714" pvalue="6.2e-06">
+<sequence>AGTGCCTCCTGCTGT</sequence>
+<mem:qvalue>0.0233</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_719-R" name="peak_719-R">
@@ -1232,9 +1228,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_727-L" name="peak_727-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_727-R" name="peak_727-R">
-<matched-element start="58" stop="72" score="11.2286" pvalue="3.21e-05">
-<sequence>GCACAAGGGGGTGGA</sequence>
-<mem:qvalue>0.0615</mem:qvalue>
+<matched-element start="71" stop="57" score="11.2571" pvalue="3.08e-05">
+<sequence>TCCACCCCCTTGTGC</sequence>
+<mem:qvalue>0.0587</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_728-L" name="peak_728-L">
@@ -1264,9 +1260,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_734-L" name="peak_734-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_734-R" name="peak_734-R">
-<matched-element start="50" stop="64" score="10.0857" pvalue="5.6e-05">
-<sequence>CCAGCAGGTGCCCAT</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="63" stop="49" score="9.75714" pvalue="6.37e-05">
+<sequence>ATGGGCACCTGCTGG</sequence>
+<mem:qvalue>0.0862</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_735-L" name="peak_735-L">
@@ -1274,17 +1270,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_735-R" name="peak_735-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_736-L" name="peak_736-L">
-<matched-element start="22" stop="8" score="9.08571" pvalue="8.89e-05">
-<sequence>CCTCGAGGTGGATGT</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="7" stop="21" score="9.12857" pvalue="8.49e-05">
+<sequence>ACATCCACCTCGAGG</sequence>
+<mem:qvalue>0.101</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_736-R" name="peak_736-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_737-L" name="peak_737-L">
-<matched-element start="4" stop="18" score="10.1571" pvalue="5.41e-05">
-<sequence>ccgggaggcggagct</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="17" stop="3" score="10.1429" pvalue="5.31e-05">
+<sequence>AGCTCCGCCTCCCGG</sequence>
+<mem:qvalue>0.0819</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_737-R" name="peak_737-R">
@@ -1326,9 +1322,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_746-R" name="peak_746-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_747-L" name="peak_747-L">
-<matched-element start="86" stop="100" score="15.0714" pvalue="3.69e-06">
-<sequence>CCAGAGGAGGGCACT</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="99" stop="85" score="15.0286" pvalue="3.72e-06">
+<sequence>AGTGCCCTCCTCTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_747-R" name="peak_747-R">
@@ -1350,9 +1346,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_751-R" name="peak_751-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_752-L" name="peak_752-L">
-<matched-element start="65" stop="79" score="17.9429" pvalue="5.04e-07">
-<sequence>CCACCCGAGGGCGCC</sequence>
-<mem:qvalue>0.00956</mem:qvalue>
+<matched-element start="78" stop="64" score="17.9714" pvalue="4.88e-07">
+<sequence>GGCGCCCTCGGGTGG</sequence>
+<mem:qvalue>0.0109</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_752-R" name="peak_752-R">
@@ -1364,9 +1360,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_754-L" name="peak_754-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_754-R" name="peak_754-R">
-<matched-element start="3" stop="17" score="14.0857" pvalue="6.68e-06">
-<sequence>ccagcaggggatgcc</sequence>
-<mem:qvalue>0.0245</mem:qvalue>
+<matched-element start="16" stop="2" score="14.0571" pvalue="6.68e-06">
+<sequence>GGCATCCCCTGCTGG</sequence>
+<mem:qvalue>0.0243</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_755-L" name="peak_755-L">
@@ -1386,9 +1382,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_758-R" name="peak_758-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_759-L" name="peak_759-L">
-<matched-element start="30" stop="16" score="15.8571" pvalue="2.18e-06">
-<sequence>CCTCCAGGGGCCAGC</sequence>
-<mem:qvalue>0.017</mem:qvalue>
+<matched-element start="15" stop="29" score="15.7286" pvalue="2.37e-06">
+<sequence>GCTGGCCCCTGGAGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_759-R" name="peak_759-R">
@@ -1434,9 +1430,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_769-R" name="peak_769-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_770-L" name="peak_770-L">
-<matched-element start="40" stop="54" score="15.3714" pvalue="3e-06">
-<sequence>CCACAAGATGGCTCC</sequence>
-<mem:qvalue>0.0185</mem:qvalue>
+<matched-element start="53" stop="39" score="15.4429" pvalue="2.82e-06">
+<sequence>GGAGCCATCTTGTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_770-R" name="peak_770-R">
@@ -1506,9 +1502,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_786-R" name="peak_786-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_787-L" name="peak_787-L">
-<matched-element start="37" stop="51" score="10.0429" pvalue="5.71e-05">
-<sequence>CAGCTAGATGGCAGT</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<matched-element start="50" stop="36" score="10.0857" pvalue="5.45e-05">
+<sequence>ACTGCCATCTAGCTG</sequence>
+<mem:qvalue>0.082</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_787-R" name="peak_787-R">
@@ -1522,17 +1518,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_789-R" name="peak_789-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_790-L" name="peak_790-L">
-<matched-element start="77" stop="91" score="14.7714" pvalue="4.39e-06">
-<sequence>ccactagatgccagt</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="90" stop="76" score="14.6571" pvalue="4.63e-06">
+<sequence>ACTGGCATCTAGTGG</sequence>
+<mem:qvalue>0.0197</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_790-R" name="peak_790-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_791-L" name="peak_791-L">
-<matched-element start="75" stop="61" score="17.4429" pvalue="7.34e-07">
-<sequence>CCAGCAGAGGGGGCT</sequence>
-<mem:qvalue>0.00956</mem:qvalue>
+<matched-element start="60" stop="74" score="17.2714" pvalue="8.12e-07">
+<sequence>AGCCCCCTCTGCTGG</sequence>
+<mem:qvalue>0.0109</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_791-R" name="peak_791-R">
@@ -1560,15 +1556,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_797-L" name="peak_797-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_797-R" name="peak_797-R">
-<matched-element start="33" stop="47" score="12.1286" pvalue="2.02e-05">
-<sequence>CCATTAGGGGCCGGT</sequence>
-<mem:qvalue>0.0438</mem:qvalue>
+<matched-element start="46" stop="32" score="12.0714" pvalue="2.04e-05">
+<sequence>ACCGGCCCCTAATGG</sequence>
+<mem:qvalue>0.0447</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_798-L" name="peak_798-L">
-<matched-element start="40" stop="54" score="13.2" pvalue="1.12e-05">
-<sequence>ccACTGGGTGGGGCT</sequence>
-<mem:qvalue>0.033</mem:qvalue>
+<matched-element start="53" stop="39" score="12.9429" pvalue="1.26e-05">
+<sequence>AGCCCCACCCAGTGG</sequence>
+<mem:qvalue>0.0352</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_798-R" name="peak_798-R">
@@ -1584,35 +1580,35 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_801-L" name="peak_801-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_801-R" name="peak_801-R">
-<matched-element start="78" stop="92" score="13.5571" pvalue="9.11e-06">
-<sequence>CCGGCAGGGGCCAGA</sequence>
-<mem:qvalue>0.0305</mem:qvalue>
+<matched-element start="91" stop="77" score="13.4429" pvalue="9.57e-06">
+<sequence>TCTGGCCCCTGCCGG</sequence>
+<mem:qvalue>0.0309</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_802-L" name="peak_802-L">
-<matched-element start="66" stop="52" score="11.4714" pvalue="2.85e-05">
-<sequence>GCACCAGGCGGAGCT</sequence>
-<mem:qvalue>0.0566</mem:qvalue>
+<matched-element start="51" stop="65" score="11.5857" pvalue="2.62e-05">
+<sequence>AGCTCCGCCTGGTGC</sequence>
+<mem:qvalue>0.0516</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_802-R" name="peak_802-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_803-L" name="peak_803-L">
-<matched-element start="74" stop="88" score="13.4" pvalue="1e-05">
-<sequence>ctagcagggggcggt</sequence>
-<mem:qvalue>0.0307</mem:qvalue>
+<matched-element start="87" stop="73" score="13.4571" pvalue="9.48e-06">
+<sequence>ACCGCCCCCTGCTAG</sequence>
+<mem:qvalue>0.0309</mem:qvalue>
 </matched-element>
-<matched-element start="15" stop="29" score="12.6571" pvalue="1.52e-05">
-<sequence>ccagcaggcggcgtg</sequence>
-<mem:qvalue>0.0381</mem:qvalue>
+<matched-element start="28" stop="14" score="12.6286" pvalue="1.51e-05">
+<sequence>CACGCCGCCTGCTGG</sequence>
+<mem:qvalue>0.039</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_803-R" name="peak_803-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_804-L" name="peak_804-L">
-<matched-element start="64" stop="78" score="9.31429" pvalue="8e-05">
-<sequence>CCACTTGAGGGCCTT</sequence>
-<mem:qvalue>0.101</mem:qvalue>
+<matched-element start="77" stop="63" score="9.25714" pvalue="8.01e-05">
+<sequence>AAGGCCCTCAAGTGG</sequence>
+<mem:qvalue>0.1</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_804-R" name="peak_804-R">
@@ -1634,25 +1630,25 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_808-R" name="peak_808-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_809-L" name="peak_809-L">
-<matched-element start="40" stop="26" score="12.9" pvalue="1.32e-05">
-<sequence>CCTGCAGGCGGCGGA</sequence>
-<mem:qvalue>0.0353</mem:qvalue>
+<matched-element start="25" stop="39" score="12.8571" pvalue="1.33e-05">
+<sequence>TCCGCCGCCTGCAGG</sequence>
+<mem:qvalue>0.0352</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_809-R" name="peak_809-R">
-<matched-element start="19" stop="33" score="11.4857" pvalue="2.83e-05">
-<sequence>ccaggtgagggcccc</sequence>
-<mem:qvalue>0.0566</mem:qvalue>
+<matched-element start="32" stop="18" score="11.3429" pvalue="2.96e-05">
+<sequence>GGGGCCCTCACCTGG</sequence>
+<mem:qvalue>0.0574</mem:qvalue>
 </matched-element>
-<matched-element start="52" stop="38" score="8.87143" pvalue="9.77e-05">
-<sequence>GCGGGAGGCGGCGGC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="37" stop="51" score="8.95714" pvalue="9.16e-05">
+<sequence>gccgccgcctcccgc</sequence>
+<mem:qvalue>0.103</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_810-L" name="peak_810-L">
-<matched-element start="100" stop="86" score="12.9" pvalue="1.32e-05">
-<sequence>CCAGGAGGGAGCACT</sequence>
-<mem:qvalue>0.0353</mem:qvalue>
+<matched-element start="85" stop="99" score="12.9" pvalue="1.3e-05">
+<sequence>AGTGCTCCCTCCTGG</sequence>
+<mem:qvalue>0.0352</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_810-R" name="peak_810-R">
@@ -1668,9 +1664,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_813-L" name="peak_813-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_813-R" name="peak_813-R">
-<matched-element start="23" stop="9" score="12.1" pvalue="2.05e-05">
-<sequence>CCAGGAGGCGGTGGC</sequence>
-<mem:qvalue>0.0438</mem:qvalue>
+<matched-element start="8" stop="22" score="12.0143" pvalue="2.1e-05">
+<sequence>gccaccgcctccTGG</sequence>
+<mem:qvalue>0.0452</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_814-L" name="peak_814-L">
@@ -1678,9 +1674,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_814-R" name="peak_814-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_815-L" name="peak_815-L">
-<matched-element start="72" stop="58" score="11.6714" pvalue="2.56e-05">
-<sequence>CCCCAAGGAGGCGCT</sequence>
-<mem:qvalue>0.0536</mem:qvalue>
+<matched-element start="57" stop="71" score="11.6571" pvalue="2.52e-05">
+<sequence>AGCGCCTCCTTGGGG</sequence>
+<mem:qvalue>0.051</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_815-R" name="peak_815-R">
@@ -1696,15 +1692,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_818-L" name="peak_818-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_818-R" name="peak_818-R">
-<matched-element start="73" stop="87" score="17.4429" pvalue="7.34e-07">
-<sequence>CCAGCAGAGGGGGCT</sequence>
-<mem:qvalue>0.00956</mem:qvalue>
+<matched-element start="86" stop="72" score="17.2714" pvalue="8.12e-07">
+<sequence>AGCCCCCTCTGCTGG</sequence>
+<mem:qvalue>0.0109</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_819-L" name="peak_819-L">
-<matched-element start="91" stop="77" score="17.5429" pvalue="6.75e-07">
-<sequence>ACTCCAGGGGGCGCC</sequence>
-<mem:qvalue>0.00956</mem:qvalue>
+<matched-element start="76" stop="90" score="17.5429" pvalue="6.72e-07">
+<sequence>ggcgccccctggagt</sequence>
+<mem:qvalue>0.0109</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_819-R" name="peak_819-R">
@@ -1716,17 +1712,21 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_821-L" name="peak_821-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_821-R" name="peak_821-R">
-<matched-element start="54" stop="68" score="16.8143" pvalue="1.16e-06">
-<sequence>CCACCAGAGGGTGCG</sequence>
-<mem:qvalue>0.00988</mem:qvalue>
+<matched-element start="67" stop="53" score="16.7286" pvalue="1.21e-06">
+<sequence>CGCACCCTCTGGTGG</sequence>
+<mem:qvalue>0.0115</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_822-L" name="peak_822-L">
+<matched-element start="100" stop="86" score="13.2714" pvalue="1.06e-05">
+<sequence>TGCGCCATCTAGGGG</sequence>
+<mem:qvalue>0.0323</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_822-R" name="peak_822-R">
-<matched-element start="39" stop="53" score="8.98571" pvalue="9.29e-05">
-<sequence>GCCCTAGGGGGCTGC</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="52" stop="38" score="9.07143" pvalue="8.71e-05">
+<sequence>GCAGCCCCCTAGGGC</sequence>
+<mem:qvalue>0.102</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_823-L" name="peak_823-L">
@@ -1734,9 +1734,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_823-R" name="peak_823-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_824-L" name="peak_824-L">
-<matched-element start="68" stop="82" score="20.1143" pvalue="7.34e-08">
-<sequence>CCAGAAGGGGGCACT</sequence>
-<mem:qvalue>0.0043</mem:qvalue>
+<matched-element start="81" stop="67" score="20.1286" pvalue="7.24e-08">
+<sequence>AGTGCCCCCTTCTGG</sequence>
+<mem:qvalue>0.00422</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_824-R" name="peak_824-R">
@@ -1756,23 +1756,23 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_828-L" name="peak_828-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_828-R" name="peak_828-R">
-<matched-element start="22" stop="8" score="9.07143" pvalue="8.95e-05">
-<sequence>CCAGCTGGGGCCCCA</sequence>
+<matched-element start="7" stop="21" score="8.81429" pvalue="9.77e-05">
+<sequence>TGGGGCCCCAGCTGG</sequence>
 <mem:qvalue>0.106</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_829-L" name="peak_829-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_829-R" name="peak_829-R">
-<matched-element start="50" stop="36" score="9.8" pvalue="6.41e-05">
-<sequence>ACGCCTGGGGGAAGC</sequence>
-<mem:qvalue>0.0874</mem:qvalue>
+<matched-element start="35" stop="49" score="9.87143" pvalue="6.04e-05">
+<sequence>GCTTCCCCCAGGCGT</sequence>
+<mem:qvalue>0.0848</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_830-L" name="peak_830-L">
-<matched-element start="67" stop="81" score="9.94286" pvalue="5.98e-05">
-<sequence>CCTGCGGGTGCCAGT</sequence>
-<mem:qvalue>0.0825</mem:qvalue>
+<matched-element start="80" stop="66" score="9.72857" pvalue="6.45e-05">
+<sequence>ACTGGCACCCGCAGG</sequence>
+<mem:qvalue>0.0863</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_830-R" name="peak_830-R">
@@ -1800,9 +1800,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_836-L" name="peak_836-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_836-R" name="peak_836-R">
-<matched-element start="49" stop="35" score="10.3286" pvalue="5e-05">
-<sequence>CCTCCCGGGGGTGCG</sequence>
-<mem:qvalue>0.0813</mem:qvalue>
+<matched-element start="34" stop="48" score="10.2286" pvalue="5.1e-05">
+<sequence>CGCACCCCCGGGAGG</sequence>
+<mem:qvalue>0.0814</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_837-L" name="peak_837-L">
@@ -1820,9 +1820,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_840-L" name="peak_840-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_840-R" name="peak_840-R">
-<matched-element start="46" stop="32" score="16.7857" pvalue="1.18e-06">
-<sequence>CCGCCAGGGGGGACC</sequence>
-<mem:qvalue>0.00988</mem:qvalue>
+<matched-element start="31" stop="45" score="16.6143" pvalue="1.28e-06">
+<sequence>GGTCCCCCCTGGCGG</sequence>
+<mem:qvalue>0.0115</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_841-L" name="peak_841-L">
@@ -1850,13 +1850,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_846-R" name="peak_846-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_847-L" name="peak_847-L">
-<matched-element start="56" stop="70" score="14.8429" pvalue="4.22e-06">
-<sequence>CCACCTGGGGCCAGC</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="69" stop="55" score="14.7571" pvalue="4.34e-06">
+<sequence>GCTGGCCCCAGGTGG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
-<matched-element start="66" stop="52" score="13.4571" pvalue="9.67e-06">
-<sequence>GCCCCAGGTGGCGCT</sequence>
-<mem:qvalue>0.0307</mem:qvalue>
+<matched-element start="51" stop="65" score="13.3714" pvalue="9.99e-06">
+<sequence>aGCGCCACCTGGGGC</sequence>
+<mem:qvalue>0.0314</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_847-R" name="peak_847-R">
@@ -1866,9 +1866,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_848-R" name="peak_848-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_849-L" name="peak_849-L">
-<matched-element start="67" stop="53" score="14.7143" pvalue="4.55e-06">
-<sequence>CAGGCAGGGGGCGCC</sequence>
-<mem:qvalue>0.019</mem:qvalue>
+<matched-element start="52" stop="66" score="14.7571" pvalue="4.34e-06">
+<sequence>GGCGCCCCCTGCCTG</sequence>
+<mem:qvalue>0.0194</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_849-R" name="peak_849-R">
@@ -1900,15 +1900,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_856-L" name="peak_856-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_856-R" name="peak_856-R">
-<matched-element start="83" stop="69" score="13.4286" pvalue="9.84e-06">
-<sequence>CCACCAGGGGCTGGG</sequence>
-<mem:qvalue>0.0307</mem:qvalue>
+<matched-element start="68" stop="82" score="13.2286" pvalue="1.08e-05">
+<sequence>CCCAGCCCCTGGTGG</sequence>
+<mem:qvalue>0.0323</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_857-L" name="peak_857-L">
-<matched-element start="54" stop="40" score="18.7571" pvalue="2.49e-07">
-<sequence>CCAGCAGAGGGTGCC</sequence>
-<mem:qvalue>0.00729</mem:qvalue>
+<matched-element start="39" stop="53" score="18.7143" pvalue="2.65e-07">
+<sequence>GGCACCCTCTGCTGG</sequence>
+<mem:qvalue>0.0077</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_857-R" name="peak_857-R">
@@ -1918,12 +1918,12 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_858-R" name="peak_858-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_859-L" name="peak_859-L">
-<matched-element start="77" stop="91" score="13.5571" pvalue="9.11e-06">
-<sequence>CCTCCAGAGGGAGGG</sequence>
-<mem:qvalue>0.0305</mem:qvalue>
+<matched-element start="90" stop="76" score="13.5143" pvalue="9.14e-06">
+<sequence>CCCTCCCTCTGGAGG</sequence>
+<mem:qvalue>0.0309</mem:qvalue>
 </matched-element>
-<matched-element start="86" stop="72" score="9.72857" pvalue="6.63e-05">
-<sequence>CCTCTGGAGGCCACT</sequence>
+<matched-element start="71" stop="85" score="9.55714" pvalue="6.98e-05">
+<sequence>AGTGGCCTCCAGAGG</sequence>
 <mem:qvalue>0.0893</mem:qvalue>
 </matched-element>
 </scanned-sequence>
@@ -1944,29 +1944,29 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_863-L" name="peak_863-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_863-R" name="peak_863-R">
-<matched-element start="54" stop="40" score="9.11429" pvalue="8.78e-05">
-<sequence>CCTCCCGGGGCCGGG</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="39" stop="53" score="8.95714" pvalue="9.16e-05">
+<sequence>CCCGGCCCCGGGAGG</sequence>
+<mem:qvalue>0.103</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_864-L" name="peak_864-L">
-<matched-element start="57" stop="71" score="10.5857" pvalue="4.4e-05">
-<sequence>CCTAGAGGGGGAGGC</sequence>
-<mem:qvalue>0.0748</mem:qvalue>
+<matched-element start="70" stop="56" score="10.4571" pvalue="4.58e-05">
+<sequence>GCCTCCCCCTCTAGG</sequence>
+<mem:qvalue>0.076</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_864-R" name="peak_864-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_865-L" name="peak_865-L">
-<matched-element start="32" stop="18" score="13.3714" pvalue="1.02e-05">
-<sequence>GCAGAAGGGGGAGCT</sequence>
-<mem:qvalue>0.0307</mem:qvalue>
+<matched-element start="17" stop="31" score="13.4857" pvalue="9.32e-06">
+<sequence>AGCTCCCCCTTCTGC</sequence>
+<mem:qvalue>0.0309</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_865-R" name="peak_865-R">
-<matched-element start="35" stop="21" score="11.2" pvalue="3.25e-05">
-<sequence>GCCCCGGGGGGCGCC</sequence>
-<mem:qvalue>0.0615</mem:qvalue>
+<matched-element start="20" stop="34" score="11.0857" pvalue="3.37e-05">
+<sequence>GGCGCCCCCCGGGGC</sequence>
+<mem:qvalue>0.0611</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_866-L" name="peak_866-L">
@@ -1976,9 +1976,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_867-L" name="peak_867-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_867-R" name="peak_867-R">
-<matched-element start="6" stop="20" score="9.38571" pvalue="7.75e-05">
-<sequence>CCACTGGGGGCAGCG</sequence>
-<mem:qvalue>0.0987</mem:qvalue>
+<matched-element start="19" stop="5" score="9.18571" pvalue="8.28e-05">
+<sequence>CGCTGCCCCCAGTGG</sequence>
+<mem:qvalue>0.1</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_868-L" name="peak_868-L">
@@ -1987,7 +1987,7 @@ clusterid CDATA #IMPLIED
 </scanned-sequence>
 <mem:has-qvalues>yes</mem:has-qvalues>
 </pattern>
-<pattern accession="WDADASWWDWKKTKYHWMTDWWDTWWTWTT" name="MEME-2">
+<pattern accession="WDAWASWWWWKKTKYYTMTDWWBTTWTNWT" name="MEME-2">
 <scanned-sequence accession="peak_500-L" name="peak_500-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_500-R" name="peak_500-R">
@@ -2065,18 +2065,18 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_518-R" name="peak_518-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_519-L" name="peak_519-L">
-<matched-element start="58" stop="87" score="14.0842" pvalue="7.34e-06">
+<matched-element start="57" stop="86" score="14.0319" pvalue="7.72e-06">
 <sequence>GTAATATTAAGCCTTTTATTAAATATTTTT</sequence>
-<mem:qvalue>0.0284</mem:qvalue>
+<mem:qvalue>0.0295</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_519-R" name="peak_519-R">
+<matched-element start="26" stop="55" score="10.8511" pvalue="6.27e-05">
+<sequence>TAAATCTAGTTTATCATATCTATCATTTAA</sequence>
+<mem:qvalue>0.119</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_520-L" name="peak_520-L">
-<matched-element start="72" stop="43" score="10.7053" pvalue="7.65e-05">
-<sequence>TTTTTGCCTTTGTTTCTATTTTGTAAGACT</sequence>
-<mem:qvalue>0.136</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_520-R" name="peak_520-R">
 </scanned-sequence>
@@ -2097,11 +2097,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_524-R" name="peak_524-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_525-L" name="peak_525-L">
+<matched-element start="63" stop="34" score="10.6277" pvalue="7.13e-05">
+<sequence>TGTGAGTGAACTATCATGTACTGTTTTTTT</sequence>
+<mem:qvalue>0.129</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_525-R" name="peak_525-R">
-<matched-element start="60" stop="31" score="14.2632" pvalue="6.36e-06">
+<matched-element start="59" stop="30" score="12.3298" pvalue="2.53e-05">
 <sequence>TTTTTCAATTTGTGACTCCTTTTTAATCTT</sequence>
-<mem:qvalue>0.0267</mem:qvalue>
+<mem:qvalue>0.0615</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_526-L" name="peak_526-L">
@@ -2197,9 +2201,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_548-R" name="peak_548-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_549-L" name="peak_549-L">
-<matched-element start="44" stop="15" score="12.7158" pvalue="2.05e-05">
+<matched-element start="43" stop="14" score="12.3511" pvalue="2.49e-05">
 <sequence>GGATAAACTAGTAGTTTCTTTTCTTAGAAT</sequence>
-<mem:qvalue>0.055</mem:qvalue>
+<mem:qvalue>0.0615</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_549-R" name="peak_549-R">
@@ -2219,17 +2223,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_553-L" name="peak_553-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_553-R" name="peak_553-R">
-<matched-element start="67" stop="38" score="14.2105" pvalue="6.63e-06">
+<matched-element start="66" stop="37" score="11.4894" pvalue="4.29e-05">
 <sequence>AAATAGAAATATTTCAAATGTTTAAAATGT</sequence>
-<mem:qvalue>0.0267</mem:qvalue>
+<mem:qvalue>0.0897</mem:qvalue>
 </matched-element>
-<matched-element start="58" stop="29" score="12.7579" pvalue="1.99e-05">
+<matched-element start="57" stop="28" score="11.0957" pvalue="5.43e-05">
 <sequence>TATTTCAAATGTTTAAAATGTTTTAAAATA</sequence>
-<mem:qvalue>0.055</mem:qvalue>
-</matched-element>
-<matched-element start="65" stop="94" score="11.8421" pvalue="3.73e-05">
-<sequence>TTTTAATttaaagtttactgtttttggtgt</sequence>
-<mem:qvalue>0.0781</mem:qvalue>
+<mem:qvalue>0.107</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_554-L" name="peak_554-L">
@@ -2253,10 +2253,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_558-R" name="peak_558-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_559-L" name="peak_559-L">
-<matched-element start="98" stop="69" score="10.8211" pvalue="7.13e-05">
-<sequence>TTCATGTTTTATATTCACTGTTACTATCTT</sequence>
-<mem:qvalue>0.133</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_559-R" name="peak_559-R">
 </scanned-sequence>
@@ -2303,10 +2299,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_570-L" name="peak_570-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_570-R" name="peak_570-R">
-<matched-element start="57" stop="86" score="12.6211" pvalue="2.19e-05">
-<sequence>AGGAAGGTGATGTTTTCATGTAATATTTTC</sequence>
-<mem:qvalue>0.0567</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_571-L" name="peak_571-L">
 </scanned-sequence>
@@ -2439,17 +2431,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_603-L" name="peak_603-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_603-R" name="peak_603-R">
-<matched-element start="3" stop="32" score="14.2211" pvalue="6.58e-06">
+<matched-element start="2" stop="31" score="15.6064" pvalue="2.21e-06">
 <sequence>AGAAtttttttttttttttttttttttttG</sequence>
-<mem:qvalue>0.0267</mem:qvalue>
+<mem:qvalue>0.0122</mem:qvalue>
 </matched-element>
-<matched-element start="4" stop="33" score="12.7789" pvalue="1.96e-05">
+<matched-element start="3" stop="32" score="14.7766" pvalue="4.36e-06">
 <sequence>GAAtttttttttttttttttttttttttGA</sequence>
-<mem:qvalue>0.055</mem:qvalue>
+<mem:qvalue>0.019</mem:qvalue>
 </matched-element>
-<matched-element start="13" stop="42" score="10.3368" pvalue="9.52e-05">
-<sequence>tttttttttttttttttttGAGACAAtttt</sequence>
-<mem:qvalue>0.161</mem:qvalue>
+<matched-element start="4" stop="33" score="11.5" pvalue="4.26e-05">
+<sequence>AAtttttttttttttttttttttttttGAG</sequence>
+<mem:qvalue>0.0897</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_604-L" name="peak_604-L">
@@ -2459,6 +2451,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_605-L" name="peak_605-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_605-R" name="peak_605-R">
+<matched-element start="52" stop="81" score="10.4468" pvalue="7.9e-05">
+<sequence>taatacggttgattttctttcagctttttt</sequence>
+<mem:qvalue>0.135</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_606-L" name="peak_606-L">
 </scanned-sequence>
@@ -2483,9 +2479,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_611-L" name="peak_611-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_611-R" name="peak_611-R">
-<matched-element start="77" stop="48" score="12.2211" pvalue="2.89e-05">
+<matched-element start="76" stop="47" score="10.6702" pvalue="6.96e-05">
 <sequence>TGTGACGAAGGTTTCCTTTGTTTCTGGGTT</sequence>
-<mem:qvalue>0.0645</mem:qvalue>
+<mem:qvalue>0.128</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_612-L" name="peak_612-L">
@@ -2555,10 +2551,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_628-L" name="peak_628-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_628-R" name="peak_628-R">
-<matched-element start="63" stop="92" score="10.7684" pvalue="7.36e-05">
-<sequence>tgtaaaatgggaattttatagggttttgtg</sequence>
-<mem:qvalue>0.133</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_629-L" name="peak_629-L">
 </scanned-sequence>
@@ -2617,9 +2609,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_642-R" name="peak_642-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_643-L" name="peak_643-L">
-<matched-element start="32" stop="61" score="12.4842" pvalue="2.41e-05">
+<matched-element start="31" stop="60" score="10.8191" pvalue="6.39e-05">
 <sequence>tattattttgtgttttactgaatatatttg</sequence>
-<mem:qvalue>0.0587</mem:qvalue>
+<mem:qvalue>0.119</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_643-R" name="peak_643-R">
@@ -2627,10 +2619,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_644-L" name="peak_644-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_644-R" name="peak_644-R">
-<matched-element start="86" stop="57" score="10.7895" pvalue="7.27e-05">
-<sequence>TGTGAGTTTAGCTTTTATCTCTGTAAAATC</sequence>
-<mem:qvalue>0.133</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_645-L" name="peak_645-L">
 </scanned-sequence>
@@ -2659,21 +2647,25 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_651-L" name="peak_651-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_651-R" name="peak_651-R">
-<matched-element start="48" stop="77" score="19.4947" pvalue="3.2e-08">
+<matched-element start="47" stop="76" score="19.1277" pvalue="6.82e-08">
 <sequence>gtttagataggttttttttttttttttttt</sequence>
-<mem:qvalue>0.00167</mem:qvalue>
+<mem:qvalue>0.00238</mem:qvalue>
 </matched-element>
-<matched-element start="47" stop="76" score="18.1579" pvalue="1.57e-07">
+<matched-element start="46" stop="75" score="16.883" pvalue="7.08e-07">
 <sequence>tgtttagataggtttttttttttttttttt</sequence>
-<mem:qvalue>0.00409</mem:qvalue>
+<mem:qvalue>0.009</mem:qvalue>
 </matched-element>
-<matched-element start="52" stop="81" score="15.1684" pvalue="2.98e-06">
+<matched-element start="51" stop="80" score="15.2447" pvalue="2.99e-06">
 <sequence>agataggtttttttttttttttttttttgg</sequence>
-<mem:qvalue>0.015</mem:qvalue>
+<mem:qvalue>0.0142</mem:qvalue>
 </matched-element>
-<matched-element start="45" stop="74" score="13.0316" pvalue="1.63e-05">
+<matched-element start="49" stop="78" score="14.3617" pvalue="6.02e-06">
+<sequence>ttagataggttttttttttttttttttttt</sequence>
+<mem:qvalue>0.0242</mem:qvalue>
+</matched-element>
+<matched-element start="44" stop="73" score="12.2553" pvalue="2.65e-05">
 <sequence>aatgtttagataggtttttttttttttttt</sequence>
-<mem:qvalue>0.0518</mem:qvalue>
+<mem:qvalue>0.063</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_652-L" name="peak_652-L">
@@ -2683,16 +2675,8 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_653-L" name="peak_653-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_653-R" name="peak_653-R">
-<matched-element start="40" stop="11" score="10.3368" pvalue="9.52e-05">
-<sequence>TGAGATCTGTGATGTTATTACTGCAATTGT</sequence>
-<mem:qvalue>0.161</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_654-L" name="peak_654-L">
-<matched-element start="36" stop="7" score="10.9474" pvalue="6.6e-05">
-<sequence>TTGGAACTGTGCTTTATCTACTTTTGGTTA</sequence>
-<mem:qvalue>0.128</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_654-R" name="peak_654-R">
 </scanned-sequence>
@@ -2707,17 +2691,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_657-L" name="peak_657-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_657-R" name="peak_657-R">
-<matched-element start="64" stop="35" score="15.3474" pvalue="2.55e-06">
+<matched-element start="63" stop="34" score="15.2979" pvalue="2.86e-06">
 <sequence>AATTACTTTTTATTCCAATGTTATAATAAT</sequence>
-<mem:qvalue>0.014</mem:qvalue>
+<mem:qvalue>0.0142</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_658-L" name="peak_658-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_658-R" name="peak_658-R">
-<matched-element start="70" stop="41" score="11.7158" pvalue="4.06e-05">
+<matched-element start="69" stop="40" score="10.8723" pvalue="6.2e-05">
 <sequence>TAATACTCAGGTATTATTTAAGGTATTATT</sequence>
-<mem:qvalue>0.0816</mem:qvalue>
+<mem:qvalue>0.119</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_659-L" name="peak_659-L">
@@ -2733,12 +2717,16 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_661-R" name="peak_661-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_662-L" name="peak_662-L">
-<matched-element start="99" stop="70" score="12.9474" pvalue="1.74e-05">
+<matched-element start="98" stop="69" score="13.3511" pvalue="1.26e-05">
 <sequence>GTAGTTATTTTCTTCCTCTTCTTTATTTTT</sequence>
-<mem:qvalue>0.0534</mem:qvalue>
+<mem:qvalue>0.0389</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_662-R" name="peak_662-R">
+<matched-element start="65" stop="36" score="12.7021" pvalue="1.98e-05">
+<sequence>GGTAAGTGGTGATTCCTTTTTTGTCTTTTT</sequence>
+<mem:qvalue>0.0517</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_663-L" name="peak_663-L">
 </scanned-sequence>
@@ -2825,17 +2813,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_683-R" name="peak_683-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_684-L" name="peak_684-L">
-<matched-element start="63" stop="34" score="12.5684" pvalue="2.28e-05">
+<matched-element start="62" stop="33" score="13.4468" pvalue="1.18e-05">
 <sequence>TTGTTGTTTTTGGTTTGTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.0567</mem:qvalue>
+<mem:qvalue>0.0389</mem:qvalue>
 </matched-element>
-<matched-element start="57" stop="28" score="12.2" pvalue="2.94e-05">
+<matched-element start="56" stop="27" score="12.5106" pvalue="2.24e-05">
 <sequence>TTTTTGGTTTGTTTTTTTTTTTTTTGAGAT</sequence>
-<mem:qvalue>0.0645</mem:qvalue>
-</matched-element>
-<matched-element start="64" stop="35" score="10.3053" pvalue="9.69e-05">
-<sequence>GTTGTTGTTTTTGGTTTGTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.161</mem:qvalue>
+<mem:qvalue>0.0573</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_684-R" name="peak_684-R">
@@ -2985,9 +2969,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_720-R" name="peak_720-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_721-L" name="peak_721-L">
-<matched-element start="95" stop="66" score="16.5263" pvalue="8.57e-07">
+<matched-element start="94" stop="65" score="17.5532" pvalue="3.7e-07">
 <sequence>GTAATCTTTTCTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
+<mem:qvalue>0.009</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_721-R" name="peak_721-R">
@@ -3075,6 +3059,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_742-L" name="peak_742-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_742-R" name="peak_742-R">
+<matched-element start="97" stop="68" score="11.6383" pvalue="3.92e-05">
+<sequence>AGATACACCAGATGTTTATACAAAAATGTT</sequence>
+<mem:qvalue>0.0871</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_743-L" name="peak_743-L">
 </scanned-sequence>
@@ -3089,17 +3077,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_745-R" name="peak_745-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_746-L" name="peak_746-L">
-<matched-element start="58" stop="29" score="15.1579" pvalue="3.01e-06">
+<matched-element start="57" stop="28" score="16.0213" pvalue="1.55e-06">
 <sequence>GAAAAGAATGTATTTATTTATTTATTTATT</sequence>
-<mem:qvalue>0.015</mem:qvalue>
+<mem:qvalue>0.009</mem:qvalue>
 </matched-element>
-<matched-element start="59" stop="30" score="13.9895" pvalue="7.91e-06">
-<sequence>GGAAAAGAATGTATTTATTTATTTATTTAT</sequence>
+<matched-element start="53" stop="24" score="14" pvalue="7.91e-06">
+<sequence>AGAATGTATTTATTTATTTATTTATTTAGA</sequence>
 <mem:qvalue>0.0295</mem:qvalue>
 </matched-element>
-<matched-element start="54" stop="25" score="12.1579" pvalue="3.02e-05">
-<sequence>AGAATGTATTTATTTATTTATTTATTTAGA</sequence>
-<mem:qvalue>0.0645</mem:qvalue>
+<matched-element start="58" stop="29" score="13.0745" pvalue="1.53e-05">
+<sequence>GGAAAAGAATGTATTTATTTATTTATTTAT</sequence>
+<mem:qvalue>0.0446</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_746-R" name="peak_746-R">
@@ -3117,21 +3105,21 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_749-R" name="peak_749-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_750-L" name="peak_750-L">
-<matched-element start="9" stop="38" score="13.5789" pvalue="1.09e-05">
-<sequence>TAATATAATTTTTTTCTTTTTTTTTAAGTC</sequence>
-<mem:qvalue>0.0379</mem:qvalue>
-</matched-element>
-<matched-element start="10" stop="39" score="12.7684" pvalue="1.98e-05">
-<sequence>AATATAATTTTTTTCTTTTTTTTTAAGTCT</sequence>
-<mem:qvalue>0.055</mem:qvalue>
-</matched-element>
-<matched-element start="8" stop="37" score="12.1579" pvalue="3.02e-05">
+<matched-element start="7" stop="36" score="14.5319" pvalue="5.28e-06">
 <sequence>ATAATATAATTTTTTTCTTTTTTTTTAAGT</sequence>
-<mem:qvalue>0.0645</mem:qvalue>
+<mem:qvalue>0.0221</mem:qvalue>
 </matched-element>
-<matched-element start="14" stop="43" score="11.7684" pvalue="3.92e-05">
+<matched-element start="9" stop="38" score="13.4787" pvalue="1.16e-05">
+<sequence>AATATAATTTTTTTCTTTTTTTTTAAGTCT</sequence>
+<mem:qvalue>0.0389</mem:qvalue>
+</matched-element>
+<matched-element start="8" stop="37" score="13.3723" pvalue="1.25e-05">
+<sequence>TAATATAATTTTTTTCTTTTTTTTTAAGTC</sequence>
+<mem:qvalue>0.0389</mem:qvalue>
+</matched-element>
+<matched-element start="13" stop="42" score="10.4787" pvalue="7.76e-05">
 <sequence>TAATTTTTTTCTTTTTTTTTAAGTCTTTTT</sequence>
-<mem:qvalue>0.0804</mem:qvalue>
+<mem:qvalue>0.135</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_750-R" name="peak_750-R">
@@ -3147,6 +3135,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_753-L" name="peak_753-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_753-R" name="peak_753-R">
+<matched-element start="52" stop="23" score="10.2979" pvalue="8.59e-05">
+<sequence>TATATACACATTTTAAAATTTTTCAATTAT</sequence>
+<mem:qvalue>0.143</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_754-L" name="peak_754-L">
 </scanned-sequence>
@@ -3165,9 +3157,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_757-R" name="peak_757-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_758-L" name="peak_758-L">
-<matched-element start="97" stop="68" score="15.7368" pvalue="1.8e-06">
+<matched-element start="96" stop="67" score="16.617" pvalue="9.08e-07">
 <sequence>AAAAACAAGTGGTGATTTTTTTTTAATAAA</sequence>
-<mem:qvalue>0.0109</mem:qvalue>
+<mem:qvalue>0.009</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_758-R" name="peak_758-R">
@@ -3225,6 +3217,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_771-R" name="peak_771-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_772-L" name="peak_772-L">
+<matched-element start="66" stop="95" score="10.5106" pvalue="7.62e-05">
+<sequence>ggtgaattttgtggtatgtgaattatatct</sequence>
+<mem:qvalue>0.135</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_772-R" name="peak_772-R">
 </scanned-sequence>
@@ -3245,13 +3241,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_776-R" name="peak_776-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_777-L" name="peak_777-L">
-<matched-element start="39" stop="68" score="14.9789" pvalue="3.51e-06">
+<matched-element start="38" stop="67" score="15.266" pvalue="2.94e-06">
 <sequence>gtttagaatttttgctcttgtattttgttt</sequence>
-<mem:qvalue>0.0167</mem:qvalue>
+<mem:qvalue>0.0142</mem:qvalue>
 </matched-element>
-<matched-element start="68" stop="97" score="13.3579" pvalue="1.28e-05">
+<matched-element start="67" stop="96" score="13.0319" pvalue="1.58e-05">
 <sequence>ttattatattttagctaattttaatatgat</sequence>
-<mem:qvalue>0.0433</mem:qvalue>
+<mem:qvalue>0.0447</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_777-R" name="peak_777-R">
@@ -3271,67 +3267,79 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_781-L" name="peak_781-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_781-R" name="peak_781-R">
+<matched-element start="73" stop="44" score="11.7021" pvalue="3.76e-05">
+<sequence>AGGAACTAATGGATCTGTTTTAGAAATGCT</sequence>
+<mem:qvalue>0.0856</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_782-L" name="peak_782-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_782-R" name="peak_782-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_783-L" name="peak_783-L">
-<matched-element start="54" stop="25" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="55" stop="26" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="56" stop="27" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="57" stop="28" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="58" stop="29" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="59" stop="30" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="60" stop="31" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="61" stop="32" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="62" stop="33" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="63" stop="34" score="16.1895" pvalue="1.18e-06">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00825</mem:qvalue>
-</matched-element>
-<matched-element start="69" stop="40" score="15.7789" pvalue="1.73e-06">
+<matched-element start="68" stop="39" score="16.9255" pvalue="6.81e-07">
 <sequence>AACATCTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.0109</mem:qvalue>
+<mem:qvalue>0.009</mem:qvalue>
 </matched-element>
-<matched-element start="53" stop="24" score="12.7368" pvalue="2.02e-05">
-<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTG</sequence>
-<mem:qvalue>0.055</mem:qvalue>
+<matched-element start="53" stop="24" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
 </matched-element>
-<matched-element start="52" stop="23" score="12.5895" pvalue="2.24e-05">
+<matched-element start="54" stop="25" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="55" stop="26" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="56" stop="27" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="57" stop="28" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="58" stop="29" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="59" stop="30" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="60" stop="31" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="61" stop="32" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="62" stop="33" score="16.0851" pvalue="1.46e-06">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
+<mem:qvalue>0.009</mem:qvalue>
+</matched-element>
+<matched-element start="51" stop="22" score="13.3085" pvalue="1.3e-05">
 <sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTGA</sequence>
-<mem:qvalue>0.0567</mem:qvalue>
+<mem:qvalue>0.0389</mem:qvalue>
 </matched-element>
-<matched-element start="66" stop="37" score="12.1684" pvalue="3e-05">
+<matched-element start="65" stop="36" score="12.9043" pvalue="1.72e-05">
 <sequence>ATCTTTTTTTTTTTTTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.0645</mem:qvalue>
+<mem:qvalue>0.0474</mem:qvalue>
+</matched-element>
+<matched-element start="52" stop="23" score="12.734" pvalue="1.93e-05">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTG</sequence>
+<mem:qvalue>0.0517</mem:qvalue>
+</matched-element>
+<matched-element start="50" stop="21" score="11.1915" pvalue="5.13e-05">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTTTGAG</sequence>
+<mem:qvalue>0.105</mem:qvalue>
+</matched-element>
+<matched-element start="48" stop="19" score="10.3723" pvalue="8.24e-05">
+<sequence>TTTTTTTTTTTTTTTTTTTTTTTTTGAGAA</sequence>
+<mem:qvalue>0.139</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_783-R" name="peak_783-R">
@@ -3363,13 +3371,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_790-L" name="peak_790-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_790-R" name="peak_790-R">
-<matched-element start="9" stop="38" score="12.1895" pvalue="2.96e-05">
-<sequence>TAATAATAATAGATTATTTATAATAATCTC</sequence>
-<mem:qvalue>0.0645</mem:qvalue>
-</matched-element>
-<matched-element start="37" stop="8" score="11.3789" pvalue="5.04e-05">
-<sequence>AGATTATTATAAATAATCTATTATTATTAT</sequence>
-<mem:qvalue>0.0995</mem:qvalue>
+<matched-element start="33" stop="4" score="11.1489" pvalue="5.27e-05">
+<sequence>TTATTATAAATAATCTATTATTATTATAAA</sequence>
+<mem:qvalue>0.106</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_791-L" name="peak_791-L">
@@ -3383,10 +3387,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_793-L" name="peak_793-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_793-R" name="peak_793-R">
-<matched-element start="64" stop="35" score="10.8526" pvalue="7e-05">
-<sequence>TTGAAGTTAGGTATTTATTGTAGTCTTTGC</sequence>
-<mem:qvalue>0.133</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_794-L" name="peak_794-L">
 </scanned-sequence>
@@ -3437,9 +3437,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_805-R" name="peak_805-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_806-L" name="peak_806-L">
-<matched-element start="62" stop="33" score="13.1368" pvalue="1.51e-05">
+<matched-element start="61" stop="32" score="13.3723" pvalue="1.25e-05">
 <sequence>AGAATCATTTGCATTTTCTAAAATTTTATG</sequence>
-<mem:qvalue>0.0494</mem:qvalue>
+<mem:qvalue>0.0389</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_806-R" name="peak_806-R">
@@ -3485,15 +3485,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_816-R" name="peak_816-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_817-L" name="peak_817-L">
-<matched-element start="42" stop="13" score="10.3053" pvalue="9.69e-05">
+<matched-element start="41" stop="12" score="11.5" pvalue="4.26e-05">
 <sequence>ATTTTTTAAAGATTTATATTTTGCTTTTCT</sequence>
-<mem:qvalue>0.161</mem:qvalue>
+<mem:qvalue>0.0897</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_817-R" name="peak_817-R">
-<matched-element start="39" stop="68" score="21.3579" pvalue="2.42e-09">
+<matched-element start="38" stop="67" score="20.2553" pvalue="1.72e-08">
 <sequence>TAAGACTTGGGCtttttttttttttttttt</sequence>
-<mem:qvalue>0.000253</mem:qvalue>
+<mem:qvalue>0.0009</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_818-L" name="peak_818-L">
@@ -3589,13 +3589,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_840-R" name="peak_840-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_841-L" name="peak_841-L">
-<matched-element start="36" stop="7" score="15.6947" pvalue="1.87e-06">
-<sequence>TGGAAGGTGAGTTTTCTTTTCTTTCTTTTT</sequence>
-<mem:qvalue>0.0109</mem:qvalue>
-</matched-element>
-<matched-element start="31" stop="2" score="14.4632" pvalue="5.4e-06">
+<matched-element start="30" stop="1" score="14.9787" pvalue="3.71e-06">
 <sequence>GGTGAGTTTTCTTTTCTTTCTTTTTTTTTT</sequence>
-<mem:qvalue>0.0246</mem:qvalue>
+<mem:qvalue>0.0169</mem:qvalue>
+</matched-element>
+<matched-element start="35" stop="6" score="12.0532" pvalue="3.02e-05">
+<sequence>TGGAAGGTGAGTTTTCTTTTCTTTCTTTTT</sequence>
+<mem:qvalue>0.0702</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_841-R" name="peak_841-R">
@@ -3609,17 +3609,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_843-R" name="peak_843-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_844-L" name="peak_844-L">
-<matched-element start="51" stop="80" score="13.7158" pvalue="9.79e-06">
+<matched-element start="50" stop="79" score="13.4468" pvalue="1.18e-05">
 <sequence>tgaatgaatagttgattccttttaattact</sequence>
-<mem:qvalue>0.0353</mem:qvalue>
+<mem:qvalue>0.0389</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_844-R" name="peak_844-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_845-L" name="peak_845-L">
-<matched-element start="68" stop="39" score="18.3474" pvalue="1.26e-07">
+<matched-element start="67" stop="38" score="20.6702" pvalue="9.95e-09">
 <sequence>GAAATGTTCTGTATCTTTTTTTTTTTTTTT</sequence>
-<mem:qvalue>0.00409</mem:qvalue>
+<mem:qvalue>0.0009</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_845-R" name="peak_845-R">
@@ -3806,9 +3806,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_521-L" name="peak_521-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_521-R" name="peak_521-R">
-<matched-element start="46" stop="75" score="-22.7295" pvalue="8.64e-05">
+<matched-element start="45" stop="74" score="-22.7295" pvalue="8.64e-05">
 <sequence>tgatgaaaaatcagatgcagtcatgtgtaa</sequence>
-<mem:qvalue>0.318</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_522-L" name="peak_522-L">
@@ -3918,9 +3918,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_548-L" name="peak_548-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_548-R" name="peak_548-R">
-<matched-element start="63" stop="92" score="-22.8279" pvalue="8.77e-05">
+<matched-element start="62" stop="91" score="-22.8279" pvalue="8.77e-05">
 <sequence>AGAGTCAATCCTAGGTGCGTGCAGATGTCA</sequence>
-<mem:qvalue>0.318</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_549-L" name="peak_549-L">
@@ -3940,9 +3940,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_552-R" name="peak_552-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_553-L" name="peak_553-L">
-<matched-element start="71" stop="100" score="-21.7623" pvalue="7.06e-05">
+<matched-element start="70" stop="99" score="-21.7623" pvalue="7.06e-05">
 <sequence>AGAAGGAAATTCAGGTTCAGGGACAAGCTA</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_553-R" name="peak_553-R">
@@ -3986,9 +3986,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_563-L" name="peak_563-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_563-R" name="peak_563-R">
-<matched-element start="36" stop="7" score="-21.2787" pvalue="6.34e-05">
+<matched-element start="35" stop="6" score="-21.2787" pvalue="6.34e-05">
 <sequence>GCAGCTTCCCCCAGGTGCTCTCTTTTGGCA</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_564-L" name="peak_564-L">
@@ -4022,9 +4022,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_571-L" name="peak_571-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_571-R" name="peak_571-R">
-<matched-element start="3" stop="32" score="-21.5656" pvalue="6.73e-05">
+<matched-element start="2" stop="31" score="-21.5656" pvalue="6.73e-05">
 <sequence>ttcactgcagccttgatcttctaggctcaa</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_572-L" name="peak_572-L">
@@ -4040,9 +4040,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_574-R" name="peak_574-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_575-L" name="peak_575-L">
-<matched-element start="45" stop="16" score="-13.9836" pvalue="1.23e-05">
+<matched-element start="44" stop="15" score="-13.9836" pvalue="1.23e-05">
 <sequence>AGCTCTGACCCCAGGTGCAGCAGGATCCCG</sequence>
-<mem:qvalue>0.135</mem:qvalue>
+<mem:qvalue>0.137</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_575-R" name="peak_575-R">
@@ -4124,15 +4124,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_594-R" name="peak_594-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_595-L" name="peak_595-L">
-<matched-element start="34" stop="5" score="-21.2951" pvalue="6.38e-05">
+<matched-element start="33" stop="4" score="-21.2951" pvalue="6.38e-05">
 <sequence>AGTGTAAATGTCAGCAGCACTGAGGCTGAG</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_595-R" name="peak_595-R">
-<matched-element start="31" stop="60" score="-7.7541" pvalue="2.65e-06">
+<matched-element start="30" stop="59" score="-7.7541" pvalue="2.65e-06">
 <sequence>ACCACTGCAGTCAGGAACAGTGTAGACAGG</sequence>
-<mem:qvalue>0.0872</mem:qvalue>
+<mem:qvalue>0.0885</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_596-L" name="peak_596-L">
@@ -4168,13 +4168,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_603-R" name="peak_603-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_604-L" name="peak_604-L">
-<matched-element start="63" stop="34" score="4.57377" pvalue="8.71e-08">
+<matched-element start="62" stop="33" score="4.57377" pvalue="8.71e-08">
 <sequence>AGAACAGAATCCAGGAGCAGTGCAACTAGA</sequence>
-<mem:qvalue>0.0086</mem:qvalue>
+<mem:qvalue>0.00873</mem:qvalue>
 </matched-element>
-<matched-element start="48" stop="19" score="-11.9344" pvalue="7.51e-06">
+<matched-element start="47" stop="18" score="-11.9344" pvalue="7.51e-06">
 <sequence>AGCAGTGCAACTAGAAGCAGCGATCTGATT</sequence>
-<mem:qvalue>0.124</mem:qvalue>
+<mem:qvalue>0.125</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_604-R" name="peak_604-R">
@@ -4198,9 +4198,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_609-L" name="peak_609-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_609-R" name="peak_609-R">
-<matched-element start="21" stop="50" score="-18.5656" pvalue="3.49e-05">
+<matched-element start="20" stop="49" score="-18.5656" pvalue="3.49e-05">
 <sequence>AGGGCAACAGCCAGATGGTCTGTGCTAAGA</sequence>
-<mem:qvalue>0.265</mem:qvalue>
+<mem:qvalue>0.269</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_610-L" name="peak_610-L">
@@ -4210,17 +4210,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_611-L" name="peak_611-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_611-R" name="peak_611-R">
-<matched-element start="32" stop="3" score="-22.3115" pvalue="7.94e-05">
+<matched-element start="31" stop="2" score="-22.3115" pvalue="7.94e-05">
 <sequence>AAAGTTGATGCACAGTGCAGGGAGGGTGCG</sequence>
-<mem:qvalue>0.318</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_612-L" name="peak_612-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_612-R" name="peak_612-R">
-<matched-element start="41" stop="70" score="-20.7869" pvalue="5.73e-05">
+<matched-element start="40" stop="69" score="-20.7869" pvalue="5.73e-05">
 <sequence>aaaccccatggcaggatctgtcctaagcca</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_613-L" name="peak_613-L">
@@ -4232,9 +4232,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_614-R" name="peak_614-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_615-L" name="peak_615-L">
-<matched-element start="45" stop="16" score="-17.4836" pvalue="2.75e-05">
+<matched-element start="44" stop="15" score="-17.4836" pvalue="2.75e-05">
 <sequence>AGGGAAGCCGCCAACCACAGCCAGGCTCAG</sequence>
-<mem:qvalue>0.247</mem:qvalue>
+<mem:qvalue>0.25</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_615-R" name="peak_615-R">
@@ -4272,9 +4272,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_623-R" name="peak_623-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_624-L" name="peak_624-L">
-<matched-element start="77" stop="48" score="-21.9836" pvalue="7.38e-05">
+<matched-element start="76" stop="47" score="-21.9836" pvalue="7.38e-05">
 <sequence>GGAGGTGCAGGCAGGCAGTTTCTACAGAGA</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_624-R" name="peak_624-R">
@@ -4312,9 +4312,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_632-R" name="peak_632-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_633-L" name="peak_633-L">
-<matched-element start="34" stop="63" score="-4.84426" pvalue="1.24e-06">
+<matched-element start="33" stop="62" score="-4.84426" pvalue="1.24e-06">
 <sequence>AGAGCTGGAGGCAGAAAGAGGGCTGAGAGA</sequence>
-<mem:qvalue>0.0613</mem:qvalue>
+<mem:qvalue>0.0622</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_633-R" name="peak_633-R">
@@ -4330,9 +4330,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_636-L" name="peak_636-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_636-R" name="peak_636-R">
-<matched-element start="57" stop="28" score="-12.6393" pvalue="8.91e-06">
+<matched-element start="56" stop="27" score="-12.6393" pvalue="8.91e-06">
 <sequence>AAAGCAGTGGACAGAAGGACCGAGAGGCAG</sequence>
-<mem:qvalue>0.126</mem:qvalue>
+<mem:qvalue>0.128</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_637-L" name="peak_637-L">
@@ -4356,9 +4356,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_641-R" name="peak_641-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_642-L" name="peak_642-L">
-<matched-element start="55" stop="26" score="-19.2951" pvalue="4.11e-05">
+<matched-element start="54" stop="25" score="-19.2951" pvalue="4.11e-05">
 <sequence>TCACCCACAATCAGCAGCACTCACAGGTCA</sequence>
-<mem:qvalue>0.27</mem:qvalue>
+<mem:qvalue>0.274</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_642-R" name="peak_642-R">
@@ -4402,9 +4402,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_652-L" name="peak_652-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_652-R" name="peak_652-R">
-<matched-element start="64" stop="93" score="-21" pvalue="5.99e-05">
+<matched-element start="63" stop="92" score="-21" pvalue="5.99e-05">
 <sequence>ctcactgcagcctggacctccagggctcaa</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_653-L" name="peak_653-L">
@@ -4440,9 +4440,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_660-R" name="peak_660-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_661-L" name="peak_661-L">
-<matched-element start="100" stop="71" score="-19.1803" pvalue="4.02e-05">
+<matched-element start="99" stop="70" score="-19.1803" pvalue="4.02e-05">
 <sequence>GGCTCTAAAGGCAGCGGCATGGAGGTGCCC</sequence>
-<mem:qvalue>0.27</mem:qvalue>
+<mem:qvalue>0.274</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_661-R" name="peak_661-R">
@@ -4500,9 +4500,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_674-R" name="peak_674-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_675-L" name="peak_675-L">
-<matched-element start="26" stop="55" score="-21.8852" pvalue="7.24e-05">
+<matched-element start="25" stop="54" score="-21.8852" pvalue="7.24e-05">
 <sequence>ACACTTGAAGCTAGAAACTCTGGGAAGGAG</sequence>
-<mem:qvalue>0.317</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_675-R" name="peak_675-R">
@@ -4606,9 +4606,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_700-L" name="peak_700-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_700-R" name="peak_700-R">
-<matched-element start="39" stop="10" score="-23.3852" pvalue="9.87e-05">
+<matched-element start="38" stop="9" score="-23.3852" pvalue="9.87e-05">
 <sequence>TGGGCTACAACCCGGTGGTGGGAGGCGTGT</sequence>
-<mem:qvalue>0.336</mem:qvalue>
+<mem:qvalue>0.341</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_701-L" name="peak_701-L">
@@ -4754,9 +4754,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_736-L" name="peak_736-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_736-R" name="peak_736-R">
-<matched-element start="25" stop="54" score="-17.918" pvalue="3.02e-05">
+<matched-element start="24" stop="53" score="-17.918" pvalue="3.02e-05">
 <sequence>AGAGCTGACCACAGGGCCCCCCGGGGAACA</sequence>
-<mem:qvalue>0.249</mem:qvalue>
+<mem:qvalue>0.252</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_737-L" name="peak_737-L">
@@ -4802,9 +4802,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_747-L" name="peak_747-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_747-R" name="peak_747-R">
-<matched-element start="99" stop="70" score="-14.6967" pvalue="1.45e-05">
+<matched-element start="98" stop="69" score="-14.6967" pvalue="1.45e-05">
 <sequence>AGCTGCTCAGCCAGGAGCTTTCTTGATTTT</sequence>
-<mem:qvalue>0.143</mem:qvalue>
+<mem:qvalue>0.145</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_748-L" name="peak_748-L">
@@ -4950,9 +4950,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_783-L" name="peak_783-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_783-R" name="peak_783-R">
-<matched-element start="66" stop="95" score="-10.0984" pvalue="4.75e-06">
+<matched-element start="65" stop="94" score="-10.0984" pvalue="4.75e-06">
 <sequence>ccagatgcagcctagtgcTGGGAAAGGAGA</sequence>
-<mem:qvalue>0.0939</mem:qvalue>
+<mem:qvalue>0.0953</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_784-L" name="peak_784-L">
@@ -5004,9 +5004,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_795-R" name="peak_795-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_796-L" name="peak_796-L">
-<matched-element start="66" stop="95" score="-22.7295" pvalue="8.64e-05">
+<matched-element start="65" stop="94" score="-22.7295" pvalue="8.64e-05">
 <sequence>CCTGGTGAAGCCCGGGGCTCACAGAGTAAT</sequence>
-<mem:qvalue>0.318</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_796-R" name="peak_796-R">
@@ -5042,9 +5042,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_804-L" name="peak_804-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_804-R" name="peak_804-R">
-<matched-element start="50" stop="79" score="-9.7459" pvalue="4.37e-06">
+<matched-element start="49" stop="78" score="-9.7459" pvalue="4.37e-06">
 <sequence>AAGACTCAAGCCAGCAACTGAGAAAGGACG</sequence>
-<mem:qvalue>0.0939</mem:qvalue>
+<mem:qvalue>0.0953</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_805-L" name="peak_805-L">
@@ -5160,9 +5160,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_832-R" name="peak_832-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_833-L" name="peak_833-L">
-<matched-element start="67" stop="96" score="-22.918" pvalue="9e-05">
+<matched-element start="66" stop="95" score="-22.918" pvalue="9e-05">
 <sequence>AGGACTCAAGTCAGGGACAGTGATCTAGAG</sequence>
-<mem:qvalue>0.318</mem:qvalue>
+<mem:qvalue>0.322</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_833-R" name="peak_833-R">
@@ -5292,9 +5292,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_864-R" name="peak_864-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_865-L" name="peak_865-L">
-<matched-element start="48" stop="19" score="-13.4754" pvalue="1.08e-05">
+<matched-element start="47" stop="18" score="-13.4754" pvalue="1.08e-05">
 <sequence>GGAGGTGTAGACAGCTGCAGAAGGGGGAGC</sequence>
-<mem:qvalue>0.134</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_865-R" name="peak_865-R">
@@ -5313,7 +5313,7 @@ clusterid CDATA #IMPLIED
 </scanned-sequence>
 <mem:has-qvalues>yes</mem:has-qvalues>
 </pattern>
-<pattern accession="TCBTKKSCTCWGTSTYCTCCW" name="MEME-4">
+<pattern accession="TCYTKKSCTCWGTSTYCTCCW" name="MEME-4">
 <scanned-sequence accession="peak_500-L" name="peak_500-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_500-R" name="peak_500-R">
@@ -5325,10 +5325,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_502-L" name="peak_502-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_502-R" name="peak_502-R">
-<matched-element start="35" stop="55" score="7.52174" pvalue="9.7e-05">
-<sequence>ggctgtggcctggcttttcca</sequence>
-<mem:qvalue>0.148</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_503-L" name="peak_503-L">
 </scanned-sequence>
@@ -5357,15 +5353,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_509-L" name="peak_509-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_509-R" name="peak_509-R">
-<matched-element start="48" stop="68" score="17.4783" pvalue="6.8e-07">
+<matched-element start="47" stop="67" score="17.6196" pvalue="6.27e-07">
 <sequence>GCCTGGGCTCCTTGTCCTTCT</sequence>
-<mem:qvalue>0.0245</mem:qvalue>
+<mem:qvalue>0.0229</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_510-L" name="peak_510-L">
-<matched-element start="5" stop="25" score="10.25" pvalue="3.24e-05">
+<matched-element start="4" stop="24" score="10.4674" pvalue="2.81e-05">
 <sequence>tggtggccagcctgtcctgat</sequence>
-<mem:qvalue>0.103</mem:qvalue>
+<mem:qvalue>0.106</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_510-R" name="peak_510-R">
@@ -5383,9 +5379,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_513-R" name="peak_513-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_514-L" name="peak_514-L">
-<matched-element start="78" stop="58" score="11.3261" pvalue="2.01e-05">
+<matched-element start="77" stop="57" score="11.5652" pvalue="1.73e-05">
 <sequence>TGCCATTCTCAGCTTTATCCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0888</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_514-R" name="peak_514-R">
@@ -5395,17 +5391,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_515-R" name="peak_515-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_516-L" name="peak_516-L">
-<matched-element start="69" stop="49" score="19.8587" pvalue="1.23e-07">
+<matched-element start="68" stop="48" score="19.8261" pvalue="1.3e-07">
 <sequence>TCTGAGCCTCAGTTTCCTCAT</sequence>
-<mem:qvalue>0.0133</mem:qvalue>
+<mem:qvalue>0.0142</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_516-R" name="peak_516-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_517-L" name="peak_517-L">
-<matched-element start="65" stop="45" score="8.76087" pvalue="6e-05">
+<matched-element start="64" stop="44" score="9.03261" pvalue="5.07e-05">
 <sequence>GCCTTGCCTCAGAGCTGTCTT</sequence>
-<mem:qvalue>0.125</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_517-R" name="peak_517-R">
@@ -5427,15 +5423,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_521-R" name="peak_521-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_522-L" name="peak_522-L">
-<matched-element start="31" stop="51" score="8.82609" pvalue="5.85e-05">
+<matched-element start="30" stop="50" score="8.81522" pvalue="5.53e-05">
 <sequence>tctcttgtagattcttctcat</sequence>
-<mem:qvalue>0.125</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_522-R" name="peak_522-R">
-<matched-element start="3" stop="23" score="7.76087" pvalue="8.86e-05">
+<matched-element start="2" stop="22" score="8.32609" pvalue="6.69e-05">
 <sequence>gcctggcctccttgctgtttc</sequence>
-<mem:qvalue>0.143</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_523-L" name="peak_523-L">
@@ -5463,20 +5459,12 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_528-R" name="peak_528-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_529-L" name="peak_529-L">
-<matched-element start="93" stop="73" score="11.3043" pvalue="2.03e-05">
-<sequence>TCGTGTGTCCTTTCTTCTGTA</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_529-R" name="peak_529-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_530-L" name="peak_530-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_530-R" name="peak_530-R">
-<matched-element start="50" stop="70" score="7.61957" pvalue="9.35e-05">
-<sequence>tggttttcccagtcttctaat</sequence>
-<mem:qvalue>0.146</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_531-L" name="peak_531-L">
 </scanned-sequence>
@@ -5517,9 +5505,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_540-L" name="peak_540-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_540-R" name="peak_540-R">
-<matched-element start="71" stop="91" score="7.65217" pvalue="9.24e-05">
+<matched-element start="70" stop="90" score="7.8587" pvalue="7.99e-05">
 <sequence>gcttaatctctctgccctcct</sequence>
-<mem:qvalue>0.146</mem:qvalue>
+<mem:qvalue>0.152</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_541-L" name="peak_541-L">
@@ -5541,6 +5529,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_545-L" name="peak_545-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_545-R" name="peak_545-R">
+<matched-element start="75" stop="55" score="7.33696" pvalue="9.69e-05">
+<sequence>TCCGGGGATCAGTTTCTTCAT</sequence>
+<mem:qvalue>0.157</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_546-L" name="peak_546-L">
 </scanned-sequence>
@@ -5577,9 +5569,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_554-L" name="peak_554-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_554-R" name="peak_554-R">
-<matched-element start="73" stop="53" score="9.32609" pvalue="4.77e-05">
+<matched-element start="72" stop="52" score="9.02174" pvalue="5.1e-05">
 <sequence>GCCTGTCCTCCCCGCCTGCCT</sequence>
-<mem:qvalue>0.117</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_555-L" name="peak_555-L">
@@ -5589,16 +5581,12 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_556-L" name="peak_556-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_556-R" name="peak_556-R">
-<matched-element start="35" stop="15" score="10.8587" pvalue="2.48e-05">
+<matched-element start="34" stop="14" score="11.2717" pvalue="1.97e-05">
 <sequence>TGCCAGTTTCCCTTTTCTCCT</sequence>
-<mem:qvalue>0.0862</mem:qvalue>
+<mem:qvalue>0.0937</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_557-L" name="peak_557-L">
-<matched-element start="80" stop="100" score="11.25" pvalue="2.08e-05">
-<sequence>tgtcagcccctgctccctcca</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_557-R" name="peak_557-R">
 </scanned-sequence>
@@ -5613,10 +5601,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_560-L" name="peak_560-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_560-R" name="peak_560-R">
-<matched-element start="97" stop="77" score="8.07609" pvalue="7.85e-05">
-<sequence>GGCTGGCCCGAGTGCCCACAT</sequence>
-<mem:qvalue>0.137</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_561-L" name="peak_561-L">
 </scanned-sequence>
@@ -5631,9 +5615,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_563-R" name="peak_563-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_564-L" name="peak_564-L">
-<matched-element start="30" stop="10" score="8.47826" pvalue="6.71e-05">
+<matched-element start="29" stop="9" score="8.47826" pvalue="6.31e-05">
 <sequence>TGCTAGCCTGCCTCTAAGCCT</sequence>
-<mem:qvalue>0.132</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_564-R" name="peak_564-R">
@@ -5659,9 +5643,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_569-R" name="peak_569-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_570-L" name="peak_570-L">
-<matched-element start="73" stop="53" score="13.4891" pvalue="7.01e-06">
+<matched-element start="72" stop="52" score="13.5109" pvalue="6.78e-06">
 <sequence>TCTTTCGCTCAGCGCTGAGCT</sequence>
-<mem:qvalue>0.0717</mem:qvalue>
+<mem:qvalue>0.0782</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_570-R" name="peak_570-R">
@@ -5703,21 +5687,21 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_579-R" name="peak_579-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_580-L" name="peak_580-L">
-<matched-element start="23" stop="3" score="12.9891" pvalue="9.05e-06">
+<matched-element start="22" stop="2" score="13.413" pvalue="7.13e-06">
 <sequence>TCATGGCCTCTGTCCACAGAT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0782</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_580-R" name="peak_580-R">
-<matched-element start="58" stop="78" score="12.8696" pvalue="9.61e-06">
+<matched-element start="57" stop="77" score="7.68478" pvalue="8.52e-05">
 <sequence>tcctggtccctgtcctgagct</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.156</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_581-L" name="peak_581-L">
-<matched-element start="95" stop="75" score="9.03261" pvalue="5.38e-05">
+<matched-element start="94" stop="74" score="9" pvalue="5.14e-05">
 <sequence>GGGGGGCCACTCGCCCCTGCT</sequence>
-<mem:qvalue>0.123</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_581-R" name="peak_581-R">
@@ -5743,9 +5727,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_586-R" name="peak_586-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_587-L" name="peak_587-L">
-<matched-element start="36" stop="16" score="8.22826" pvalue="7.4e-05">
+<matched-element start="35" stop="15" score="8.28261" pvalue="6.8e-05">
 <sequence>TGCTTGCTTTCTTCTTGGTCA</sequence>
-<mem:qvalue>0.133</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
+</matched-element>
+<matched-element start="34" stop="14" score="7.48913" pvalue="9.17e-05">
+<sequence>GCTTGCTTTCTTCTTGGTCAT</sequence>
+<mem:qvalue>0.157</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_587-R" name="peak_587-R">
@@ -5777,13 +5765,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_594-L" name="peak_594-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_594-R" name="peak_594-R">
-<matched-element start="74" stop="54" score="10.0326" pvalue="3.55e-05">
+<matched-element start="73" stop="53" score="10.3913" pvalue="2.9e-05">
 <sequence>TGTTTTCTTCTTCCTTCTTTC</sequence>
-<mem:qvalue>0.11</mem:qvalue>
+<mem:qvalue>0.106</mem:qvalue>
 </matched-element>
-<matched-element start="63" stop="43" score="8.29348" pvalue="7.22e-05">
+<matched-element start="62" stop="42" score="8.92391" pvalue="5.3e-05">
 <sequence>TCCTTCTTTCTTGCCTATTAA</sequence>
-<mem:qvalue>0.133</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_595-L" name="peak_595-L">
@@ -5845,9 +5833,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_609-L" name="peak_609-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_609-R" name="peak_609-R">
-<matched-element start="76" stop="96" score="11.6304" pvalue="1.74e-05">
+<matched-element start="75" stop="95" score="11.5217" pvalue="1.76e-05">
 <sequence>GGCTTTCTACTGTGTCCACCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0888</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_610-L" name="peak_610-L">
@@ -5873,7 +5861,7 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_615-L" name="peak_615-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_615-R" name="peak_615-R">
-<matched-element start="75" stop="95" score="9.6087" pvalue="4.25e-05">
+<matched-element start="74" stop="94" score="9.6413" pvalue="3.97e-05">
 <sequence>tctgagcttcagtatcctcat</sequence>
 <mem:qvalue>0.115</mem:qvalue>
 </matched-element>
@@ -5885,11 +5873,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_617-L" name="peak_617-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_617-R" name="peak_617-R">
+<matched-element start="30" stop="10" score="7.34783" pvalue="9.65e-05">
+<sequence>TCTTTGGCTTCCCCTGCAGCA</sequence>
+<mem:qvalue>0.157</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_618-L" name="peak_618-L">
-<matched-element start="14" stop="34" score="13.413" pvalue="7.29e-06">
+<matched-element start="13" stop="33" score="13.1522" pvalue="8.13e-06">
 <sequence>tgtgtggctctgtctgcagca</sequence>
-<mem:qvalue>0.0717</mem:qvalue>
+<mem:qvalue>0.0796</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_618-R" name="peak_618-R">
@@ -5903,7 +5895,7 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_620-R" name="peak_620-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_621-L" name="peak_621-L">
-<matched-element start="78" stop="98" score="9.48913" pvalue="4.46e-05">
+<matched-element start="77" stop="97" score="9.76087" pvalue="3.78e-05">
 <sequence>tgtTAGGCttttttttctttt</sequence>
 <mem:qvalue>0.115</mem:qvalue>
 </matched-element>
@@ -5955,9 +5947,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_632-R" name="peak_632-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_633-L" name="peak_633-L">
-<matched-element start="56" stop="36" score="8.57609" pvalue="6.46e-05">
+<matched-element start="55" stop="35" score="8.96739" pvalue="5.21e-05">
 <sequence>GCCCTCTTTCTGCCTCCAGCT</sequence>
-<mem:qvalue>0.132</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_633-R" name="peak_633-R">
@@ -5967,9 +5959,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_634-R" name="peak_634-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_635-L" name="peak_635-L">
-<matched-element start="23" stop="43" score="11.3478" pvalue="1.99e-05">
+<matched-element start="22" stop="42" score="11.5" pvalue="1.78e-05">
 <sequence>GGCTGGGCTTTGTGCTGTCCC</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0888</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_635-R" name="peak_635-R">
@@ -5977,17 +5969,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_636-L" name="peak_636-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_636-R" name="peak_636-R">
-<matched-element start="35" stop="55" score="15" pvalue="3.1e-06">
+<matched-element start="34" stop="54" score="14.6304" pvalue="3.76e-06">
 <sequence>tcggtccttcTGTCCACTGCT</sequence>
-<mem:qvalue>0.0696</mem:qvalue>
+<mem:qvalue>0.076</mem:qvalue>
 </matched-element>
-<matched-element start="25" stop="45" score="14.5" pvalue="4.09e-06">
+<matched-element start="24" stop="44" score="14.4457" pvalue="4.16e-06">
 <sequence>tggctgcctctcggtccttcT</sequence>
-<mem:qvalue>0.0696</mem:qvalue>
+<mem:qvalue>0.076</mem:qvalue>
 </matched-element>
-<matched-element start="42" stop="62" score="9.94565" pvalue="3.69e-05">
+<matched-element start="41" stop="61" score="10.0761" pvalue="3.31e-05">
 <sequence>ttcTGTCCACTGCTTTCTCAT</sequence>
-<mem:qvalue>0.111</mem:qvalue>
+<mem:qvalue>0.114</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_637-L" name="peak_637-L">
@@ -6011,9 +6003,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_641-R" name="peak_641-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_642-L" name="peak_642-L">
-<matched-element start="11" stop="31" score="11.913" pvalue="1.53e-05">
+<matched-element start="10" stop="30" score="11.9783" pvalue="1.43e-05">
 <sequence>TCCCGCGCACTGCCTTGACCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0829</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_642-R" name="peak_642-R">
@@ -6021,9 +6013,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_643-L" name="peak_643-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_643-R" name="peak_643-R">
-<matched-element start="50" stop="30" score="12.5326" pvalue="1.13e-05">
+<matched-element start="49" stop="29" score="12.1413" pvalue="1.32e-05">
 <sequence>GCCTTCCCTCACTGTTAGCAT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0829</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_644-L" name="peak_644-L">
@@ -6049,9 +6041,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_649-L" name="peak_649-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_649-R" name="peak_649-R">
-<matched-element start="56" stop="36" score="7.81522" pvalue="8.68e-05">
+<matched-element start="55" stop="35" score="7.59783" pvalue="8.8e-05">
 <sequence>GCAGTTTCTCTGCTCTGACCA</sequence>
-<mem:qvalue>0.142</mem:qvalue>
+<mem:qvalue>0.157</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_650-L" name="peak_650-L">
@@ -6097,15 +6089,11 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_660-L" name="peak_660-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_660-R" name="peak_660-R">
-<matched-element start="57" stop="37" score="7.46739" pvalue="9.9e-05">
-<sequence>TGTGGTGTTCTGTGCATTGCA</sequence>
-<mem:qvalue>0.148</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_661-L" name="peak_661-L">
-<matched-element start="52" stop="32" score="14.6957" pvalue="3.68e-06">
+<matched-element start="51" stop="31" score="9.63043" pvalue="3.99e-05">
 <sequence>TCCCTGCCCCACCCTCCTTCT</sequence>
-<mem:qvalue>0.0696</mem:qvalue>
+<mem:qvalue>0.115</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_661-R" name="peak_661-R">
@@ -6163,9 +6151,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_674-R" name="peak_674-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_675-L" name="peak_675-L">
-<matched-element start="54" stop="34" score="7.98913" pvalue="8.12e-05">
+<matched-element start="53" stop="33" score="8.41304" pvalue="6.47e-05">
 <sequence>TCCTTCCCAGAGTTTCTAGCT</sequence>
-<mem:qvalue>0.137</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_675-R" name="peak_675-R">
@@ -6193,13 +6181,13 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_681-L" name="peak_681-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_681-R" name="peak_681-R">
-<matched-element start="29" stop="9" score="11.8261" pvalue="1.59e-05">
+<matched-element start="28" stop="8" score="12.3152" pvalue="1.22e-05">
 <sequence>TCCTGCCCTTCCTCCTTTCCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0829</mem:qvalue>
 </matched-element>
-<matched-element start="34" stop="14" score="8" pvalue="8.09e-05">
+<matched-element start="33" stop="13" score="8.29348" pvalue="6.77e-05">
 <sequence>CCCTTTCCTGCCCTTCCTCCT</sequence>
-<mem:qvalue>0.137</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_682-L" name="peak_682-L">
@@ -6213,9 +6201,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_684-L" name="peak_684-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_684-R" name="peak_684-R">
-<matched-element start="87" stop="67" score="7.91304" pvalue="8.36e-05">
+<matched-element start="86" stop="66" score="8.31522" pvalue="6.72e-05">
 <sequence>TGCCTTCCACATGCCCCTCCC</sequence>
-<mem:qvalue>0.139</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_685-L" name="peak_685-L">
@@ -6231,10 +6219,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_687-R" name="peak_687-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_688-L" name="peak_688-L">
-<matched-element start="26" stop="46" score="11.5109" pvalue="1.84e-05">
-<sequence>TGCTGGCCCCTTCCTGCACCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_688-R" name="peak_688-R">
 </scanned-sequence>
@@ -6263,27 +6247,23 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_694-R" name="peak_694-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_695-L" name="peak_695-L">
-<matched-element start="61" stop="41" score="8.34783" pvalue="7.07e-05">
-<sequence>GGCTAGTTCCAGTGTCCGCAT</sequence>
-<mem:qvalue>0.133</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_695-R" name="peak_695-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_696-L" name="peak_696-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_696-R" name="peak_696-R">
-<matched-element start="58" stop="38" score="12.2283" pvalue="1.31e-05">
+<matched-element start="57" stop="37" score="12.0435" pvalue="1.39e-05">
 <sequence>TCTTTCTCTGAGCCTTTGCAT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0829</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_697-L" name="peak_697-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_697-R" name="peak_697-R">
-<matched-element start="9" stop="29" score="17.6087" pvalue="6.24e-07">
+<matched-element start="8" stop="28" score="17.7174" pvalue="5.87e-07">
 <sequence>tgttgtcctcattgttgtcat</sequence>
-<mem:qvalue>0.0245</mem:qvalue>
+<mem:qvalue>0.0229</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_698-L" name="peak_698-L">
@@ -6303,10 +6283,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_701-R" name="peak_701-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_702-L" name="peak_702-L">
-<matched-element start="55" stop="75" score="9.19565" pvalue="5.04e-05">
-<sequence>GGCTGGTCCCAGCCTCCACCC</sequence>
-<mem:qvalue>0.121</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_702-R" name="peak_702-R">
 </scanned-sequence>
@@ -6323,6 +6299,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_705-R" name="peak_705-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_706-L" name="peak_706-L">
+<matched-element start="56" stop="36" score="7.38043" pvalue="9.54e-05">
+<sequence>TACCACACTCTGTCCCCTCCA</sequence>
+<mem:qvalue>0.157</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_706-R" name="peak_706-R">
 </scanned-sequence>
@@ -6347,7 +6327,7 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_711-R" name="peak_711-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_712-L" name="peak_712-L">
-<matched-element start="95" stop="75" score="9.73913" pvalue="4.02e-05">
+<matched-element start="94" stop="74" score="9.63043" pvalue="3.99e-05">
 <sequence>TCTGTGCCTCCCTGCTGTCTC</sequence>
 <mem:qvalue>0.115</mem:qvalue>
 </matched-element>
@@ -6359,19 +6339,19 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_713-R" name="peak_713-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_714-L" name="peak_714-L">
-<matched-element start="94" stop="74" score="8.47826" pvalue="6.71e-05">
+<matched-element start="93" stop="73" score="8.55435" pvalue="6.12e-05">
 <sequence>GCCTACCTTGTTCCTGCGCCA</sequence>
-<mem:qvalue>0.132</mem:qvalue>
+<mem:qvalue>0.136</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_714-R" name="peak_714-R">
-<matched-element start="31" stop="51" score="9.70652" pvalue="4.08e-05">
+<matched-element start="30" stop="50" score="10.0761" pvalue="3.31e-05">
 <sequence>tctttctttctttcttttttt</sequence>
-<mem:qvalue>0.115</mem:qvalue>
+<mem:qvalue>0.114</mem:qvalue>
 </matched-element>
-<matched-element start="39" stop="59" score="9.3587" pvalue="4.71e-05">
+<matched-element start="38" stop="58" score="9.82609" pvalue="3.68e-05">
 <sequence>tctttcttttttttttctgaa</sequence>
-<mem:qvalue>0.117</mem:qvalue>
+<mem:qvalue>0.115</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_715-L" name="peak_715-L">
@@ -6381,9 +6361,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_716-L" name="peak_716-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_716-R" name="peak_716-R">
-<matched-element start="16" stop="36" score="13.4783" pvalue="7.05e-06">
+<matched-element start="15" stop="35" score="13.6087" pvalue="6.45e-06">
 <sequence>GCTTTTATTCTGTTTGCTCCA</sequence>
-<mem:qvalue>0.0717</mem:qvalue>
+<mem:qvalue>0.0782</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_717-L" name="peak_717-L">
@@ -6391,23 +6371,23 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_717-R" name="peak_717-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_718-L" name="peak_718-L">
-<matched-element start="98" stop="78" score="10.587" pvalue="2.79e-05">
+<matched-element start="97" stop="77" score="11" pvalue="2.23e-05">
 <sequence>GCCTCCCCTCTGTTCTGTCCA</sequence>
-<mem:qvalue>0.0916</mem:qvalue>
+<mem:qvalue>0.0967</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_718-R" name="peak_718-R">
-<matched-element start="48" stop="68" score="10.9239" pvalue="2.41e-05">
+<matched-element start="47" stop="67" score="10.7174" pvalue="2.52e-05">
 <sequence>TGTTGTCCTCTGCTCAGGGCT</sequence>
-<mem:qvalue>0.0862</mem:qvalue>
+<mem:qvalue>0.0987</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_719-L" name="peak_719-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_719-R" name="peak_719-R">
-<matched-element start="59" stop="39" score="14.3261" pvalue="4.5e-06">
+<matched-element start="58" stop="38" score="14.7391" pvalue="3.55e-06">
 <sequence>TGATGGCCTCAGGGTAGTCAT</sequence>
-<mem:qvalue>0.0696</mem:qvalue>
+<mem:qvalue>0.076</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_720-L" name="peak_720-L">
@@ -6469,6 +6449,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_734-L" name="peak_734-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_734-R" name="peak_734-R">
+<matched-element start="47" stop="27" score="7.30435" pvalue="9.81e-05">
+<sequence>GCTTTTGTTTTTTCTTTTTCA</sequence>
+<mem:qvalue>0.157</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_735-L" name="peak_735-L">
 </scanned-sequence>
@@ -6517,9 +6501,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_746-L" name="peak_746-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_746-R" name="peak_746-R">
-<matched-element start="8" stop="28" score="12.3043" pvalue="1.27e-05">
+<matched-element start="7" stop="27" score="11.9674" pvalue="1.44e-05">
 <sequence>TCCCTCTCTCACTCTTTGCCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0829</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_747-L" name="peak_747-L">
@@ -6605,17 +6589,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_767-L" name="peak_767-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_767-R" name="peak_767-R">
-<matched-element start="68" stop="48" score="10.7935" pvalue="2.55e-05">
+<matched-element start="67" stop="47" score="10.8696" pvalue="2.36e-05">
 <sequence>GCCTGGCTTCTGCCCAAGCCA</sequence>
-<mem:qvalue>0.0862</mem:qvalue>
+<mem:qvalue>0.0967</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_768-L" name="peak_768-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_768-R" name="peak_768-R">
-<matched-element start="68" stop="88" score="9.1087" pvalue="5.22e-05">
+<matched-element start="67" stop="87" score="9.22826" pvalue="4.69e-05">
 <sequence>GGCGTCCCTCTCGCCGCTTCT</sequence>
-<mem:qvalue>0.123</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_769-L" name="peak_769-L">
@@ -6633,9 +6617,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_772-L" name="peak_772-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_772-R" name="peak_772-R">
-<matched-element start="77" stop="57" score="9" pvalue="5.45e-05">
+<matched-element start="76" stop="56" score="9.56522" pvalue="4.09e-05">
 <sequence>GCCCAGCTTCCTTCCTCTTCT</sequence>
-<mem:qvalue>0.123</mem:qvalue>
+<mem:qvalue>0.115</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_773-L" name="peak_773-L">
@@ -6649,6 +6633,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_775-L" name="peak_775-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_775-R" name="peak_775-R">
+<matched-element start="26" stop="46" score="7.31522" pvalue="9.77e-05">
+<sequence>TGTTGGCCTGTGGGCCGCCCA</sequence>
+<mem:qvalue>0.157</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_776-L" name="peak_776-L">
 </scanned-sequence>
@@ -6709,17 +6697,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_790-L" name="peak_790-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_790-R" name="peak_790-R">
-<matched-element start="88" stop="68" score="11.25" pvalue="2.08e-05">
+<matched-element start="87" stop="67" score="10.8478" pvalue="2.38e-05">
 <sequence>TCTGATGCTTTTGCTTGTCCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0967</mem:qvalue>
 </matched-element>
-<matched-element start="94" stop="74" score="8.76087" pvalue="6e-05">
+<matched-element start="93" stop="73" score="8.83696" pvalue="5.48e-05">
 <sequence>TCTGTCTCTGATGCTTTTGCT</sequence>
-<mem:qvalue>0.125</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
-<matched-element start="100" stop="80" score="8.01087" pvalue="8.05e-05">
+<matched-element start="99" stop="79" score="7.98913" pvalue="7.6e-05">
 <sequence>TCTGTCTCTGTCTCTGATGCT</sequence>
-<mem:qvalue>0.137</mem:qvalue>
+<mem:qvalue>0.149</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_791-L" name="peak_791-L">
@@ -6739,9 +6727,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_794-R" name="peak_794-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_795-L" name="peak_795-L">
-<matched-element start="100" stop="80" score="12.7174" pvalue="1.04e-05">
+<matched-element start="99" stop="79" score="12.587" pvalue="1.07e-05">
 <sequence>TGTTTTGTTTTGTCTTTTCCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0829</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_795-R" name="peak_795-R">
@@ -6769,15 +6757,19 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_801-L" name="peak_801-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_801-R" name="peak_801-R">
+<matched-element start="99" stop="79" score="7.48913" pvalue="9.17e-05">
+<sequence>GGAGAGGCTCTGGCCCCTGCC</sequence>
+<mem:qvalue>0.157</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_802-L" name="peak_802-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_802-R" name="peak_802-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_803-L" name="peak_803-L">
-<matched-element start="96" stop="76" score="13.75" pvalue="6.12e-06">
+<matched-element start="95" stop="75" score="13.9022" pvalue="5.55e-06">
 <sequence>TGGTGTCCACCGCCCCCTGCT</sequence>
-<mem:qvalue>0.0717</mem:qvalue>
+<mem:qvalue>0.0782</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_803-R" name="peak_803-R">
@@ -6785,16 +6777,20 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_804-L" name="peak_804-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_804-R" name="peak_804-R">
-<matched-element start="65" stop="45" score="11.9565" pvalue="1.5e-05">
+<matched-element start="64" stop="44" score="12.6196" pvalue="1.06e-05">
 <sequence>TGCTGGCTTGAGTCTTATCAC</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0829</mem:qvalue>
 </matched-element>
-<matched-element start="4" stop="24" score="8.26087" pvalue="7.31e-05">
+<matched-element start="3" stop="23" score="8.84783" pvalue="5.46e-05">
 <sequence>TGCTACTGTCCCTGTCCTTAA</sequence>
-<mem:qvalue>0.133</mem:qvalue>
+<mem:qvalue>0.126</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_805-L" name="peak_805-L">
+<matched-element start="69" stop="89" score="7.67391" pvalue="8.56e-05">
+<sequence>tccagTCCTGTGGCCTTTCCA</sequence>
+<mem:qvalue>0.156</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_805-R" name="peak_805-R">
 </scanned-sequence>
@@ -6829,6 +6825,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_813-L" name="peak_813-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_813-R" name="peak_813-R">
+<matched-element start="87" stop="67" score="7.29348" pvalue="9.85e-05">
+<sequence>TCGTGTCCAGCGGCCTCTTAC</sequence>
+<mem:qvalue>0.157</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_814-L" name="peak_814-L">
 </scanned-sequence>
@@ -6891,17 +6891,17 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_828-R" name="peak_828-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_829-L" name="peak_829-L">
-<matched-element start="56" stop="36" score="11.7826" pvalue="1.62e-05">
+<matched-element start="55" stop="35" score="11.1848" pvalue="2.05e-05">
 <sequence>TCCGGGGCTGCGCTCCGGCCT</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0937</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_829-R" name="peak_829-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_830-L" name="peak_830-L">
-<matched-element start="40" stop="20" score="12.3043" pvalue="1.27e-05">
+<matched-element start="39" stop="19" score="13.0109" pvalue="8.72e-06">
 <sequence>GGATGGCCTCAGCCTGATCCA</sequence>
-<mem:qvalue>0.0775</mem:qvalue>
+<mem:qvalue>0.0796</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_830-R" name="peak_830-R">
@@ -6917,9 +6917,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_833-L" name="peak_833-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_833-R" name="peak_833-R">
-<matched-element start="50" stop="30" score="7.58696" pvalue="9.47e-05">
+<matched-element start="49" stop="29" score="7.84783" pvalue="8.02e-05">
 <sequence>TCTGTCCCTGCCTCCCCTGAC</sequence>
-<mem:qvalue>0.146</mem:qvalue>
+<mem:qvalue>0.152</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_834-L" name="peak_834-L">
@@ -6955,10 +6955,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_841-R" name="peak_841-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_842-L" name="peak_842-L">
-<matched-element start="46" stop="66" score="8.79348" pvalue="5.92e-05">
-<sequence>TCCTTCTTCCTCTTCCGTGCT</sequence>
-<mem:qvalue>0.125</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_842-R" name="peak_842-R">
 </scanned-sequence>
@@ -6999,10 +6995,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_851-R" name="peak_851-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_852-L" name="peak_852-L">
-<matched-element start="53" stop="33" score="8.22826" pvalue="7.4e-05">
-<sequence>GCGTTTTCCTTTCTTCCTCCA</sequence>
-<mem:qvalue>0.133</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_852-R" name="peak_852-R">
 </scanned-sequence>
@@ -7031,7 +7023,7 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_858-R" name="peak_858-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_859-L" name="peak_859-L">
-<matched-element start="39" stop="19" score="9.53261" pvalue="4.38e-05">
+<matched-element start="38" stop="18" score="9.93478" pvalue="3.51e-05">
 <sequence>TCCTTTCCTCCTCCTCGAGTT</sequence>
 <mem:qvalue>0.115</mem:qvalue>
 </matched-element>
@@ -7067,16 +7059,8 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_866-R" name="peak_866-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_867-L" name="peak_867-L">
-<matched-element start="38" stop="18" score="7.44565" pvalue="9.98e-05">
-<sequence>TGCGTCCCACAGCTTAGGGCT</sequence>
-<mem:qvalue>0.148</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_867-R" name="peak_867-R">
-<matched-element start="54" stop="34" score="9.53261" pvalue="4.38e-05">
-<sequence>TCCTGGAGCCATTGCCCTTCT</sequence>
-<mem:qvalue>0.115</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_868-L" name="peak_868-L">
 </scanned-sequence>
@@ -7084,15 +7068,15 @@ clusterid CDATA #IMPLIED
 </scanned-sequence>
 <mem:has-qvalues>yes</mem:has-qvalues>
 </pattern>
-<pattern accession="CYRRGGCTGCCCAGCTGKGSCVAAGAGRA" name="MEME-5">
+<pattern accession="YCTCYTBGSCMCAGCTGGGCAGCMYHRG" name="MEME-5">
 <scanned-sequence accession="peak_500-L" name="peak_500-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_500-R" name="peak_500-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_501-L" name="peak_501-L">
-<matched-element start="50" stop="22" score="-17.1557" pvalue="8.26e-05">
-<sequence>CCTAGGCTGGGCCTCAAGACTAGTGAGGC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="22" stop="49" score="-5.95413" pvalue="6.48e-05">
+<sequence>CCTCACTAGTCTTGAGGCCCAGCCTAGG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_501-R" name="peak_501-R">
@@ -7102,14 +7086,18 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_502-R" name="peak_502-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_503-L" name="peak_503-L">
-<matched-element start="18" stop="46" score="3.44262" pvalue="4.08e-07">
-<sequence>TGAGGGCAGCTTGGCTGGGCCAAAGAGAT</sequence>
-<mem:qvalue>0.0125</mem:qvalue>
+<matched-element start="44" stop="17" score="9.93578" pvalue="6.61e-07">
+<sequence>TCTCTTTGGCCCAGCCAAGCTGCCCTCA</sequence>
+<mem:qvalue>0.0337</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_503-R" name="peak_503-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_504-L" name="peak_504-L">
+<matched-element start="99" stop="72" score="-6.33945" pvalue="7.13e-05">
+<sequence>ACTAATTGCCATCTCTTAAAAGCATTAA</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_504-R" name="peak_504-R">
 </scanned-sequence>
@@ -7124,6 +7112,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_507-L" name="peak_507-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_507-R" name="peak_507-R">
+<matched-element start="42" stop="69" score="-4.80734" pvalue="4.86e-05">
+<sequence>TCTAATACACCCTGATGAGATTAACCTG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_508-L" name="peak_508-L">
 </scanned-sequence>
@@ -7162,10 +7154,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_516-R" name="peak_516-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_517-L" name="peak_517-L">
-<matched-element start="92" stop="64" score="-16.5738" pvalue="7.24e-05">
-<sequence>GGCATTTTCCTCAGCTGTGAGAAAGCGGC</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_517-R" name="peak_517-R">
 </scanned-sequence>
@@ -7188,10 +7176,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_522-L" name="peak_522-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_522-R" name="peak_522-R">
-<matched-element start="98" stop="70" score="-13.4754" pvalue="3.57e-05">
-<sequence>CTGGAGGTGAGCTTTCGAGGCAGAGAGAA</sequence>
-<mem:qvalue>0.0844</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_523-L" name="peak_523-L">
 </scanned-sequence>
@@ -7216,10 +7200,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_528-L" name="peak_528-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_528-R" name="peak_528-R">
-<matched-element start="30" stop="58" score="-10.7049" pvalue="1.85e-05">
-<sequence>taaggcttcctcctgggtggcagagagga</sequence>
-<mem:qvalue>0.0773</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_529-L" name="peak_529-L">
 </scanned-sequence>
@@ -7234,10 +7214,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_531-R" name="peak_531-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_532-L" name="peak_532-L">
-<matched-element start="16" stop="44" score="-17.4754" pvalue="8.87e-05">
-<sequence>TAAAAGCTGAAGCGAGGGGGCGGGGAGAC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_532-R" name="peak_532-R">
 </scanned-sequence>
@@ -7256,20 +7232,24 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_536-L" name="peak_536-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_536-R" name="peak_536-R">
+<matched-element start="53" stop="80" score="-6.22936" pvalue="6.94e-05">
+<sequence>CAAGAGTGGCTCTGAGGAACAACAAGGG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_537-L" name="peak_537-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_537-R" name="peak_537-R">
-<matched-element start="14" stop="42" score="-8.30328" pvalue="1.02e-05">
-<sequence>gcgatcatgctcagcagaggctggcctaa</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_538-L" name="peak_538-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_538-R" name="peak_538-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_539-L" name="peak_539-L">
+<matched-element start="10" stop="37" score="-5.26606" pvalue="5.46e-05">
+<sequence>CCTCCCAGTCCCAGCCTTGCAGTCAGAC</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_539-R" name="peak_539-R">
 </scanned-sequence>
@@ -7296,10 +7276,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_545-L" name="peak_545-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_545-R" name="peak_545-R">
-<matched-element start="41" stop="13" score="-15.4918" pvalue="5.7e-05">
-<sequence>GCGAAGCTCCCGCGGAGGGCCGTGGGGAG</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_546-L" name="peak_546-L">
 </scanned-sequence>
@@ -7318,6 +7294,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_549-R" name="peak_549-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_550-L" name="peak_550-L">
+<matched-element start="65" stop="38" score="-5.93578" pvalue="6.45e-05">
+<sequence>ATGTCGGGCCCAGGCTGGGCTGCTCCTG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_550-R" name="peak_550-R">
 </scanned-sequence>
@@ -7334,10 +7314,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_553-R" name="peak_553-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_554-L" name="peak_554-L">
-<matched-element start="93" stop="65" score="-13.1885" pvalue="3.34e-05">
-<sequence>CGGAAGGAGCCCGGAGGGGCCCGGGCGGC</sequence>
-<mem:qvalue>0.0844</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_554-R" name="peak_554-R">
 </scanned-sequence>
@@ -7346,6 +7322,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_555-R" name="peak_555-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_556-L" name="peak_556-L">
+<matched-element start="98" stop="71" score="-7.13761" pvalue="8.67e-05">
+<sequence>TTCCATGGCGACCGATTGATTGCCCAAG</sequence>
+<mem:qvalue>0.216</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_556-R" name="peak_556-R">
 </scanned-sequence>
@@ -7400,16 +7380,16 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_569-L" name="peak_569-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_569-R" name="peak_569-R">
+<matched-element start="51" stop="24" score="-7.70642" pvalue="9.95e-05">
+<sequence>CCTATTTACACATGCTTCCAAGCCATTG</sequence>
+<mem:qvalue>0.221</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_570-L" name="peak_570-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_570-R" name="peak_570-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_571-L" name="peak_571-L">
-<matched-element start="6" stop="34" score="-12.9836" pvalue="3.17e-05">
-<sequence>accgggtttcaccgtgttggccaggctgg</sequence>
-<mem:qvalue>0.0836</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_571-R" name="peak_571-R">
 </scanned-sequence>
@@ -7418,10 +7398,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_572-R" name="peak_572-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_573-L" name="peak_573-L">
-<matched-element start="94" stop="66" score="-9.96721" pvalue="1.55e-05">
-<sequence>CCCAGGAACCTCCCCTGAGTCATAGCTGA</sequence>
-<mem:qvalue>0.0749</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_573-R" name="peak_573-R">
 </scanned-sequence>
@@ -7442,18 +7418,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_577-R" name="peak_577-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_578-L" name="peak_578-L">
-<matched-element start="27" stop="55" score="-16.6967" pvalue="7.44e-05">
-<sequence>GTGGAGCTGCCCTTCTGGAGGCCAGTGTG</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_578-R" name="peak_578-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_579-L" name="peak_579-L">
-<matched-element start="61" stop="89" score="-17.7049" pvalue="9.31e-05">
-<sequence>accagtgtatccaactggtgcagagggga</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_579-R" name="peak_579-R">
 </scanned-sequence>
@@ -7482,28 +7450,16 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_585-R" name="peak_585-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_586-L" name="peak_586-L">
-<matched-element start="4" stop="32" score="-15.0738" pvalue="5.18e-05">
-<sequence>CTCGTGGAGAGCCCCAGAAGCAAGGATGG</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
+<matched-element start="30" stop="3" score="-7.21101" pvalue="8.83e-05">
+<sequence>CATCCTTGCTTCTGGGGCTCTCCACGAG</sequence>
+<mem:qvalue>0.216</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_586-R" name="peak_586-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_587-L" name="peak_587-L">
-<matched-element start="48" stop="76" score="-6.2541" pvalue="6.05e-06">
-<sequence>TCCAGGCTGGCCCGAGGGGCCATGGTGCA</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_587-R" name="peak_587-R">
-<matched-element start="45" stop="73" score="-16.4508" pvalue="7.07e-05">
-<sequence>GCCCTGCTGCCCATGGTGGCACAAGCTGT</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
-<matched-element start="64" stop="36" score="-16.623" pvalue="7.34e-05">
-<sequence>GCCACCATGGGCAGCAGGGCCCAGGCAGG</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_588-L" name="peak_588-L">
 </scanned-sequence>
@@ -7540,18 +7496,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_596-L" name="peak_596-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_596-R" name="peak_596-R">
-<matched-element start="37" stop="65" score="-17.6311" pvalue="9.18e-05">
-<sequence>CTCGGGCTCCTCCGCAGCCCCCGCCGCGC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_597-L" name="peak_597-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_597-R" name="peak_597-R">
-<matched-element start="63" stop="91" score="-17.9836" pvalue="9.88e-05">
-<sequence>CGCAGGGCGCACAGCAGACGCAGGCGGAC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_598-L" name="peak_598-L">
 </scanned-sequence>
@@ -7560,10 +7508,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_599-L" name="peak_599-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_599-R" name="peak_599-R">
-<matched-element start="56" stop="28" score="-14.7869" pvalue="4.85e-05">
-<sequence>GCAGCCCTTGCCATCTGGCCCCACGGTGA</sequence>
-<mem:qvalue>0.0935</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_600-L" name="peak_600-L">
 </scanned-sequence>
@@ -7608,9 +7552,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_610-L" name="peak_610-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_610-R" name="peak_610-R">
-<matched-element start="98" stop="70" score="-9.54098" pvalue="1.39e-05">
-<sequence>CCGGTGCTGGGGCTCTGGGCCCAGAGAGG</sequence>
-<mem:qvalue>0.0749</mem:qvalue>
+<matched-element start="70" stop="97" score="-0.59633" pvalue="1.61e-05">
+<sequence>CTCTCTGGGCCCAGAGCCCCAGCACCGG</sequence>
+<mem:qvalue>0.175</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_611-L" name="peak_611-L">
@@ -7626,18 +7570,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_613-R" name="peak_613-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_614-L" name="peak_614-L">
-<matched-element start="96" stop="68" score="-11.5984" pvalue="2.29e-05">
-<sequence>GGAGGCCTTACCACCTGGGGCAGAGGGTG</sequence>
-<mem:qvalue>0.0781</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_614-R" name="peak_614-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_615-L" name="peak_615-L">
-<matched-element start="74" stop="46" score="-12.4262" pvalue="2.78e-05">
-<sequence>GCCATGCTACACGGGTGGGGCAGGCCTGC</sequence>
-<mem:qvalue>0.0834</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_615-R" name="peak_615-R">
 </scanned-sequence>
@@ -7646,8 +7582,16 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_616-R" name="peak_616-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_617-L" name="peak_617-L">
+<matched-element start="72" stop="45" score="-7.62385" pvalue="9.76e-05">
+<sequence>TCAACCTGGACCTGTTGAGAAAAACAGG</sequence>
+<mem:qvalue>0.221</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_617-R" name="peak_617-R">
+<matched-element start="31" stop="58" score="-4.37615" pvalue="4.36e-05">
+<sequence>TTCCTGAGCCACAGCGGTAAGACATGAG</sequence>
+<mem:qvalue>0.202</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_618-L" name="peak_618-L">
 </scanned-sequence>
@@ -7696,10 +7640,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_629-L" name="peak_629-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_629-R" name="peak_629-R">
-<matched-element start="70" stop="98" score="-13.4672" pvalue="3.56e-05">
-<sequence>TCAGGGCTGGGGAGCTGGGCAGAGAGAAA</sequence>
-<mem:qvalue>0.0844</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_630-L" name="peak_630-L">
 </scanned-sequence>
@@ -7730,9 +7670,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_636-R" name="peak_636-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_637-L" name="peak_637-L">
-<matched-element start="65" stop="37" score="-7.40164" pvalue="8.14e-06">
-<sequence>ACCAGGCTGCGCTTCTGTCCCAGGCAGGT</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
+<matched-element start="37" stop="64" score="-2.33028" pvalue="2.56e-05">
+<sequence>CCTGCCTGGGACAGAAGCGCAGCCTGGT</sequence>
+<mem:qvalue>0.177</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_637-R" name="peak_637-R">
@@ -7766,10 +7706,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_644-R" name="peak_644-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_645-L" name="peak_645-L">
-<matched-element start="63" stop="91" score="-17.9754" pvalue="9.86e-05">
-<sequence>CTAAAGTTGGTGTGCTGGGCCACAGAACA</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_645-R" name="peak_645-R">
 </scanned-sequence>
@@ -7788,10 +7724,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_649-L" name="peak_649-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_649-R" name="peak_649-R">
-<matched-element start="58" stop="30" score="-17.9672" pvalue="9.84e-05">
-<sequence>CTGCAGTTTCTCTGCTCTGACCAAGAACA</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_650-L" name="peak_650-L">
 </scanned-sequence>
@@ -7816,10 +7748,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_655-L" name="peak_655-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_655-R" name="peak_655-R">
-<matched-element start="76" stop="48" score="-15.5984" pvalue="5.83e-05">
-<sequence>CCAGGGCCTACCTGCAGGCCCCACACAGG</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_656-L" name="peak_656-L">
 </scanned-sequence>
@@ -7878,6 +7806,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_669-R" name="peak_669-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_670-L" name="peak_670-L">
+<matched-element start="23" stop="50" score="5.75229" pvalue="2.54e-06">
+<sequence>Actctgggcctcagtttctctgacttaa</sequence>
+<mem:qvalue>0.0647</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_670-R" name="peak_670-R">
 </scanned-sequence>
@@ -7894,9 +7826,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_673-R" name="peak_673-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_674-L" name="peak_674-L">
-<matched-element start="23" stop="51" score="-7.79508" pvalue="8.97e-06">
-<sequence>CCCCGGCTCCGTCGCTGGGGGGCAGGGGA</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
+<matched-element start="49" stop="22" score="-6.9633" pvalue="8.31e-05">
+<sequence>CCCCTGCCCCCCAGCGACGGAGCCGGGG</sequence>
+<mem:qvalue>0.216</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_674-R" name="peak_674-R">
@@ -7978,19 +7910,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_693-R" name="peak_693-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_694-L" name="peak_694-L">
-<matched-element start="58" stop="86" score="-17.6803" pvalue="9.25e-05">
-<sequence>GCGGGGCCGCGCGGGCCGGCGGAAGCGGC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_694-R" name="peak_694-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_695-L" name="peak_695-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_695-R" name="peak_695-R">
-<matched-element start="50" stop="78" score="-11.2623" pvalue="2.12e-05">
-<sequence>CAGAGGGTGGCCAGCTGATGCTGGGAACC</sequence>
-<mem:qvalue>0.078</mem:qvalue>
+<matched-element start="76" stop="49" score="-3.99083" pvalue="3.95e-05">
+<sequence>GTTCCCAGCATCAGCTGGCCACCCTCTG</sequence>
+<mem:qvalue>0.192</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_696-L" name="peak_696-L">
@@ -8016,10 +7944,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_701-L" name="peak_701-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_701-R" name="peak_701-R">
-<matched-element start="50" stop="22" score="-17.2623" pvalue="8.43e-05">
-<sequence>CTCCGGCGGCCTCACGGCGCCCCCGAGGG</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_702-L" name="peak_702-L">
 </scanned-sequence>
@@ -8058,16 +7982,20 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_710-R" name="peak_710-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_711-L" name="peak_711-L">
-<matched-element start="86" stop="58" score="-7.42623" pvalue="8.19e-06">
-<sequence>CCAGAGCTGCCTGGCATGTGCAGTGCTGA</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_711-R" name="peak_711-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_712-L" name="peak_712-L">
+<matched-element start="34" stop="7" score="-1.40367" pvalue="2e-05">
+<sequence>TCTCAGGGCCTGAAATGTGCATCACCTA</sequence>
+<mem:qvalue>0.175</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_712-R" name="peak_712-R">
+<matched-element start="100" stop="73" score="-7.44954" pvalue="9.35e-05">
+<sequence>CTGCTGATGCTCTGCTTGGAGGGCCTGC</sequence>
+<mem:qvalue>0.221</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_713-L" name="peak_713-L">
 </scanned-sequence>
@@ -8078,10 +8006,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_714-R" name="peak_714-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_715-L" name="peak_715-L">
-<matched-element start="36" stop="8" score="-13.7131" pvalue="3.76e-05">
-<sequence>CCGGGGCTGCCCTTCTCTGTAGGGCTGTG</sequence>
-<mem:qvalue>0.0867</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_715-R" name="peak_715-R">
 </scanned-sequence>
@@ -8104,9 +8028,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_720-L" name="peak_720-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_720-R" name="peak_720-R">
-<matched-element start="31" stop="59" score="-17.582" pvalue="9.06e-05">
-<sequence>tagagaatccacatcagagctcaagatgt</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="41" stop="68" score="-3.29358" pvalue="3.3e-05">
+<sequence>catcagagctcaagatgtaaagagccag</sequence>
+<mem:qvalue>0.187</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_721-L" name="peak_721-L">
@@ -8114,19 +8038,19 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_721-R" name="peak_721-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_722-L" name="peak_722-L">
-<matched-element start="90" stop="62" score="-6.12295" pvalue="5.85e-06">
-<sequence>GCTGGGGTGGGCTGCTGTGGCAGAGCTGG</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
+<matched-element start="78" stop="51" score="1.42202" pvalue="9.14e-06">
+<sequence>CTGCTGTGGCAGAGCTGGAGAGGCAGGG</sequence>
+<mem:qvalue>0.133</mem:qvalue>
 </matched-element>
-<matched-element start="52" stop="80" score="-12.1639" pvalue="2.62e-05">
-<sequence>CCCTGCCTCTCCAGCTCTGCCACAGCAGC</sequence>
-<mem:qvalue>0.0832</mem:qvalue>
+<matched-element start="62" stop="89" score="-3.30275" pvalue="3.31e-05">
+<sequence>CAGCTCTGCCACAGCAGCCCACCCCAGC</sequence>
+<mem:qvalue>0.187</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_722-R" name="peak_722-R">
-<matched-element start="66" stop="94" score="-14.4344" pvalue="4.46e-05">
-<sequence>CCAGATTCTCACATCTGTGTCTGAGAGGC</sequence>
-<mem:qvalue>0.0898</mem:qvalue>
+<matched-element start="92" stop="65" score="-2.48624" pvalue="2.67e-05">
+<sequence>CCTCTCAGACACAGATGTGAGAATCTGG</sequence>
+<mem:qvalue>0.177</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_723-L" name="peak_723-L">
@@ -8146,10 +8070,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_726-R" name="peak_726-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_727-L" name="peak_727-L">
-<matched-element start="61" stop="33" score="-16.4262" pvalue="7.02e-05">
-<sequence>CCTGGCATTCCCAGCCTTTCCTGAGCTGG</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_727-R" name="peak_727-R">
 </scanned-sequence>
@@ -8166,26 +8086,14 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_730-R" name="peak_730-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_731-L" name="peak_731-L">
-<matched-element start="25" stop="53" score="-16.4754" pvalue="7.11e-05">
-<sequence>ATGGGGCTGAGCCGCCGGGCCAGGCCTTT</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_731-R" name="peak_731-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_732-L" name="peak_732-L">
-<matched-element start="75" stop="47" score="-15.6311" pvalue="5.87e-05">
-<sequence>ACAGAGGTGCCCACGAGGGCAGAGGCCGG</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_732-R" name="peak_732-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_733-L" name="peak_733-L">
-<matched-element start="55" stop="83" score="-8.86066" pvalue="1.17e-05">
-<sequence>GCAGTGCTGACCATGAGATGGGAGGCTGG</sequence>
-<mem:qvalue>0.0676</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_733-R" name="peak_733-R">
 </scanned-sequence>
@@ -8196,10 +8104,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_735-L" name="peak_735-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_735-R" name="peak_735-R">
-<matched-element start="69" stop="97" score="-8.05738" pvalue="9.57e-06">
-<sequence>CTGGGCGTGCCCAGCTTGGGGGTGCCTAC</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_736-L" name="peak_736-L">
 </scanned-sequence>
@@ -8216,13 +8120,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_739-L" name="peak_739-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_739-R" name="peak_739-R">
-<matched-element start="47" stop="19" score="-11.9098" pvalue="2.46e-05">
-<sequence>CCCATGCTGCCCAGAGGACCTGCGTCGAC</sequence>
-<mem:qvalue>0.0811</mem:qvalue>
-</matched-element>
-<matched-element start="20" stop="48" score="-17.8852" pvalue="9.7e-05">
-<sequence>TCGACGCAGGTCCTCTGGGCAGCATGGGG</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="19" stop="46" score="-7.6789" pvalue="9.89e-05">
+<sequence>TCGACGCAGGTCCTCTGGGCAGCATGGG</sequence>
+<mem:qvalue>0.221</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_740-L" name="peak_740-L">
@@ -8238,10 +8138,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_742-R" name="peak_742-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_743-L" name="peak_743-L">
-<matched-element start="30" stop="58" score="-17.2213" pvalue="8.37e-05">
-<sequence>TCCCCGCCCGCCCCCAGCGCCCGGGAGGA</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_743-R" name="peak_743-R">
 </scanned-sequence>
@@ -8262,10 +8158,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_747-R" name="peak_747-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_748-L" name="peak_748-L">
-<matched-element start="42" stop="70" score="-6.32787" pvalue="6.15e-06">
-<sequence>CTGAGAGGGACCCACAAGGGCAAAGAGAG</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_748-R" name="peak_748-R">
 </scanned-sequence>
@@ -8304,14 +8196,14 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_757-L" name="peak_757-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_757-R" name="peak_757-R">
+<matched-element start="49" stop="22" score="-6.47706" pvalue="7.38e-05">
+<sequence>TTTGCAAGGCTGTGCTGAGAGGCCAAAA</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_758-L" name="peak_758-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_758-R" name="peak_758-R">
-<matched-element start="53" stop="81" score="-14.4508" pvalue="4.48e-05">
-<sequence>CCCAGGGTCATCAGGTGGCCCTGAGGTGA</sequence>
-<mem:qvalue>0.0898</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_759-L" name="peak_759-L">
 </scanned-sequence>
@@ -8326,10 +8218,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_761-R" name="peak_761-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_762-L" name="peak_762-L">
-<matched-element start="75" stop="47" score="-12.459" pvalue="2.81e-05">
-<sequence>GCGGGGCAGCACAGCGGCGGGAGAGCTCG</sequence>
-<mem:qvalue>0.0834</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_762-R" name="peak_762-R">
 </scanned-sequence>
@@ -8346,6 +8234,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_765-R" name="peak_765-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_766-L" name="peak_766-L">
+<matched-element start="69" stop="42" score="-6.20183" pvalue="6.89e-05">
+<sequence>AGGCCTGGGCTCTGAGGTGTTTGCCGTG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_766-R" name="peak_766-R">
 </scanned-sequence>
@@ -8358,36 +8250,20 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_768-R" name="peak_768-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_769-L" name="peak_769-L">
-<matched-element start="58" stop="86" score="-14.4426" pvalue="4.47e-05">
-<sequence>TCAAGGTTTCCTGGCTGGGGGCCCAAGAG</sequence>
-<mem:qvalue>0.0898</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_769-R" name="peak_769-R">
-<matched-element start="44" stop="72" score="14.959" pvalue="9.83e-09">
-<sequence>gcggggcagctcacctgggccggggcggg</sequence>
-<mem:qvalue>0.000906</mem:qvalue>
+<matched-element start="70" stop="43" score="15.9358" pvalue="7.74e-08">
+<sequence>CCGCCCCGGCCCAGGTGAGCTGCCCCGC</sequence>
+<mem:qvalue>0.00789</mem:qvalue>
 </matched-element>
-<matched-element start="20" stop="48" score="7.15574" pvalue="1.32e-07">
-<sequence>GCGGGGCCACTCACCTgggccggggcggg</sequence>
-<mem:qvalue>0.00609</mem:qvalue>
-</matched-element>
-<matched-element start="39" stop="67" score="-16.8361" pvalue="7.67e-05">
-<sequence>ccggggcggggcagctcacctgggccggg</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="46" stop="19" score="1.44037" pvalue="9.09e-06">
+<sequence>CCGCCCCGGCCCAGGTGAGTGGCCCCGC</sequence>
+<mem:qvalue>0.133</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_770-L" name="peak_770-L">
-<matched-element start="42" stop="14" score="-17.041" pvalue="8.07e-05">
-<sequence>TGGCGGAGGCGGCGCGGGGCCCGGGCGGC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_770-R" name="peak_770-R">
-<matched-element start="52" stop="24" score="-12.7951" pvalue="3.05e-05">
-<sequence>CCCAGGATGCCCCTCCCGCCCCGGGGTTC</sequence>
-<mem:qvalue>0.0836</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_771-L" name="peak_771-L">
 </scanned-sequence>
@@ -8410,10 +8286,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_775-R" name="peak_775-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_776-L" name="peak_776-L">
-<matched-element start="80" stop="52" score="-10.582" pvalue="1.79e-05">
-<sequence>TGCGGGCGTCCTACCAGTGCCAGGACTGC</sequence>
-<mem:qvalue>0.0773</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_776-R" name="peak_776-R">
 </scanned-sequence>
@@ -8426,9 +8298,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_778-R" name="peak_778-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_779-L" name="peak_779-L">
-<matched-element start="59" stop="31" score="-7.72131" pvalue="8.82e-06">
-<sequence>TCTCTGGTGCCCCTCAGAGGCCAGGCTCT</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
+<matched-element start="31" stop="58" score="1.65138" pvalue="8.56e-06">
+<sequence>GAGCCTGGCCTCTGAGGGGCACCAGAGA</sequence>
+<mem:qvalue>0.133</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_779-R" name="peak_779-R">
@@ -8482,9 +8354,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_791-R" name="peak_791-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_792-L" name="peak_792-L">
-<matched-element start="15" stop="43" score="-2.96721" pvalue="2.52e-06">
-<sequence>CCCGGCTTGTTCCGCTGGTCCCAGGCGCC</sequence>
-<mem:qvalue>0.0581</mem:qvalue>
+<matched-element start="41" stop="14" score="-1.33945" pvalue="1.96e-05">
+<sequence>GCGCCTGGGACCAGCGGAACAAGCCGGG</sequence>
+<mem:qvalue>0.175</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_792-R" name="peak_792-R">
@@ -8492,54 +8364,38 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_793-L" name="peak_793-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_793-R" name="peak_793-R">
+<matched-element start="63" stop="90" score="-5.74312" pvalue="6.15e-05">
+<sequence>atgcccagacactgacgaacatcacaag</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_794-L" name="peak_794-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_794-R" name="peak_794-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_795-L" name="peak_795-L">
+<matched-element start="65" stop="92" score="-4.66055" pvalue="4.69e-05">
+<sequence>AGCAATCGGCCCCGAGGAAAAGacaaaa</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_795-R" name="peak_795-R">
-<matched-element start="47" stop="19" score="-4.43443" pvalue="3.75e-06">
-<sequence>CTAGAGCGGCCCGAAGGAGGCGAGGATGA</sequence>
-<mem:qvalue>0.0673</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_796-L" name="peak_796-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_796-R" name="peak_796-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_797-L" name="peak_797-L">
-<matched-element start="62" stop="34" score="-10.1885" pvalue="1.62e-05">
-<sequence>CCGAGGAGGCCCCGCTCCGGCGGCGGCGC</sequence>
-<mem:qvalue>0.0749</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_797-R" name="peak_797-R">
-<matched-element start="51" stop="23" score="-13.877" pvalue="3.92e-05">
-<sequence>CCGCACCGGCCCCTAATGGCCGCAGAGAA</sequence>
-<mem:qvalue>0.0881</mem:qvalue>
-</matched-element>
-<matched-element start="13" stop="41" score="-15.4426" pvalue="5.63e-05">
-<sequence>CTCGGGCGAGTTCTCTGCGGCCATTAGGG</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
-</matched-element>
-<matched-element start="43" stop="71" score="-15.4426" pvalue="5.63e-05">
-<sequence>CCGGTgcggcggcggcggcgcggagcgcg</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_798-L" name="peak_798-L">
-<matched-element start="89" stop="61" score="-15.4098" pvalue="5.57e-05">
-<sequence>CTGTGGGTGTCCAGCACTACCTGGGACAG</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
+<matched-element start="61" stop="88" score="-0.733945" pvalue="1.67e-05">
+<sequence>tgtcccaggtagtgctggacacccacag</sequence>
+<mem:qvalue>0.175</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_798-R" name="peak_798-R">
-<matched-element start="24" stop="52" score="-16.4836" pvalue="7.12e-05">
-<sequence>CCCAGCCTCCTCTGCAGTGAGGTGCCGGA</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_799-L" name="peak_799-L">
 </scanned-sequence>
@@ -8554,10 +8410,6 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_801-R" name="peak_801-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_802-L" name="peak_802-L">
-<matched-element start="93" stop="65" score="-10.9426" pvalue="1.96e-05">
-<sequence>CTCAGCCTTCCCAGCGGACCAAGGGGAGC</sequence>
-<mem:qvalue>0.078</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_802-R" name="peak_802-R">
 </scanned-sequence>
@@ -8572,6 +8424,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_805-L" name="peak_805-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_805-R" name="peak_805-R">
+<matched-element start="7" stop="34" score="-6.2844" pvalue="7.04e-05">
+<sequence>CTGCCCAGCTCCCGCTGGGAAATCAAGG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_806-L" name="peak_806-L">
 </scanned-sequence>
@@ -8588,16 +8444,20 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_809-L" name="peak_809-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_809-R" name="peak_809-R">
-<matched-element start="100" stop="72" score="-11.5164" pvalue="2.25e-05">
-<sequence>TCCGCTCCGCCCGGCTCGGGCGGGGCTCG</sequence>
-<mem:qvalue>0.0781</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_810-L" name="peak_810-L">
+<matched-element start="61" stop="88" score="-6.65138" pvalue="7.7e-05">
+<sequence>AGGCCAGGGCCCAGAGAGCCACACAGTG</sequence>
+<mem:qvalue>0.207</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_810-R" name="peak_810-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_811-L" name="peak_811-L">
+<matched-element start="49" stop="22" score="-2.6422" pvalue="2.78e-05">
+<sequence>TATGATGGGATCAGAGGGACTGCGTATG</sequence>
+<mem:qvalue>0.177</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_811-R" name="peak_811-R">
 </scanned-sequence>
@@ -8606,28 +8466,12 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_812-R" name="peak_812-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_813-L" name="peak_813-L">
-<matched-element start="50" stop="78" score="-16.0328" pvalue="6.44e-05">
-<sequence>ACCCGGCTGCCCCGCCGAGCGGTGGCTTT</sequence>
-<mem:qvalue>0.102</mem:qvalue>
-</matched-element>
-<matched-element start="68" stop="96" score="-17.9508" pvalue="9.81e-05">
-<sequence>GCGGTGGCTTTCCGGAGGGGTGGGGCGGC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_813-R" name="peak_813-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_814-L" name="peak_814-L">
-<matched-element start="54" stop="82" score="-14.2787" pvalue="4.29e-05">
-<sequence>atggggtttctccatgttggccaggctgg</sequence>
-<mem:qvalue>0.0898</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_814-R" name="peak_814-R">
-<matched-element start="31" stop="3" score="-14.8115" pvalue="4.87e-05">
-<sequence>CCCCTGCTACTCGGGAGTGCTGCAGCTAC</sequence>
-<mem:qvalue>0.0935</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_815-L" name="peak_815-L">
 </scanned-sequence>
@@ -8652,14 +8496,14 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_820-L" name="peak_820-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_820-R" name="peak_820-R">
+<matched-element start="64" stop="37" score="-3.73394" pvalue="3.7e-05">
+<sequence>CCCTTGCACCCCTGAATGGATGACCTGG</sequence>
+<mem:qvalue>0.192</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_821-L" name="peak_821-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_821-R" name="peak_821-R">
-<matched-element start="74" stop="46" score="-11.1721" pvalue="2.06e-05">
-<sequence>CCAAGGCGCACCCTCTGGTGGCAAGACCA</sequence>
-<mem:qvalue>0.078</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_822-L" name="peak_822-L">
 </scanned-sequence>
@@ -8668,12 +8512,12 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_823-L" name="peak_823-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_823-R" name="peak_823-R">
-<matched-element start="44" stop="72" score="-8.65574" pvalue="1.12e-05">
-<sequence>cccgggcggggcgggaggggcggggcgCC</sequence>
-<mem:qvalue>0.0676</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_824-L" name="peak_824-L">
+<matched-element start="74" stop="47" score="-3.93578" pvalue="3.89e-05">
+<sequence>CCTTCTGGCCTCTGTCTTGTTGCCCAGA</sequence>
+<mem:qvalue>0.192</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_824-R" name="peak_824-R">
 </scanned-sequence>
@@ -8684,6 +8528,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_826-L" name="peak_826-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_826-R" name="peak_826-R">
+<matched-element start="92" stop="65" score="-5.70642" pvalue="6.1e-05">
+<sequence>CCCCAAAGCCCCAGAGGGGGTGTTACAG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_827-L" name="peak_827-L">
 </scanned-sequence>
@@ -8712,20 +8560,12 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_833-L" name="peak_833-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_833-R" name="peak_833-R">
-<matched-element start="21" stop="49" score="-17.6967" pvalue="9.28e-05">
-<sequence>CCGAGATGGGTCAGGGGAGGCAGGGACAG</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_834-L" name="peak_834-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_834-R" name="peak_834-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_835-L" name="peak_835-L">
-<matched-element start="49" stop="77" score="-13.377" pvalue="3.49e-05">
-<sequence>CAAATGCCAGTCCACACAGGCAAGGAGGC</sequence>
-<mem:qvalue>0.0844</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_835-R" name="peak_835-R">
 </scanned-sequence>
@@ -8734,13 +8574,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_836-R" name="peak_836-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_837-L" name="peak_837-L">
-<matched-element start="58" stop="86" score="-9.92623" pvalue="1.53e-05">
-<sequence>TCCCTGCTGCCCAGAGGAACTGGAGGGGC</sequence>
-<mem:qvalue>0.0749</mem:qvalue>
-</matched-element>
-<matched-element start="85" stop="57" score="-18.0164" pvalue="9.99e-05">
-<sequence>CCCCTCCAGTTCCTCTGGGCAGCAGGGAA</sequence>
-<mem:qvalue>0.108</mem:qvalue>
+<matched-element start="57" stop="84" score="-6.44037" pvalue="7.31e-05">
+<sequence>TCCCTGCTGCCCAGAGGAACTGGAGGGG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_837-R" name="peak_837-R">
@@ -8766,6 +8602,10 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_842-R" name="peak_842-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_843-L" name="peak_843-L">
+<matched-element start="60" stop="87" score="-5.40367" pvalue="5.65e-05">
+<sequence>TAGCCCTGACCCAGCGTAACTGCTGGTG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_843-R" name="peak_843-R">
 </scanned-sequence>
@@ -8786,9 +8626,9 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_847-R" name="peak_847-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_848-L" name="peak_848-L">
-<matched-element start="74" stop="46" score="-15.3115" pvalue="5.46e-05">
-<sequence>CTCAGTCTTTGCCGCCGCGCCGGCGAGCG</sequence>
-<mem:qvalue>0.0967</mem:qvalue>
+<matched-element start="46" stop="73" score="-5.77982" pvalue="6.21e-05">
+<sequence>GCTCGCCGGCGCGGCGGCAAAGACTGAG</sequence>
+<mem:qvalue>0.203</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_848-R" name="peak_848-R">
@@ -8820,11 +8660,15 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_855-L" name="peak_855-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_855-R" name="peak_855-R">
+<matched-element start="48" stop="21" score="-1.51376" pvalue="2.06e-05">
+<sequence>TCTTCCAGCCACAGCTTCCCTGCCATTC</sequence>
+<mem:qvalue>0.175</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_856-L" name="peak_856-L">
-<matched-element start="4" stop="32" score="-16.9098" pvalue="7.83e-05">
-<sequence>CCCAGGCCACCACTCCCTGCCCCAGCAGC</sequence>
-<mem:qvalue>0.106</mem:qvalue>
+<matched-element start="30" stop="3" score="-7.24771" pvalue="8.91e-05">
+<sequence>CTGCTGGGGCAGGGAGTGGTGGCCTGGG</sequence>
+<mem:qvalue>0.216</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_856-R" name="peak_856-R">
@@ -8840,42 +8684,22 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_859-L" name="peak_859-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_859-R" name="peak_859-R">
-<matched-element start="50" stop="22" score="-12.9344" pvalue="3.15e-05">
-<sequence>CCAGGCCTGCTCCTGTGGTCAGGGAGGGG</sequence>
-<mem:qvalue>0.0836</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_860-L" name="peak_860-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_860-R" name="peak_860-R">
-<matched-element start="30" stop="2" score="-14.2869" pvalue="4.3e-05">
-<sequence>GTGGGGCTGCTCAGGGGCGTGGAGCCGAG</sequence>
-<mem:qvalue>0.0898</mem:qvalue>
-</matched-element>
-<matched-element start="70" stop="42" score="-16.8689" pvalue="7.75e-05">
-<sequence>CCCCGGCTTGCCGGCAGGGCGGGTAACAG</sequence>
-<mem:qvalue>0.106</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_861-L" name="peak_861-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_861-R" name="peak_861-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_862-L" name="peak_862-L">
-<matched-element start="49" stop="21" score="-12.7869" pvalue="3.04e-05">
-<sequence>ATGGTGGTTGCAATGTGAGCCCGGGAGCA</sequence>
-<mem:qvalue>0.0836</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_862-R" name="peak_862-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_863-L" name="peak_863-L">
 </scanned-sequence>
 <scanned-sequence accession="peak_863-R" name="peak_863-R">
-<matched-element start="64" stop="36" score="-17.8852" pvalue="9.7e-05">
-<sequence>CCGGCTCCGCCCTCCCGGGGCCGGGGCGC</sequence>
-<mem:qvalue>0.108</mem:qvalue>
-</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_864-L" name="peak_864-L">
 </scanned-sequence>
@@ -8890,12 +8714,16 @@ clusterid CDATA #IMPLIED
 <scanned-sequence accession="peak_866-R" name="peak_866-R">
 </scanned-sequence>
 <scanned-sequence accession="peak_867-L" name="peak_867-L">
-<matched-element start="71" stop="43" score="-15.8443" pvalue="6.15e-05">
-<sequence>CACTGTCTTCTCATGTGAGCTCAAGAAGT</sequence>
-<mem:qvalue>0.0994</mem:qvalue>
+<matched-element start="43" stop="70" score="7.17431" pvalue="1.63e-06">
+<sequence>CTTCTTGAGCTCACATGAGAAGACAGTG</sequence>
+<mem:qvalue>0.0553</mem:qvalue>
 </matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_867-R" name="peak_867-R">
+<matched-element start="72" stop="99" score="-2.2844" pvalue="2.53e-05">
+<sequence>AGGCAAGGACACTGAGGGAGAGCAGTGG</sequence>
+<mem:qvalue>0.177</mem:qvalue>
+</matched-element>
 </scanned-sequence>
 <scanned-sequence accession="peak_868-L" name="peak_868-L">
 </scanned-sequence>
