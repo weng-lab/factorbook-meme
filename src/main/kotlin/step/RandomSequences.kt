@@ -71,7 +71,10 @@ fun randomSequences(twoBit: Path,
     }
 
     val incomplete = outputsTrackers.filter { it.outputs.size < outputsPerInput }
-    if (incomplete.isNotEmpty()) throw Exception("Could not find enough sequences matching GC Content of inputs")
+    if (incomplete.isNotEmpty()) {
+        val missing = incomplete.map { outputsPerInput - it.outputs.size }.sum()
+        log.warn { "Could not find enough sequences matching GC Content of inputs. Missing sequences: $missing" }
+    }
 
     val outputSequences = outputsTrackers.flatMap { it.outputs }
 

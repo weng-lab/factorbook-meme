@@ -23,3 +23,6 @@ Thumbs.db
 
 # Local gradle from wrapper
 .gradle/
+
+# Large FIMO files we don't need
+cisml.xml
