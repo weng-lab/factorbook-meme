@@ -79,14 +79,15 @@ fun parseMethylBeds(methylBeds: List<Path>, methylPercentThreshold: Int): Methyl
             }
         }
 
-        for ((chrom, bpsToMethylValues) in allBedValues) {
+        val allBedValuesIter = allBedValues.iterator()
+        allBedValuesIter.forEach { (chrom, bpsToMethylValues) ->
             val chromData = data.getOrPut(chrom) { mutableListOf() } as MutableList
             for (entry in bpsToMethylValues.keyValuesView()) {
                 val bp = entry.one
                 val methylValueAvg = entry.two
                 if (methylValueAvg >= methylPercentThreshold) chromData += bp
             }
-            allBedValues.remove(chrom)
+            allBedValuesIter.remove()
             chromData.sort()
         }
     } else {
