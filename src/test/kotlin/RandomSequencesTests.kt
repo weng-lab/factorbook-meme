@@ -10,17 +10,17 @@ class RandomSequencesTests {
 
     @Test
     fun `run randomSequences`() {
-        val chromSizes = parseChromSizes(CHR22_CHROM_INFO)
+        val chromSizes = parseChromSizes(CHR19_CHROM_INFO)
         val inputSequences = testInputDir.resolve(TOP501_1000_SEQS_CENTER)
         val outputFasta = testOutputDir.resolve(TOP501_1000_SHUFFLED_SEQS)
         val outputsPerInput = 50
-        randomSequences(CHR22_TWO_BIT, inputSequences, outputFasta, outputsPerInput, chromSizes,100,
+        randomSequences(CHR19_TWO_BIT, inputSequences, outputFasta, outputsPerInput, chromSizes,100,
                 10)
         assertThat(outputFasta).exists()
 
         val outputLineCount = Files.newBufferedReader(outputFasta).lines().count().toInt()
         // There aren't actually 500 peaks in 501-1000. Because our input bed is so small there are actually only 369.
-        assertThat(outputLineCount).isEqualTo(369 * outputsPerInput * 2)
+        assertThat(outputLineCount).isEqualTo(500 * outputsPerInput * 2)
     }
 
     @Test

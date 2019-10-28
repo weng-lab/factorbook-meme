@@ -4,10 +4,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
 >
-<command-line>fimo -oc /tmp/motif-test/output/ENCFF981HPG.top501-1000.flank.fimo /tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.top501-1000.seqs.flank</command-line>
+<command-line>fimo -oc /tmp/motif-test/output/ENCFF981HPG.top501-1000.flank.fimo /tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.top501-1000.seqs.flank</command-line>
 <settings>
 <setting name="output directory">/tmp/motif-test/output/ENCFF981HPG.top501-1000.flank.fimo</setting>
-<setting name="MEME file name">/tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt</setting>
+<setting name="MEME file name">/tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt</setting>
 <setting name="sequence file name">/tmp/motif-test/output/ENCFF981HPG.top501-1000.seqs.flank</setting>
 <setting name="background file name">--motif--</setting>
 <setting name="allow clobber">true</setting>
@@ -45,18 +45,18 @@
 <letter id="Q" symbol="Q" equals="GW"/>
 <letter id="P" symbol="P" equals="MW"/>
 </alphabet>
-<motif name="CCACCAGRGGG" alt="MEME-1" width="11" best-possible-match="CCACCAGGGGG"/>
-<motif name="VBDGMW" alt="MEME-2" width="6" best-possible-match="ACGGMW"/>
-<motif name="MWSKBSHK" alt="MEME-3" width="8" best-possible-match="MWGGGGCT"/>
-<motif name="MWSHBHG" alt="MEME-4" width="7" best-possible-match="MWGACAG"/>
-<motif name="AAAAAAAKEAAAEAE" alt="MEME-5" width="15" best-possible-match="AAAAAAAGAAAAAAA"/>
+<motif name="CCACCAGRGGGC" alt="MEME-1" width="12" best-possible-match="CCACCAGGGGGC"/>
+<motif name="VSDGMW" alt="MEME-2" width="6" best-possible-match="GCAGMW"/>
+<motif name="MWCYTS" alt="MEME-3" width="6" best-possible-match="MWCCTC"/>
+<motif name="CTGACTCAGGTGCTCACAGGC" alt="MEME-4" width="21" best-possible-match="CTGACTCAGGTGCTCACAGGC"/>
+<motif name="AGTGTGAGCCCTCTGTYATGC" alt="MEME-5" width="21" best-possible-match="AGTGTGAGCCCTCTGTCATGC"/>
 <background source="--motif--">
 <value letter="A">0.188</value>
-<value letter="C">0.308</value>
-<value letter="G">0.308</value>
-<value letter="M">0.004</value>
+<value letter="C">0.309</value>
+<value letter="G">0.309</value>
+<value letter="M">0.003</value>
 <value letter="T">0.188</value>
-<value letter="W">0.004</value>
+<value letter="W">0.003</value>
 </background>
 <cisml-file>cisml.xml</cisml-file>
 </fimo>

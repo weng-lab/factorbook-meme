@@ -7,7 +7,7 @@ class SequencesTests {
     @AfterEach fun cleanup() = cleanupTest()
 
     @Test fun `run peaks-to-fasta step`() {
-        peaksToFasta(testInputDir.resolve(SUMMITS), CHR22_TWO_BIT, testOutputDir.resolve(TOP500_SEQS),
+        peaksToFasta(testInputDir.resolve(SUMMITS), CHR19_TWO_BIT, testOutputDir.resolve(TOP500_SEQS),
                 lineRange = 0 until 500)
         assertOutputMatches(TOP500_SEQS)
     }

@@ -1,7 +1,11 @@
 package step
 
+import mu.KotlinLogging
 import util.*
 import java.nio.file.Path
+import kotlin.system.exitProcess
+
+private val log = KotlinLogging.logger {}
 
 /**
  * Rewrites narrowPeaks files with new names.
@@ -9,7 +13,7 @@ import java.nio.file.Path
  * If methylation state data file is given, filters out peaks that don't intersect with any bases in it
  *
  * @param peaksBed the peaks file
- * @param chrFilter Optional set of chromsomes to filter against. Anything not included is filtered out.
+ * @param chrFilter Optional set of chromosomes to filter against. Anything not included is filtered out.
  * @param methylData the methyl bed file
  * @param out the file to the filtered peaks results to
  */
@@ -20,6 +24,11 @@ fun cleanPeaks(peaksBed: Path, chrFilter: Set<String>?, methylData: MethylData?,
         if (!excludedByChrFilter(row, chrFilter) && !excludedByMethyl(row, methylData) ) {
             filteredPeaks += row.copy(name = "peak_${peakCount++}")
         }
+    }
+
+    if (filteredPeaks.size < 1000) {
+        log.error { "Not enough usable peaks. ${filteredPeaks.size} available out of 1000 required. Stopping with exit code 0." }
+        exitProcess(0)
     }
     writePeaksFile(out, filteredPeaks)
 }

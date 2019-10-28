@@ -23,7 +23,7 @@ val testOutputDir = testDir.resolve("output")!!
 /*
  * Input Files
  */
-val PEAKS= testInputDir.resolve("ENCFF165UME.bed")!!
+val PEAKS= testInputDir.resolve("ENCFF165UME.chr19.bed")!!
 val CHR22_TWO_BIT= testInputDir.resolve("hg38.chr22.2bit")!!
 val CHR22_CHROM_INFO = testInputDir.resolve("hg38.chr22.chrom.sizes")!!
 val CHR19_TWO_BIT= testInputDir.resolve("hg38.chr19.2bit")!!

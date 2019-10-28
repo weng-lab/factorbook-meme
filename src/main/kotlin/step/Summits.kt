@@ -46,7 +46,7 @@ fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Pat
             if (newStart < chromEnd) newStart else chromEnd - 1
         } else row.chromStart
 
-        val midpoint = (chromStart + chromEnd) / 2
+        val midpoint = chromStart + row.peak
         if (midpoint < newSize || midpoint + newSize > chromSize) return@readPeaksFile
 
         val newStart = midpoint - newSize

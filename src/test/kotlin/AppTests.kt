@@ -17,7 +17,7 @@ private val log = KotlinLogging.logger {}
     //@AfterEach fun cleanup() = cleanupTest()
 
     @Test fun `run complete task`() {
-        cmdRunner.runTask(PEAKS, CHR22_TWO_BIT, CHR22_CHROM_INFO, 10, testOutputDir, TEST_CHR_FILTER,
+        cmdRunner.runTask(PEAKS, CHR19_TWO_BIT, CHR19_CHROM_INFO, 10, testOutputDir, TEST_CHR_FILTER,
                 50, 10)
 
         assertOutputMatches(CLEANED_PEAKS)

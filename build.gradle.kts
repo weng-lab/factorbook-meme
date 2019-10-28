@@ -19,7 +19,7 @@ val biojavaVersion = "5.2.1"
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    compile("com.github.ajalt", "clikt", "1.6.0")
+    compile("com.github.ajalt", "clikt", "2.2.0")
     compile("io.github.microutils","kotlin-logging","1.6.10")
     compile("ch.qos.logback", "logback-classic","1.2.3")
     compile("org.biojava", "biojava-core", biojavaVersion) {

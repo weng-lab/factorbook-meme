@@ -42,7 +42,7 @@ class MotifJsonTests {
     @Test
     fun `test parseNumSequences`() {
         val numSequences = parseNumSequences(testInputDir.resolve(TOP501_1000_CENTER_FIMO_XML))
-        assertThat(numSequences).isEqualTo(369)
+        assertThat(numSequences).isEqualTo(500)
     }
 
     @Test
@@ -50,11 +50,11 @@ class MotifJsonTests {
         val memeMotifNames = parseMotifs(testInputDir.resolve(TOP500_MEME_XML)).map { it.name }
         val occurrencesCounts = motifOccurrencesCounts(testInputDir.resolve(TOP501_1000_CENTER_FIMO_TSV), memeMotifNames)
         val expectedOccurrencesCounts = mapOf(
-                "AGAGCTGCAGCCAGSAGCAGYSAGRAGMGA" to 24,
-                "RSYGCCMYCTRSTGG" to 207,
-                "TCYTKKSCTCWGTSTYCTCCW" to 35,
-                "WDAWASWWWWKKTKYYTMTDWWBTTWTNWT" to 6,
-                "YCTCYTBGSCMCAGCTGGGCAGCMYHRG" to 23
+                "ATABGYCCATTGCTAGTAGGTGCCGGTGCT" to 25,
+                "CCTGTCYGGGCATRACAGARGGCTCRCAC" to 24,
+                "RGCGCCCYCTRGTGGC" to 437,
+                "TTCCCAGRCGCTGGCRTTACCGCTAGACCA" to 23,
+                "TTYTYTWTTYTTDTTTTTWKW" to 12
         )
         assertThat(occurrencesCounts).isEqualTo(expectedOccurrencesCounts)
     }

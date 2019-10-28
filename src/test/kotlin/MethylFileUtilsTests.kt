@@ -49,7 +49,7 @@ class MethylFileUtilsTests {
         // avg is less than 50
         assertThat(methylData.containsValueInRange("chr22", 10522482 .. 10522482)).isEqualTo(false)
         // avg is greater than 50
+        assertThat(methylData.containsValueInRange("chr22", 10522977 .. 10522977)).isEqualTo(true)
         assertThat(methylData.containsValueInRange("chr22", 10522978 .. 10522978)).isEqualTo(true)
-        assertThat(methylData.containsValueInRange("chr22", 10522979 .. 10522979)).isEqualTo(true)
     }
 }
