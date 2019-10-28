@@ -38,12 +38,20 @@ fun summits(peaks: Path, chromSizes: Map<String, Int>, newSize: Int, output: Pat
 
         val chromEnd = if (offset != null) {
             val newEnd = row.chromEnd + offset
-            if (newEnd < chromSize) newEnd else chromSize
+            when {
+                newEnd > chromSize -> chromSize
+                newEnd < 1 -> 1
+                else -> newEnd
+            }
         } else row.chromEnd
 
         val chromStart = if (offset != null) {
             val newStart = row.chromStart + offset
-            if (newStart < chromEnd) newStart else chromEnd - 1
+            when {
+                newStart > chromEnd -> chromEnd - 1
+                newStart < 0 -> 0
+                else -> newStart
+            }
         } else row.chromStart
 
         val midpoint = chromStart + row.peak
