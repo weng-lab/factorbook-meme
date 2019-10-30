@@ -1,5 +1,4 @@
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okio.Okio
 import org.assertj.core.api.Assertions.assertThat
@@ -8,35 +7,42 @@ import step.*
 import util.*
 import java.nio.file.Path
 
+private val STANDARD_BASES = arrayOf('A', 'C', 'T', 'G')
+private val METHYL_BASES = arrayOf('M', 'W')
+private val ALL_BASES = STANDARD_BASES + METHYL_BASES
+
 class MotifJsonTests {
     @BeforeEach fun setup() = setupTest()
     @AfterEach fun cleanup() = cleanupTest()
 
     @Test
     fun `test parseMotifs`() {
-        val motifs = parseMotifs(testInputDir.resolve(TOP500_MEME_XML))
-        assertThat(motifs).hasSize(5)
-        for (motif in motifs) {
+        val motifData = parseMotifs(testInputDir.resolve(TOP500_MEME_XML))
+        assertThat(motifData.motifs).hasSize(5)
+        for (motif in motifData.motifs) {
             assertThat(motif.name.length).isGreaterThan(0)
             assertThat(motif.name.length).isEqualTo(motif.pwm.size)
             for (pwmEntry in motif.pwm) {
-                assertThat(pwmEntry).containsKeys('A', 'C', 'T', 'G')
-                assertThat(pwmEntry).doesNotContainKeys('M', 'W')
+                assertThat(pwmEntry).containsKeys(*STANDARD_BASES)
+                assertThat(pwmEntry).doesNotContainKeys(*METHYL_BASES)
             }
         }
+        assertThat(motifData.letterFrequencies).containsKeys(*STANDARD_BASES)
+        assertThat(motifData.letterFrequencies).doesNotContainKeys(*METHYL_BASES)
     }
 
     @Test
     fun `test parseMotifs for methylated motifs`() {
-        val motifs = parseMotifs(testInputDir.resolve(M_TOP500_MEME_XML))
-        assertThat(motifs).hasSize(5)
-        for (motif in motifs) {
+        val motifData = parseMotifs(testInputDir.resolve(M_TOP500_MEME_XML))
+        assertThat(motifData.motifs).hasSize(5)
+        for (motif in motifData.motifs) {
             assertThat(motif.name.length).isGreaterThan(0)
             assertThat(motif.name.length).isEqualTo(motif.pwm.size)
             for (pwmEntry in motif.pwm) {
-                assertThat(pwmEntry).containsKeys('A', 'C', 'T', 'G', 'M', 'W')
+                assertThat(pwmEntry).containsKeys(*ALL_BASES)
             }
         }
+        assertThat(motifData.letterFrequencies).containsKeys(*ALL_BASES)
     }
 
     @Test
@@ -47,7 +53,7 @@ class MotifJsonTests {
 
     @Test
     fun `test motifOccurrencesCounts`() {
-        val memeMotifNames = parseMotifs(testInputDir.resolve(TOP500_MEME_XML)).map { it.name }
+        val memeMotifNames = parseMotifs(testInputDir.resolve(TOP500_MEME_XML)).motifs.map { it.name }
         val occurrencesCounts = motifOccurrencesCounts(testInputDir.resolve(TOP501_1000_CENTER_FIMO_TSV), memeMotifNames)
         val expectedOccurrencesCounts = mapOf(
                 "ATABGYCCATTGCTAGTAGGTGCCGGTGCT" to 25,
@@ -72,14 +78,13 @@ class MotifJsonTests {
         )
         assertThat(outJson).exists()
 
-        val outputMotifs = parseOutJson(outJson)
-        assertThat(outputMotifs).hasSize(5)
-        for (outputMotif in outputMotifs) {
+        val outputMotifData = parseOutJson(outJson)
+        assertThat(outputMotifData.motifs).hasSize(5)
+        for (outputMotif in outputMotifData.motifs) {
             for (pwmEntry in outputMotif.pwm) {
-                assertThat(pwmEntry['A']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['C']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['T']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['G']).isBetween(0.0, 1.0)
+                for (base in STANDARD_BASES) {
+                    assertThat(pwmEntry[base]).isBetween(0.0, 1.0)
+                }
             }
             assertThat(outputMotif.eValue).isBetween(0.0, 1.0)
             assertThat(outputMotif.sites).isGreaterThan(0)
@@ -102,22 +107,22 @@ class MotifJsonTests {
         )
         assertThat(outJson).exists()
 
-        val outputMotifs = parseOutJson(outJson)
-        assertThat(outputMotifs).hasSize(5)
-        for (outputMotif in outputMotifs) {
+        val outputMotifData = parseOutJson(outJson)
+        assertThat(outputMotifData.motifs).hasSize(5)
+        for (outputMotif in outputMotifData.motifs) {
             for (pwmEntry in outputMotif.pwm) {
-                assertThat(pwmEntry['A']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['C']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['T']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['G']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['M']).isBetween(0.0, 1.0)
-                assertThat(pwmEntry['W']).isBetween(0.0, 1.0)
+                for (base in ALL_BASES) {
+                    assertThat(pwmEntry[base]).isBetween(0.0, 1.0)
+                }
             }
             assertThat(outputMotif.eValue).isBetween(0.0, 1.0)
             assertThat(outputMotif.sites).isGreaterThan(0)
             assertThat(outputMotif.lesserPeaksOccurrencesRatio).isBetween(0.0, 1.0)
             assertThat(outputMotif.flankControlData.occurrencesRatio).isBetween(0.0, 1.0)
             assertThat(outputMotif.shuffledControlData.occurrencesRatio).isBetween(0.0, 1.0)
+        }
+        for (base in ALL_BASES) {
+            assertThat(outputMotifData.backgroundFrequencies[base]).isBetween(0.0, 1.0)
         }
     }
 
@@ -129,9 +134,8 @@ class MotifJsonTests {
     }
 }
 
-private fun parseOutJson(outJson: Path): List<OutputMotif> {
+private fun parseOutJson(outJson: Path): MotifData {
     val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-    val adapter = moshi.adapter<List<OutputMotif>>(
-            Types.newParameterizedType(List::class.java, OutputMotif::class.java))
+    val adapter = moshi.adapter(MotifData::class.java)
     return adapter.fromJson(Okio.buffer(Okio.source(outJson)))!!
 }

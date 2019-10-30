@@ -7010,4 +7010,4 @@ TTYTYTWTTYTTDTTTTTWKW	MEME-2	peak_11	744	764	+	10.234	9.99e-05	0.0518	tatttatttt
 
 # FIMO (Find Individual Motif Occurrences): Version 5.0.4 compiled on Jun 18 2019 at 16:15:40
 # The format of this file is described at http://meme-suite.org/doc/fimo-output-format.html.
-# fimo -oc /tmp/motif-test/output/ENCFF165UME.fimo /tmp/motif-test/output/ENCFF165UME.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF165UME.seqs
+# fimo -oc /tmp/motif-test/output/ENCFF165UME.fimo /tmp/motif-test/input/ENCFF165UME.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF165UME.seqs

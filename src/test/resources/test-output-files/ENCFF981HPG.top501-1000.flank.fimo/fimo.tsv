@@ -4322,4 +4322,4 @@ VSDGMW	MEME-2	peak_584-L	94	99	-	1.01852	9.8e-05	0.00704	WAGAMW
 
 # FIMO (Find Individual Motif Occurrences): Version 5.0.4 compiled on Jun 18 2019 at 16:15:40
 # The format of this file is described at http://meme-suite.org/doc/fimo-output-format.html.
-# fimo -oc /tmp/motif-test/output/ENCFF981HPG.top501-1000.flank.fimo /tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.top501-1000.seqs.flank
+# fimo -oc /tmp/motif-test/output/ENCFF981HPG.top501-1000.flank.fimo /tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.top501-1000.seqs.flank

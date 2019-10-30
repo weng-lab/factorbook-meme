@@ -20804,4 +20804,4 @@ AGTGTGAGCCCTCTGTYATGC	MEME-5	peak_732	63	83	+	-14.1509	9.93e-05	0.855	AGGGACAAGT
 
 # FIMO (Find Individual Motif Occurrences): Version 5.0.4 compiled on Jun 18 2019 at 16:15:40
 # The format of this file is described at http://meme-suite.org/doc/fimo-output-format.html.
-# fimo -oc /tmp/motif-test/output/ENCFF981HPG.fimo /tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.seqs
+# fimo -oc /tmp/motif-test/output/ENCFF981HPG.fimo /tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.seqs

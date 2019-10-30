@@ -4,10 +4,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation=  xmlns:fimo="http://noble.gs.washington.edu/schema/fimo"
 >
-<command-line>fimo -oc /tmp/motif-test/output/ENCFF981HPG.fimo /tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.seqs</command-line>
+<command-line>fimo -oc /tmp/motif-test/output/ENCFF981HPG.fimo /tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF981HPG.seqs</command-line>
 <settings>
 <setting name="output directory">/tmp/motif-test/output/ENCFF981HPG.fimo</setting>
-<setting name="MEME file name">/tmp/motif-test/output/ENCFF981HPG.top500.center.meme/meme.txt</setting>
+<setting name="MEME file name">/tmp/motif-test/input/ENCFF981HPG.top500.center.meme/meme.txt</setting>
 <setting name="sequence file name">/tmp/motif-test/output/ENCFF981HPG.seqs</setting>
 <setting name="background file name">--motif--</setting>
 <setting name="allow clobber">true</setting>

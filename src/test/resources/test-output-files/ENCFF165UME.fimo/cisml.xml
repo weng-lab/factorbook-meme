@@ -74,8 +74,8 @@ clusterid CDATA #IMPLIED
 >
 <program-name>fimo</program-name>
 <parameters>
-<command-line>fimo -oc /tmp/motif-test/output/ENCFF165UME.fimo /tmp/motif-test/output/ENCFF165UME.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF165UME.seqs</command-line>
-<pattern-file>/tmp/motif-test/output/ENCFF165UME.top500.center.meme/meme.txt</pattern-file>
+<command-line>fimo -oc /tmp/motif-test/output/ENCFF165UME.fimo /tmp/motif-test/input/ENCFF165UME.top500.center.meme/meme.txt /tmp/motif-test/output/ENCFF165UME.seqs</command-line>
+<pattern-file>/tmp/motif-test/input/ENCFF165UME.top500.center.meme/meme.txt</pattern-file>
 <sequence-file>/tmp/motif-test/output/ENCFF165UME.seqs</sequence-file>
 <site-pvalue-cutoff>0.0001</site-pvalue-cutoff>
 <sequence-filtering on-off="off"/>

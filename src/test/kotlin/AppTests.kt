@@ -39,8 +39,8 @@ private val log = KotlinLogging.logger {}
 
     @Test fun `run post-meme steps for plain peaks sample`() {
         cmdRunner.runPostMemeSteps(PREFIX, testInputDir.resolve(SUMMITS), testInputDir.resolve(MEME_DIR),
-                testInputDir.resolve(CLEANED_PEAKS), testInputDir.resolve(TOP500_SEQS_CENTER), CHR22_TWO_BIT,
-                testOutputDir, parseChromSizes(CHR22_CHROM_INFO), 50, 10)
+                testInputDir.resolve(CLEANED_PEAKS), testInputDir.resolve(TOP500_SEQS_CENTER), CHR19_TWO_BIT,
+                testOutputDir, parseChromSizes(CHR19_CHROM_INFO), 50, 10)
     }
 
     @Test fun `run complete task for methylated peaks`() {
