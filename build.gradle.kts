@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.genomealmanac.motif"
-version = "1.0.5"
+version = "1.0.7"
 val artifactID = "factorbook-meme"
 
 repositories {
@@ -35,6 +35,7 @@ dependencies {
     implementation("com.squareup.moshi", "moshi-kotlin", "1.8.0")
     testImplementation("org.junit.jupiter", "junit-jupiter", "5.4.0")
     testCompile("org.assertj", "assertj-core", "3.11.1")
+    testCompile("org.knowm.xchart", "xchart", "3.6.0")
 }
 
 tasks.withType<KotlinCompile> {

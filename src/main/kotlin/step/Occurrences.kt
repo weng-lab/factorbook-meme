@@ -1,5 +1,6 @@
 package step
 
+import util.readFimoTsv
 import java.nio.file.*
 
 /**
@@ -10,19 +11,11 @@ fun occurrencesTsv(fimoTsv: Path, peaksBed: Path, out: Path) {
     Files.createDirectories(out.parent)
     Files.newBufferedWriter(out, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING).use { writer ->
         writer.write("#motif_id\tchromosome\tstart\tend\tstrand\tq_value\n")
-        Files.newBufferedReader(fimoTsv).forEachLine { line ->
-            if (line.isBlank() || line.startsWith("motif_id") || line.startsWith("#")) return@forEachLine
-            val lineParts = line.split("\\s".toRegex())
-            val motifId = lineParts[0]
-            val peakId = lineParts[2]
-            val startWithinPeak = lineParts[3].toInt()
-            val endWithinPeak = lineParts[4].toInt()
-            val strand = lineParts[5]
-            val qValue = lineParts[8].toDouble()
-            val peak = peaks.getValue(peakId)
-            val absoluteStart = peak.start + startWithinPeak - 1
-            val absoluteEnd = peak.start + endWithinPeak
-            writer.write("$motifId\t${peak.chr}\t$absoluteStart\t$absoluteEnd\t$strand\t$qValue\n")
+        readFimoTsv(fimoTsv) { row ->
+            val peak = peaks.getValue(row.peakId)
+            val absoluteStart = peak.start + row.relativeStart - 1
+            val absoluteEnd = peak.start + row.relativeEnd
+            writer.write("${row.motifId}\t${peak.chr}\t$absoluteStart\t$absoluteEnd\t${row.strand}\t${row.qValue}\n")
         }
     }
 }

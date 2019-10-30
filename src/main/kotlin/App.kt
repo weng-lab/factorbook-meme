@@ -184,6 +184,7 @@ fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Pa
     log.info { "Creating motifs.json file..." }
     val memeXmlFile = memeDir.resolve(MEME_XML_FILENAME)
     val outJsonFile = outputDir.resolve("$outPrefix$MOTIFS_JSON_SUFFIX")
-    motifJson(memeXmlFile, originalPeaksFimoDir, next500CenterFimoDir, randomFimoDir, next500FlankFimoDir, outJsonFile)
+    motifJson(memeXmlFile, originalPeaksFimoDir, next500CenterFimoDir, randomFimoDir, next500FlankFimoDir,
+            cleanedPeaks, outJsonFile)
     log.info { "motifs.json file creation complete!" }
 }

@@ -29,7 +29,9 @@ data class OutputMotif(
         // Control data from flank sequences
         @Json(name = "flank_control_data") val flankControlData: MotifControlData,
         // Control data from shuffled sequences
-        @Json(name = "shuffled_control_data") val shuffledControlData: MotifControlData
+        @Json(name = "shuffled_control_data") val shuffledControlData: MotifControlData,
+        // Peak Centrality. The distribution of occurrences' distance from peak summits.
+        @Json(name = "peak_centrality") val peakCentrality: Map<Int, Double>
 )
 
 data class MotifControlData(
@@ -49,7 +51,7 @@ data class MotifControlData(
  * @param outJson path for output json file.
  */
 fun motifJson(memeXml: Path, origPeaksFimoDir: Path, next500FimoDir: Path, shuffledFimoDir: Path,
-                 flankFimoDir: Path, outJson: Path) {
+                 flankFimoDir: Path, peaksBed: Path, outJson: Path) {
     val memeData = parseMotifs(memeXml)
     val memeMotifNames = memeData.motifs.map { it.name }
 
@@ -58,6 +60,8 @@ fun motifJson(memeXml: Path, origPeaksFimoDir: Path, next500FimoDir: Path, shuff
 
     val origPeaksFimoTsv = origPeaksFimoDir.resolve(FIMO_TSV_FILENAME)
     val origPeaksOccurrences = motifOccurrencesCounts(origPeaksFimoTsv, memeMotifNames)
+
+    val peakCentrality = peakCentrality(origPeaksFimoTsv, peaksBed)
 
     val lesserPeaksOccurrenceRatios = motifOccurrencesRatios(next500FimoDir, memeMotifNames)
     val flankOccurrenceRatios = motifOccurrencesRatios(flankFimoDir, memeMotifNames)
@@ -85,7 +89,8 @@ fun motifJson(memeXml: Path, origPeaksFimoDir: Path, next500FimoDir: Path, shuff
                 originalPeaksOccurrences = origPeaksOccurrences.getValue(motifName),
                 lesserPeaksOccurrencesRatio = lesserPeaksOccurrenceRatios.getValue(motifName).ratio,
                 flankControlData = MotifControlData(flankOccurrenceRatioData.ratio, flankZScore, flankPValue),
-                shuffledControlData = MotifControlData(shuffledOccurrenceRatio.ratio, shuffledZScore, shuffledPValue)
+                shuffledControlData = MotifControlData(shuffledOccurrenceRatio.ratio, shuffledZScore, shuffledPValue),
+                peakCentrality = peakCentrality.getValue(motifName)
         )
     }
     val motifData = MotifData(outputMotifs, memeData.letterFrequencies)
@@ -148,14 +153,8 @@ fun motifOccurrencesRatios(fimoDir: Path, motifNames: List<String>): Map<String,
 fun motifOccurrencesCounts(fimoTsv: Path, motifNames: List<String>): Map<String, Int> {
     val sequencesPerMotif =
             motifNames.map { it to mutableSetOf<String>() }.toMap() as MutableMap
-    Files.newBufferedReader(fimoTsv).use { reader ->
-        reader.forEachLine { line ->
-            // Skip header, comment, and empty lines
-            if (line.startsWith("motif_id") || line.startsWith("#") || line.isBlank()) return@forEachLine
-            val motifName = line.split("\\s".toRegex())[0]
-            val sequence = line.split("\\s".toRegex())[2]
-            sequencesPerMotif.getValue(motifName).add(sequence)
-        }
+    readFimoTsv(fimoTsv) { row ->
+        sequencesPerMotif.getValue(row.motifId).add(row.peakId)
     }
     return sequencesPerMotif.mapValues { (_, sequences) -> sequences.size }
 }

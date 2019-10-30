@@ -74,6 +74,7 @@ class MotifJsonTests {
                 testInputDir.resolve(TOP501_1000_CENTER_FIMO_DIR),
                 testInputDir.resolve(TOP501_1000_SHUFFLED_FIMO_DIR),
                 testInputDir.resolve(TOP501_1000_FLANK_FIMO_DIR),
+                testInputDir.resolve(CLEANED_PEAKS),
                 outJson
         )
         assertThat(outJson).exists()
@@ -103,6 +104,7 @@ class MotifJsonTests {
                 testInputDir.resolve(M_TOP501_1000_CENTER_FIMO_DIR),
                 testInputDir.resolve(M_TOP501_1000_SHUFFLED_FIMO_DIR),
                 testInputDir.resolve(M_TOP501_1000_FLANK_FIMO_DIR),
+                testInputDir.resolve(M_CLEANED_PEAKS),
                 outJson
         )
         assertThat(outJson).exists()
