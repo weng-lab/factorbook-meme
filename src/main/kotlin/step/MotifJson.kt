@@ -90,7 +90,7 @@ fun motifJson(memeXml: Path, origPeaksFimoDir: Path, next500FimoDir: Path, shuff
                 lesserPeaksOccurrencesRatio = lesserPeaksOccurrenceRatios.getValue(motifName).ratio,
                 flankControlData = MotifControlData(flankOccurrenceRatioData.ratio, flankZScore, flankPValue),
                 shuffledControlData = MotifControlData(shuffledOccurrenceRatio.ratio, shuffledZScore, shuffledPValue),
-                peakCentrality = peakCentrality.getValue(motifName)
+                peakCentrality = peakCentrality[motifName] ?: mapOf()
         )
     }
     val motifData = MotifData(outputMotifs, memeData.letterFrequencies)
