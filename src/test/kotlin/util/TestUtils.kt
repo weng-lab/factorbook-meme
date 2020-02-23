@@ -24,8 +24,6 @@ fun setupTest() {
     cleanupTest()
     // Copy all resource files from "test-input-files" and "test-output-files" dirs into
     // docker mounted working /tmp dir
-    println(testInputResourcesDir.toAbsolutePath())
-    println(testInputDir.toAbsolutePath())
     copyDirectory(testInputResourcesDir, testInputDir)
     copyDirectory(testOutputResourcesDir, testInputDir)
 }
