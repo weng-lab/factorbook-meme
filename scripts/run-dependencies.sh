@@ -8,5 +8,5 @@ cd "$(dirname "$(dirname "$0")")"
 docker build --target base -t genomealmanac/motif-meme-base .
 
 docker run --name motif-meme-base --rm -i -t -d \
-    -v /tmp/motif-test:/tmp/motif-test \
+    -v /tmp:/tmp \
     genomealmanac/motif-meme-base /bin/sh

@@ -24,15 +24,12 @@ fun setupTest() {
     cleanupTest()
     // Copy all resource files from "test-input-files" and "test-output-files" dirs into
     // docker mounted working /tmp dir
+    println(testInputResourcesDir.toAbsolutePath())
+    println(testInputDir.toAbsolutePath())
     copyDirectory(testInputResourcesDir, testInputDir)
     copyDirectory(testOutputResourcesDir, testInputDir)
 }
 
 fun cleanupTest() {
-    if (Files.exists(testInputDir)) {
-        Files.walk(testInputDir).sorted(Comparator.reverseOrder()).forEach { Files.delete(it) }
-    }
-    if (Files.exists(testOutputDir)) {
-        Files.walk(testOutputDir).sorted(Comparator.reverseOrder()).forEach { Files.delete(it) }
-    }
+    cmdRunner.run("rm -rf ${testInputDir.toAbsolutePath()}/* ${testOutputDir.toAbsolutePath()}/*")
 }

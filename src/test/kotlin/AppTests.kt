@@ -1,11 +1,7 @@
-import mu.KotlinLogging
 import org.assertj.core.api.Assertions.*
-import org.biojava.nbio.genome.parsers.twobit.TwoBitParser
 import org.junit.jupiter.api.*
 import step.*
 import util.*
-
-private val log = KotlinLogging.logger {}
 
 /**
  * Test the complete meme application minus CLI bootstrap.
@@ -18,7 +14,7 @@ private val log = KotlinLogging.logger {}
 
     @Test fun `run complete task`() {
         cmdRunner.runTask(PEAKS, CHR19_TWO_BIT, CHR19_CHROM_INFO, 10, testOutputDir, TEST_CHR_FILTER,
-                50, 10)
+                50, 10, listOf(), 0, listOf(SHUFFLED_PEAKS))
 
         assertOutputMatches(CLEANED_PEAKS)
         assertOutputMatches(SUMMITS)
@@ -35,6 +31,7 @@ private val log = KotlinLogging.logger {}
         assertThat(testOutputDir.resolve(TOP501_1000_SHUFFLED_SEQS)).exists()
         assertThat(testOutputDir.resolve(TOP501_1000_SHUFFLED_FIMO_TSV)).exists()
         assertThat(testOutputDir.resolve(MOTIFS_JSON)).exists()
+        assertThat(testOutputDir.resolve(EXTRA_OCCURRENCES_TSV)).exists()
     }
 
     @Test fun `run post-meme steps for plain peaks sample`() {

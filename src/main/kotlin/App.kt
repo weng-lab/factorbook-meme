@@ -14,6 +14,8 @@ class Cli : CliktCommand() {
 
     private val peaks by option("--peaks", help = "path to peaks in narrowPeak format")
             .path(exists = true).required()
+    private val extraFimoRegions by option("--extra-fimo-regions", "path to additional BEDs in which to find motif occurrences")
+            .path(exists = true).multiple()
     private val twoBit by option("--twobit", help = "path to two-bit file for this assembly")
             .path(exists = true).required()
     private val chromInfo by option("--chrom-info", help = "path to chromosome lengths for this assembly")
@@ -40,7 +42,7 @@ class Cli : CliktCommand() {
     override fun run() {
         val cmdRunner = DefaultCmdRunner()
         cmdRunner.runTask(peaks, twoBit, chromInfo, offset, outputDir, chrFilter.toSet(), shuffleOutputsPerInput,
-                shuffleGCTolerance, methylBeds, methylPercentThreshold)
+                shuffleGCTolerance, methylBeds, methylPercentThreshold, extraFimoRegions)
     }
 }
 
@@ -57,7 +59,8 @@ class Cli : CliktCommand() {
  */
 fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, outputDir: Path,
                       chrFilter: Set<String>? = null, shuffleOutputsPerInput: Int, shuffleGCTolerance: Int,
-                      methylBeds: List<Path> = listOf(), methylPercentThreshold: Int = 0) {
+                      methylBeds: List<Path> = listOf(), methylPercentThreshold: Int = 0,
+                      extraFimoRegions: List<Path> = listOf()) {
     log.info {
         """
         Running Meme task for
@@ -69,6 +72,7 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
         chromFilter: $chrFilter
         methylBed: $methylBeds
         methylPercentThreshold: $methylPercentThreshold
+        extraFimoRegions: ${extraFimoRegions.joinToString { ", " }}
         """.trimIndent()
     }
     val outPrefix = peaks.fileName.toString().split(".").first()
@@ -89,7 +93,7 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
     val memeOutDir = outputDir.resolve("$outPrefix$MEME_DIR_SUFFIX")
     val top500CenterSeqsFile = outputDir.resolve("$outPrefix$TOP500_SEQS_CENTER_SUFFIX")
     runPostMemeSteps(outPrefix, summitsFile, memeOutDir, cleanedPeaks, top500CenterSeqsFile, twoBit,
-            outputDir, chromSizes, shuffleOutputsPerInput, shuffleGCTolerance, methylData)
+            outputDir, chromSizes, shuffleOutputsPerInput, shuffleGCTolerance, methylData, extraFimoRegions, chrFilter)
 }
 
 /**
@@ -129,7 +133,8 @@ const val SEQUENCE_LENGTH = 100
  */
 fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Path, cleanedPeaks: Path,
                                top500CenterSeqsFile: Path, twoBit: Path, outputDir: Path, chromSizes: Map<String, Int>,
-                               shuffleOutputsPerInput: Int, shuffleGCTolerance: Int, methylData: MethylData? = null) {
+                               shuffleOutputsPerInput: Int, shuffleGCTolerance: Int, methylData: MethylData? = null,
+                               extraFimoRegions: List<Path> = listOf(), chrFilter: Set<String>? = null) {
     // Run FIMO against peaks 501-1000 center and flanks
     log.info { "Generating 501-1000 peaks centers and flanks..." }
     val next500SeqsFile = outputDir.resolve("$outPrefix$NEXT500_SEQS_SUFFIX")
@@ -162,7 +167,7 @@ fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Pa
     log.info { "FIMO run on shuffled sequences complete!" }
 
     // Create fasta file containing sequences for original input peaks file
-    log.info { "Creating fasta from original cleaned peaks..." }
+    log.info { "Creating FASTA from original cleaned peaks..." }
     val originalPeaksFastaFile = outputDir.resolve("$outPrefix$SEQS_SUFFIX")
     peaksToFasta(cleanedPeaks, twoBit, originalPeaksFastaFile, methylData, null)
     log.info { "Fasta from original cleaned peaks complete!" }
@@ -174,11 +179,25 @@ fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Pa
     log.info { "FIMO run on original peaks fasta complete!" }
 
     // Convert FIMO Occurrences to custom Occurrences TSV with absolute positioned ranges
-    log.info { "Creation occurrences.tsv..." }
+    log.info { "Creating occurrences.tsv..." }
     val originalPeaksFimoTsv = originalPeaksFimoDir.resolve(FIMO_TSV_FILENAME)
     val occurrencesTsv = outputDir.resolve("$outPrefix$OCCURRENCES_SUFFIX")
     occurrencesTsv(originalPeaksFimoTsv, cleanedPeaks, occurrencesTsv)
     log.info { "occurrences.tsv creation complete!" }
+
+    log.info { "running FIMO on ${extraFimoRegions.size} extra BED files" }
+    val extraFimoOutputDir = outputDir.resolve("$outPrefix$EXTRA_FIMO_SUFFIX")
+    extraFimoRegions.forEach {
+        val tCleanedPeaks = extraFimoOutputDir.resolve("$outPrefix.${it.fileName}$CLEANED_BED_SUFFIX")
+        val fastaFile = extraFimoOutputDir.resolve("$outPrefix.${it.fileName}$SEQS_SUFFIX")
+        val fimoDir = extraFimoOutputDir.resolve("$outPrefix.${it.fileName}$FIMO_SUFFIX")
+        val tOccurrencesTsv = extraFimoOutputDir.resolve("$outPrefix.${it.fileName}$OCCURRENCES_SUFFIX")
+        cleanPeaks(it, chrFilter, methylData, tCleanedPeaks)
+        peaksToFasta(tCleanedPeaks, twoBit, fastaFile, methylData, null)
+        fimo(memeTxtFile, fastaFile, fimoDir)
+        occurrencesTsv(fimoDir.resolve(FIMO_TSV_FILENAME), tCleanedPeaks, tOccurrencesTsv)
+    }
+    log.info { "extra FIMO runs complete!" }
 
     // Create motifs json
     log.info { "Creating motifs.json file..." }

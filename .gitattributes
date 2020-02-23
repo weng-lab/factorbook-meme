@@ -1,0 +1,13 @@
+*.html test-output
+*.xml test-output
+*.tsv test-output
+*.txt test-files
+*.seqs.* test-output
+*.bed peak-files
+*.narrowPeak peak-files
+*.gff fimo-output
+*.chrom.sizes chromosome-sizes
+*.2bit genome-sequence
+*.bed.gz peak-files
+*.png meme-output
+*.eps meme-output

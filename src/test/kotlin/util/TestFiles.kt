@@ -1,11 +1,17 @@
 package util
 
 import org.assertj.core.api.Assertions.*
+import java.io.File
 import java.nio.file.*
 
 fun getResourcePath(relativePath: String): Path {
     val url = TestCmdRunner::class.java.classLoader.getResource(relativePath)
     return Paths.get(url.toURI())
+}
+
+fun create(directory: File): File? {
+    if (directory.mkdir()) return directory
+    return null
 }
 
 fun assertOutputMatches(filename: String) =
@@ -16,14 +22,15 @@ val testInputResourcesDir = getResourcePath("test-input-files")
 val testOutputResourcesDir = getResourcePath("test-output-files")
 
 // Test Working Directories
-val testDir = Paths.get("/tmp/motif-test")!!
-val testInputDir = testDir.resolve("input")!!
-val testOutputDir = testDir.resolve("output")!!
+val testDir = createTempDir()
+val testInputDir = testDir.resolve("input").toPath()!!
+val testOutputDir = create(testDir.resolve("output"))!!.toPath()!!
 
 /*
  * Input Files
  */
-val PEAKS= testInputDir.resolve("ENCFF165UME.chr19.bed")!!
+val PEAKS = testInputDir.resolve("ENCFF165UME.chr19.bed")!!
+val SHUFFLED_PEAKS = testInputDir.resolve("ENCFF165UME.chr19.shuffled.bed")!!
 val CHR22_TWO_BIT= testInputDir.resolve("hg38.chr22.2bit")!!
 val CHR22_CHROM_INFO = testInputDir.resolve("hg38.chr22.chrom.sizes")!!
 val CHR19_TWO_BIT= testInputDir.resolve("hg38.chr19.2bit")!!
@@ -42,6 +49,7 @@ val M2_PEAKS = testInputDir.resolve("ENCFF360CQR.chr22.bed.gz")!!
  * Output File Names
  */
 const val PREFIX = "ENCFF165UME"
+const val SHUFFLED_PEAKS_FILENAME = "$PREFIX.chr19.shuffled.bed"
 const val CLEANED_PEAKS = "$PREFIX$CLEANED_BED_SUFFIX"
 const val SUMMITS = "$PREFIX$SUMMITS_FILE_SUFFIX"
 const val BASE_SEQS = "$PREFIX$SEQS_SUFFIX"
@@ -65,6 +73,8 @@ const val TOP501_1000_SHUFFLED_SEQS = "$PREFIX$SHUFFLED_SEQS_SUFFIX"
 const val TOP501_1000_SHUFFLED_FIMO_DIR = "$PREFIX$SHUFFLED_FIMO_DIR_SUFFIX"
 const val TOP501_1000_SHUFFLED_FIMO_TSV = "$TOP501_1000_SHUFFLED_FIMO_DIR/$FIMO_TSV_FILENAME"
 const val MOTIFS_JSON = "$PREFIX$MOTIFS_JSON_SUFFIX"
+const val EXTRA_FIMO_DIR = "$PREFIX$EXTRA_FIMO_SUFFIX"
+const val EXTRA_OCCURRENCES_TSV = "$EXTRA_FIMO_DIR/$PREFIX.$SHUFFLED_PEAKS_FILENAME$OCCURRENCES_SUFFIX"
 
 // Outputs for methyl run
 const val M_PREFIX = "ENCFF981HPG"
