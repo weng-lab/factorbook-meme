@@ -14,7 +14,7 @@ class Cli : CliktCommand() {
 
     private val peaks by option("--peaks", help = "path to peaks in narrowPeak format")
             .path(exists = true).required()
-    private val extraFimoRegions by option("--extra-fimo-regions", "path to additional BEDs in which to find motif occurrences")
+    private val extraFimoRegions by option("--extra-fimo-regions", help = "path to additional BEDs in which to find motif occurrences")
             .path(exists = true).multiple()
     private val twoBit by option("--twobit", help = "path to two-bit file for this assembly")
             .path(exists = true).required()
