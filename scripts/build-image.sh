@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Builds docker container for importer and tags it. Takes 1 arg:
 # arg1: docker image tag
 # Example usage: scripts/build-image.sh v1.0.0
