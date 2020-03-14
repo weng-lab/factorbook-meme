@@ -30,7 +30,7 @@ jobs:
         run: |
           scripts/test.sh
 
-  # Push image to GitHub Package Registry.
+  # Push image to GitHub Package Registry and GCP.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
     # Ensure test job passes before pushing image.
@@ -66,3 +66,26 @@ jobs:
 
           docker tag image $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+
+      # tag the Docker image for pushing to GCP
+      - name: Tag for GCP
+        run: |
+          docker tag image gcr.io/"$GCP_PROJECT"/"$IMAGE":"$GITHUB_SHA"
+
+      # Setup gcloud CLI
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '270.0.0'
+          service_account_email: ${{ secrets.GCP_EMAIL }}
+          service_account_key: ${{ secrets.GCP_KEY }}
+
+      # Configure docker to use the gcloud command-line tool as a credential helper
+      - run: |
+          # Set up docker to authenticate
+          # via gcloud command-line tool.
+          gcloud auth configure-docker
+
+      # Push the Docker image to Google Container Registry
+      - name: Publish to GCP
+        run: |
+          docker push gcr.io/$GCP_PROJECT/$IMAGE:$GITHUB_SHA
