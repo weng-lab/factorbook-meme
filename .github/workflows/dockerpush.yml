@@ -70,7 +70,7 @@ jobs:
       # tag the Docker image for pushing to GCP
       - name: Tag for GCP
         run: |
-          docker tag image gcr.io/"${{ secrects.GCP_PROJECT }}"/"$IMAGE":"$GITHUB_SHA"
+          docker tag image gcr.io/"${{ secrets.GCP_PROJECT }}"/"$IMAGE":"$GITHUB_SHA"
 
       # Setup gcloud CLI
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
