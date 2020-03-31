@@ -135,6 +135,11 @@ fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Pa
                                top500CenterSeqsFile: Path, twoBit: Path, outputDir: Path, chromSizes: Map<String, Int>,
                                shuffleOutputsPerInput: Int, shuffleGCTolerance: Int, methylData: MethylData? = null,
                                extraFimoRegions: List<Path> = listOf(), chrFilter: Set<String>? = null) {
+
+    // Copy meme.xml
+    val memeXmlFile = memeDir.resolve(MEME_XML_FILENAME)
+    memeXmlFile.toFile().copyTo(outputDir.resolve("$outPrefix.$MEME_XML_FILENAME").toFile())
+
     // Run FIMO against peaks 501-1000 center and flanks
     log.info { "Generating 501-1000 peaks centers and flanks..." }
     val next500SeqsFile = outputDir.resolve("$outPrefix$NEXT500_SEQS_SUFFIX")
@@ -201,7 +206,6 @@ fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Pa
 
     // Create motifs json
     log.info { "Creating motifs.json file..." }
-    val memeXmlFile = memeDir.resolve(MEME_XML_FILENAME)
     val outJsonFile = outputDir.resolve("$outPrefix$MOTIFS_JSON_SUFFIX")
     motifJson(memeXmlFile, originalPeaksFimoDir, next500CenterFimoDir, randomFimoDir, next500FlankFimoDir,
             cleanedPeaks, outJsonFile)
