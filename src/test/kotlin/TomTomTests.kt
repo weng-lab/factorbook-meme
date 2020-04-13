@@ -13,7 +13,7 @@ class TomTomSuiteTests {
      @Test fun `run tomtom`() {
         var comparisonDb1 = testInputDir.resolve("motifs_test_HOCOMOCO.human.txt")
         var comparisonDb2 = testInputDir.resolve("motifs_test_HOCOMOCO.mouse.txt")
-        var comparisonDb3 = testInputDir.resolve("motifs_test_JASPER.txt")
+        var comparisonDb3 = testInputDir.resolve("motifs_test_JASPAR.txt")
 
         var memeXml =  testInputDir.resolve("motifs_outputs_ENCFF002CHV.meme.xml")
 
