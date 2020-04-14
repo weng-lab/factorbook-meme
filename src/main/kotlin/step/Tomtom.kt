@@ -16,7 +16,6 @@ fun CmdRunner.tomtom(outPrefix: String,  outputDir: Path,memeXml:Path,comparison
     Files.createDirectories(outputDir.parent)
     var memePrefix =  outPrefix
     this.run(" tomtom -thresh ${threshold}  -oc $outputDir  ${memeXml} \\\n" +
-            "            ${comparisonDatabases!!.map { it.toString() }.toTypedArray().joinToString(" ") { it }}")
-    this.run("cp $outputDir/tomtom.xml $outputDir/$memePrefix.tomtom.xml ")
+            "            ${comparisonDatabases!!.map { it.toString() }.toTypedArray().joinToString(" ") { it }}")    
     this.run("cp $outputDir/tomtom.tsv $outputDir/$memePrefix.tomtom.tsv")
 }

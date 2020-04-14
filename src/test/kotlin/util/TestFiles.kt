@@ -34,7 +34,8 @@ val SHUFFLED_PEAKS = testInputDir.resolve("ENCFF165UME.chr19.shuffled.bed")!!
 val CHR22_TWO_BIT= testInputDir.resolve("hg38.chr22.2bit")!!
 val CHR22_CHROM_INFO = testInputDir.resolve("hg38.chr22.chrom.sizes")!!
 val CHR19_TWO_BIT= testInputDir.resolve("hg38.chr19.2bit")!!
-val CHR19_CHROM_INFO = testInputDir.resolve("hg38.chr19.chrom.sizes")!!
+val CHR19_CHRO
+M_INFO = testInputDir.resolve("hg38.chr19.chrom.sizes")!!
 
 val METHYL_BED = testInputDir.resolve("ENCFF550FZT.chr19.methyl.bed.gz")!!
 // Peaks file used for single-methyl-bed run
@@ -44,6 +45,16 @@ val METHYL_BED_2A = testInputDir.resolve("ENCFF696OLO.chr22.methyl.bed.gz")!!
 val METHYL_BED_2B = testInputDir.resolve("ENCFF804NTQ.chr22.methyl.bed.gz")!!
 // Peaks file used for two-methyl-beds run
 val M2_PEAKS = testInputDir.resolve("ENCFF360CQR.chr22.bed.gz")!!
+
+/*
+ * Input Files for tomtom test
+ */
+val MOTIF_MEME_XML = testInputDir.resolve("ENCFF002CHV.meme.xml")!!
+val COMPARISON_DB1 = testInputDir.resolve("HOCOMOCO.human.txt")!!
+val COMPARISON_DB2 = testInputDir.resolve("HOCOMOCO.mouse.txt")!!
+val COMPARISON_DB3 = testInputDir.resolve("JASPAR.txt")!!
+
+
 
 /*
  * Output File Names
@@ -123,3 +134,9 @@ const val M2_TOP501_1000_SHUFFLED_SEQS = "$M2_PREFIX$SHUFFLED_SEQS_SUFFIX"
 const val M2_TOP501_1000_SHUFFLED_FIMO_DIR = "$M2_PREFIX$SHUFFLED_FIMO_DIR_SUFFIX"
 const val M2_TOP501_1000_SHUFFLED_FIMO_TSV = "$M2_TOP501_1000_SHUFFLED_FIMO_DIR/$FIMO_TSV_FILENAME"
 const val M2_MOTIFS_JSON = "$M2_PREFIX$MOTIFS_JSON_SUFFIX"
+
+
+// Output for tomtom test
+const val TOMTOM_TSV = "ENCFF002CHV.tomtom.tsv"
+
+ 
