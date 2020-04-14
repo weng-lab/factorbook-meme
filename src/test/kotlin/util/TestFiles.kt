@@ -34,8 +34,7 @@ val SHUFFLED_PEAKS = testInputDir.resolve("ENCFF165UME.chr19.shuffled.bed")!!
 val CHR22_TWO_BIT= testInputDir.resolve("hg38.chr22.2bit")!!
 val CHR22_CHROM_INFO = testInputDir.resolve("hg38.chr22.chrom.sizes")!!
 val CHR19_TWO_BIT= testInputDir.resolve("hg38.chr19.2bit")!!
-val CHR19_CHRO
-M_INFO = testInputDir.resolve("hg38.chr19.chrom.sizes")!!
+val CHR19_CHROM_INFO = testInputDir.resolve("hg38.chr19.chrom.sizes")!!
 
 val METHYL_BED = testInputDir.resolve("ENCFF550FZT.chr19.methyl.bed.gz")!!
 // Peaks file used for single-methyl-bed run
