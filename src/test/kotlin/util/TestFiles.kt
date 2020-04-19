@@ -137,5 +137,6 @@ const val M2_MOTIFS_JSON = "$M2_PREFIX$MOTIFS_JSON_SUFFIX"
 
 // Output for tomtom test
 const val TOMTOM_TSV = "ENCFF002CHV.tomtom.tsv"
+const val TOMTOM_XML = "ENCFF002CHV.tomtom.xml"
 
  
