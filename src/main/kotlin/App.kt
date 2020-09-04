@@ -13,13 +13,13 @@ fun main(args: Array<String>) = Cli().main(args)
 class Cli : CliktCommand() {
 
     private val peaks by option("--peaks", help = "path to peaks in narrowPeak format")
-            .path(exists = true).required()
+            .path(exists = true)
     private val extraFimoRegions by option("--extra-fimo-regions", help = "path to additional BEDs in which to find motif occurrences")
             .path(exists = true).multiple()
     private val twoBit by option("--twobit", help = "path to two-bit file for this assembly")
-            .path(exists = true).required()
+            .path(exists = true)
     private val chromInfo by option("--chrom-info", help = "path to chromosome lengths for this assembly")
-            .path(exists = true).required()
+            .path(exists = true)
     private val offset by option("--offset", help = "offset, in bp, to shift peaks")
             .int().default(0)
     private val outputDir by option("--output-dir", help = "path to write output")
@@ -39,10 +39,25 @@ class Cli : CliktCommand() {
             help = "the percentage over which we will use a methylation site from the methylation bed file.")
             .int().default(0)
 
+    private val comparisonDatabases by option("--tomtom-comparison-databases", help = "path to tomtom comparison databases")
+            .path(exists = true).multiple()
+    private val runTomtom: Boolean by option("--run-tomtom", help = "Run Tomtom").flag()
+    private val tomtomThreshold by option("--tomtom-threshold",
+            help = "tomtom Threshold")
+            .double().default(0.5)
+    private val memeXml by option("--meme-xml", help = "path to meme xml")
+            .path()
+
     override fun run() {
         val cmdRunner = DefaultCmdRunner()
-        cmdRunner.runTask(peaks, twoBit, chromInfo, offset, outputDir, chrFilter.toSet(), shuffleOutputsPerInput,
-                shuffleGCTolerance, methylBeds, methylPercentThreshold, extraFimoRegions)
+        if(runTomtom)
+        {
+            cmdRunner.runTomTomSteps(outputDir,memeXml,tomtomThreshold,comparisonDatabases)
+        } else {
+            cmdRunner.runTask(peaks!!, twoBit!!, chromInfo!!, offset, outputDir, chrFilter.toSet(), shuffleOutputsPerInput,
+                    shuffleGCTolerance, methylBeds, methylPercentThreshold, extraFimoRegions)
+        }
+
     }
 }
 
@@ -94,6 +109,17 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
     val top500CenterSeqsFile = outputDir.resolve("$outPrefix$TOP500_SEQS_CENTER_SUFFIX")
     runPostMemeSteps(outPrefix, summitsFile, memeOutDir, cleanedPeaks, top500CenterSeqsFile, twoBit,
             outputDir, chromSizes, shuffleOutputsPerInput, shuffleGCTolerance, methylData, extraFimoRegions, chrFilter)
+}
+
+/**
+ * Run tomtom
+ *
+ */
+
+fun CmdRunner.runTomTomSteps(outputDir: Path,memeXml:Path?,tomtomThreshold:Double?,comparisonDatabases: List<Path>?)
+{
+    val outputPrefix = memeXml!!.fileName.toString().split(".").first()
+    tomtom(outputPrefix,outputDir,memeXml,comparisonDatabases,tomtomThreshold)
 }
 
 /**
