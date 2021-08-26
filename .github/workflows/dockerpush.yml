@@ -71,21 +71,3 @@ jobs:
       - name: Tag for GCP
         run: |
           docker tag image gcr.io/"${{ secrets.GCP_PROJECT }}"/"$IMAGE_NAME":"$GITHUB_SHA"
-
-      # Setup gcloud CLI
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          version: '270.0.0'
-          service_account_email: ${{ secrets.GCP_EMAIL }}
-          service_account_key: ${{ secrets.GCP_KEY }}
-
-      # Configure docker to use the gcloud command-line tool as a credential helper
-      - run: |
-          # Set up docker to authenticate
-          # via gcloud command-line tool.
-          gcloud auth configure-docker
-
-      # Push the Docker image to Google Container Registry
-      - name: Publish to GCP
-        run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT }}/$IMAGE_NAME:$GITHUB_SHA
