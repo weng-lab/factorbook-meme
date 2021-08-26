@@ -17,11 +17,11 @@ private val log = KotlinLogging.logger {}
  * @param methylData the methyl bed file
  * @param out the file to the filtered peaks results to
  */
-fun cleanPeaks(peaksBed: Path, chrFilter: Set<String>?, methylData: MethylData?, out: Path) {
+fun cleanPeaks(peaksBed: Path, chrFilter: Set<String>?, methylData: MethylData?, out: Path, chrInclusion: Set<String>?) {
     val filteredPeaks = mutableListOf<PeaksRow>()
     var peakCount = 0
     readPeaksFile(peaksBed) { row ->
-        if (!excludedByChrFilter(row, chrFilter) && !excludedByMethyl(row, methylData) ) {
+        if (!excludedByChrFilter(row, chrFilter) && excludedByChrFilter(row, chrInclusion) && !excludedByMethyl(row, methylData) ) {
             filteredPeaks += row.copy(name = "peak_${peakCount++}")
         }
     }
@@ -34,6 +34,7 @@ fun cleanPeaks(peaksBed: Path, chrFilter: Set<String>?, methylData: MethylData?,
 }
 
 private fun excludedByChrFilter(row: PeaksRow, chrFilter: Set<String>?) =
-        chrFilter != null && chrFilter.contains(row.chrom)
+        chrFilter != null && chrFilter.size > 0 && chrFilter.contains(row.chrom)
+
 private fun excludedByMethyl(row: PeaksRow, methylData: MethylData?) =
         methylData != null && !methylData.containsValueInRange(row.chrom, row.chromStart .. row.chromEnd)

@@ -26,6 +26,8 @@ class Cli : CliktCommand() {
             .path().required()
     private val chrFilter by option("--chrom-filter",
             help = "chromosomes to filter out before running MEME.").multiple()
+    private val chrInclusion by option("--chrom-inclusion",
+            help = "chromosomes to include while running MEME.").multiple()
     private val shuffleOutputsPerInput by option("--shuffle-outputs-per-input",
             help = "Number of shuffled sequences to fetch per input sequence")
             .int().default(100)
@@ -55,7 +57,7 @@ class Cli : CliktCommand() {
             cmdRunner.runTomTomSteps(outputDir,memeXml,tomtomThreshold,comparisonDatabases)
         } else {
             cmdRunner.runTask(peaks!!, twoBit!!, chromInfo!!, offset, outputDir, chrFilter.toSet(), shuffleOutputsPerInput,
-                    shuffleGCTolerance, methylBeds, methylPercentThreshold, extraFimoRegions)
+                    shuffleGCTolerance, methylBeds, methylPercentThreshold, extraFimoRegions, chrInclusion.toSet())
         }
 
     }
@@ -75,7 +77,7 @@ class Cli : CliktCommand() {
 fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, outputDir: Path,
                       chrFilter: Set<String>? = null, shuffleOutputsPerInput: Int, shuffleGCTolerance: Int,
                       methylBeds: List<Path> = listOf(), methylPercentThreshold: Int = 0,
-                      extraFimoRegions: List<Path> = listOf()) {
+                      extraFimoRegions: List<Path> = listOf(), chrInclusion: Set<String>? = null) {
     log.info {
         """
         Running Meme task for
@@ -99,7 +101,7 @@ fun CmdRunner.runTask(peaks: Path, twoBit: Path, chromInfo: Path, offset: Int, o
     // Name rewrite is necessary because given peaks input may not include them
     log.info { "Creating cleaned peaks file..." }
     val cleanedPeaks = outputDir.resolve("$outPrefix$CLEANED_BED_SUFFIX")
-    cleanPeaks(peaks, chrFilter, methylData, cleanedPeaks)
+    cleanPeaks(peaks, chrFilter, methylData, cleanedPeaks, chrInclusion)
     log.info { "Cleaned peaks file complete!" }
 
     runMemeSteps(outPrefix, cleanedPeaks, twoBit, chromSizes, offset, outputDir, chrFilter, methylData)
@@ -160,7 +162,7 @@ const val SEQUENCE_LENGTH = 100
 fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Path, cleanedPeaks: Path,
                                top500CenterSeqsFile: Path, twoBit: Path, outputDir: Path, chromSizes: Map<String, Int>,
                                shuffleOutputsPerInput: Int, shuffleGCTolerance: Int, methylData: MethylData? = null,
-                               extraFimoRegions: List<Path> = listOf(), chrFilter: Set<String>? = null) {
+                               extraFimoRegions: List<Path> = listOf(), chrFilter: Set<String>? = null, chrInclusion: Set<String>? = null) {
 
     // Copy meme.xml
     val memeXmlFile = memeDir.resolve(MEME_XML_FILENAME)
@@ -223,7 +225,7 @@ fun CmdRunner.runPostMemeSteps(outPrefix: String, summitsFile: Path, memeDir: Pa
         val fastaFile = extraFimoOutputDir.resolve("$outPrefix.${it.fileName}$SEQS_SUFFIX")
         val fimoDir = extraFimoOutputDir.resolve("$outPrefix.${it.fileName}$FIMO_SUFFIX")
         val tOccurrencesTsv = extraFimoOutputDir.resolve("$outPrefix.${it.fileName}$OCCURRENCES_SUFFIX")
-        cleanPeaks(it, chrFilter, methylData, tCleanedPeaks)
+        cleanPeaks(it, chrFilter, methylData, tCleanedPeaks, chrInclusion)
         peaksToFasta(tCleanedPeaks, twoBit, fastaFile, methylData, null)
         fimo(memeTxtFile, fastaFile, fimoDir)
         occurrencesTsv(fimoDir.resolve(FIMO_TSV_FILENAME), tCleanedPeaks, tOccurrencesTsv)

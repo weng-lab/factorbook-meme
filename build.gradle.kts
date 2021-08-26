@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.genomealmanac.motif"
-version = "1.1.0"
+version = "1.2.0"
 val artifactID = "factorbook-meme"
 
 repositories {
